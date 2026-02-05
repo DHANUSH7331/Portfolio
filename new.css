@@ -1,0 +1,426 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+html{
+    scroll-behavior: smooth;  
+}
+body{
+    overflow-x: hidden;
+    height: 900vh;
+    background-color: black;
+}
+#Nav_Bar{
+    gap: 5px;
+    width: 100%;
+    height: 80px;
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+#Nav_Bar>a{
+    height: fit-content;
+    padding: 10px;
+    margin: 10px;
+    font-weight: bold;
+    border-radius: 30px;
+    text-decoration: none;
+    justify-content: center;
+    color: rgb(8, 47, 89);
+    transition: transform 0.8s ease,background-color 0.8s ease;
+}
+#Nav_Bar>a:hover{
+    background-color: aqua;
+    transform: scale(1.2);
+}
+span{
+    color: white;
+    position: relative;
+    top: 20px;
+    left: 40px;
+}
+#Name{
+    width: fit-content;
+    position: relative;
+    font-size: 45px;
+    top: 10px;
+    left: 10px;
+    margin: 10px;
+    padding: 10px;
+    color: rgb(8, 47, 89);;   
+}
+#Designation{
+    width: fit-content;
+    position: relative;
+    color: orange;
+    top: -1.5px;
+    left: 4.5px;
+    font-size: 27px;
+}
+.Animation{
+    animation: fadeIn 2s ease-in-out forwards;
+}
+@keyframes fadeIN {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+#Img_Container>img{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    position: relative;
+    left: 7%;
+    top: 50px;
+    border: 3px solid white;
+    transition: transform 0.5s ease,outline 0.5s ease;
+}
+#Img_Container > img:hover {
+    outline: 5px solid blue;
+    transform: scale(1.1);
+}
+#About_me_Conatainer{
+    color: rgb(135, 91, 10);
+    width: fit-content;
+    position: relative;
+    bottom: 260px;
+    left: 45%;
+    font-size: 23px;
+    font-weight: bold;
+}
+#About_me_para{
+    color: rgb(49, 101, 115);
+    width: 650px;
+    position: relative;
+    bottom: 225px;
+    left: 45%;
+    letter-spacing: 0.2px;
+    line-height: 1.4;
+    text-align: justify;
+    font-size: 20px;
+    margin-top: -5px;
+}
+#About_me_para:hover{
+    text-shadow: 0px 0px 1.5px white;
+}
+#Skills_Container,#Education_Container,#Project_Container,#Contact_me_Conatainer{
+    color: rgb(135, 91, 10);
+    width: fit-content;
+    font-weight: bold;
+    position: relative;
+    bottom: 20px;
+    left: 45%;
+    font-size: 23px;
+    transition: transform 0.5s ease;
+}
+#Project_Container{
+    top: -250px;
+}
+#Skills_Container:hover,#Education_Container:hover,#Project_Container:hover,#Contact_me_Conatainer:hover{
+    transform: scale(1.1);
+}
+.slider{
+    display: flex;
+    width: 100%;
+    height: 500px;
+}
+.group{
+    display: flex;
+    height: 100px;
+    animation: scroll 45s linear infinite;
+}
+.Skills_Content{
+    text-align: center;
+    width: 300px;
+    height: 450px;
+    flex-shrink: 0;
+    margin-top: 30px;
+    margin-right: 30px;
+    border-radius: 50px;
+    background: rgb(8, 47, 89);
+}
+.Skills_Content:hover{
+    box-shadow: 0 0 15px 5px orange;
+    transform: scale(1.05);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+@keyframes scroll{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+.heading{
+    font-size: 17px;
+    color: orange;
+    font-weight: bold;
+    transition: transform 0.5s ease;
+}
+.heading:hover{
+    transform: scale(1.1);
+}
+.Skills_Content ul{
+    list-style: disc;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 15px;
+    margin-top: 20px;
+    padding: 0;
+    text-decoration: none;
+}
+.Skills_Content ul li{
+    width: 250px;
+    margin: 5px 0;
+    font-size: 15pxpx;
+    text-decoration: none;
+    transition: transform 0.5s ease, background-color 0.5s ease;
+}
+.Skills_Content ul li:hover{
+    background-color: orange;
+    transform: scale(1.08);
+}
+.skill-images{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 15px;
+}
+.skill-images img{
+    width: 80px;     
+    height: 80px;
+    margin-top: 30px;
+    object-fit: contain;   
+    transition: transform 0.4s ease;
+}
+.skill-images img:hover{
+    transform: scale(1.15);
+}
+.heading{
+    margin-top: 20px;
+    font-size: 17px;
+    color: orange;
+    font-size: 20px;
+    font-weight: bold;
+    transition: transform 0.5s ease;
+}
+#Education_Container{
+    margin-top: 100px;
+}
+.Education{
+    width: 350px;
+    height: 400px;
+    background-color: rgb(8, 47, 89);
+    background-image: url(./Images/Au.jpg);
+    background-repeat: no-repeat;
+    background-size: 350px 275px;
+    border-radius: 30px;
+    color: rgb(49, 101, 115);
+    position: relative;
+    bottom: -50px;
+    left: 10%;
+    font-size: 20px;
+    margin-top: 20px;
+    text-align: justify;
+    line-height: 1.4;
+}
+.Education:hover{
+    box-shadow: 0 0 15px 5px orange;
+    transform: scale(1.05);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+#Education_Container::after {
+    content: "";
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 500px;
+    background: linear-gradient(to bottom, #00eaff, #0047ff);
+    box-shadow: 0 0 20px rgba(0, 234, 255, 0.8);
+}
+.Education_Details_Heading{
+    color: orange;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    text-align: center;
+    font-size: 15px;
+    position: relative;
+    top: 69%;
+}
+#Education_Details_Para{
+    width: 350px;
+    margin-top: 10px;
+    font-weight: bold;
+    border-radius: 35px;
+    text-align: center;
+    height: fit-content;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: relative;
+    top: 69%;
+    font-size: 13px;
+}
+#B_Sc{
+    background-image: url(./Images/Avn.jpg);
+    left: 63%;
+    top: -370px;
+}
+.Project_List{
+    width: 80%;
+    height: 250px;
+    margin: 100px auto;
+    background-image: url(./Images/drone-operator-piloting-flying-drone-sunset.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 60px;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -300px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 1s ease;
+}
+.Project_List:hover{
+    transform: scale(1.1);
+}
+.Project_List.active{
+    transform: scale(0.95);
+}
+.project-details{
+    position: absolute;
+    inset: 0; 
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 1s ease;
+}
+.Project_List.active .project-details{
+    opacity: 1;
+    visibility: visible;
+}
+#details{
+    text-align: justify;
+    color: orange;
+}
+#Project_List_2{
+    background-image: url(./Images/businessman-writing-documents.jpg);
+}
+#Project_List_3{
+    background-image: url(./Images/modern-data-visualization-tech-office.jpg);
+}
+#Project_List_4{
+    background-image: url(./Images/young-man-using-discount-coupon-his-smartphone-some-online-shopping-laptop.jpg);
+}
+#Contact_me_Conatainer{
+    top: -300px;
+}
+.containers{
+    width: 30%;
+    border-radius: 10px;
+    position: relative;
+    top: -250px;
+    left: 80px;
+    min-width: 280px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0 0 50px;
+    gap: 6px;           
+    transition: transform 1s ease;     
+}
+.containers:hover{
+    transform: scale(1.1);
+}
+.email_heading{
+    color: orange;
+    font-weight: 600;
+}
+.containers input,
+.containers textarea{
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 8px 5px;
+    border-bottom: 1px solid gray;
+    font-size: 14px;
+}
+.containers input:focus,
+.containers textarea:focus{
+    border-bottom: 2px solid #5b0f4b;
+}
+.btns{
+    width: 40px;
+    height: 40px;
+    outline: none;
+    border: none;
+    margin-left: 10px;
+    border-radius: 50%;
+    position: relative;
+    left: 20%;
+    bottom: 4.2%;
+    transition: transform 1s ease;
+}
+.btns:hover{
+    transform: scale(1.2);
+}
+#Github,#Linked_in{
+    background-image: url(./Images/github.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#Linked_in{
+    background-image: url(./Images/linekdin.png);
+}
+#submit_button{
+    height: 30px;
+    background-color: rgb(49, 101, 115);
+    font-size: 15px;
+}
+#talk_Conatainer{
+    width: fit-content;
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(49, 101, 115);
+    position: relative;
+    left: 49%;
+    bottom: 11%;
+    transition: transform 1s ease;
+}
+#talk_Conatainer:hover{
+    transform: scale(1.08);
+}
+#Talk_Details{
+    width: 45%;
+    text-align: justify;
+    position: relative;
+    left: 49%;
+    bottom: 10.5%;
+    /* background-color: red; */
+    color: white;
+}
+
