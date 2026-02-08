@@ -11,7 +11,7 @@ html{
 }
 body{
     overflow-x: hidden;
-    height: 900vh;
+    height: 650vh;
     background-color: black;
 }
 #Nav_Bar{
@@ -349,7 +349,7 @@ span{
     display: flex;
     flex-direction: column;
     margin: 20px 0 0 50px;
-    gap: 6px;           
+    gap: 10px;         
     transition: transform 1s ease;     
 }
 .containers:hover{
@@ -379,9 +379,7 @@ span{
     border: none;
     margin-left: 10px;
     border-radius: 50%;
-    position: relative;
-    left: 20%;
-    bottom: 4.2%;
+    position: static;
     transition: transform 1s ease;
 }
 .btns:hover{
@@ -404,11 +402,12 @@ span{
 #talk_Conatainer{
     width: fit-content;
     font-size: 25px;
+    margin-top: -47%;
     font-weight: bold;
     color: rgb(49, 101, 115);
     position: relative;
     left: 49%;
-    bottom: 11%;
+    /* bottom: 15%; */
     transition: transform 1s ease;
 }
 #talk_Conatainer:hover{
@@ -416,11 +415,165 @@ span{
 }
 #Talk_Details{
     width: 45%;
+    margin-top: 20px;
     text-align: justify;
     position: relative;
     left: 49%;
-    bottom: 10.5%;
+    top: -20%;
     /* background-color: red; */
     color: white;
 }
+/* ================== UNIVERSAL RESPONSIVE FIX ================== */
+
+/* Remove forced giant height on smaller screens */
+@media(max-width:1400px){
+    body{
+        height:auto;
+    }
+}
+
+
+/* ===== TABLETS & BELOW ===== */
+
+@media(max-width:1024px){
+
+    /* Kill all manual offsets */
+    *{
+        left:0 !important;
+        right:0 !important;
+        top:0 !important;
+        bottom:0 !important;
+    }
+
+    #Img_Container{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        margin-top:40px;
+    }
+
+    #About_me_Conatainer,
+    #About_me_para,
+    #Skills_Container,
+    #Education_Container,
+    #Project_Container,
+    #Contact_me_Conatainer,
+    #talk_Conatainer,
+    #Talk_Details{
+        position:relative !important;
+        width:90% !important;
+        margin:30px auto !important;
+        text-align:center;
+    }
+
+    #About_me_para{
+        text-align:justify;
+    }
+
+    .Education,
+    #B_Sc{
+        position:relative !important;
+        width:90% !important;
+        margin:40px auto !important;
+        display:block;
+        background-size:cover;
+    }
+
+    .containers{
+        position:relative !important;
+        width:90% !important;
+        margin:40px auto !important;
+    }
+
+    .Project_List{
+        width:95% !important;
+        margin:40px auto;
+    }
+
+    .Skills_Content{
+        width:85% !important;
+        height:auto;
+    }
+
+}
+
+
+/* ===== MOBILE ===== */
+
+@media(max-width:768px){
+
+    #Nav_Bar{
+        flex-wrap:wrap;
+        justify-content:center;
+        height:auto;
+        padding:10px;
+    }
+
+    #Name{
+        font-size:28px;
+        text-align:center;
+    }
+
+    #Designation{
+        font-size:18px;
+        text-align:center;
+    }
+
+    #Img_Container>img{
+        width:180px;
+        height:180px;
+    }
+
+    .group{
+        animation:none;
+        flex-wrap:wrap;
+        justify-content:center;
+        height:auto;
+    }
+
+    .slider{
+        height:auto;
+    }
+
+    .Skills_Content{
+        width:95% !important;
+    }
+
+    .Education{
+        height:auto;
+        padding-bottom:20px;
+    }
+
+}
+
+
+/* ===== SMALL PHONES ===== */
+
+@media(max-width:480px){
+
+    #Nav_Bar>a{
+        font-size:12px;
+        padding:6px;
+        margin:4px;
+    }
+
+    #Name{
+        font-size:24px;
+    }
+
+    #Designation{
+        font-size:16px;
+    }
+
+    #Img_Container>img{
+        width:150px;
+        height:150px;
+    }
+
+    .btns{
+        left:0;
+    }
+
+}
+
 
