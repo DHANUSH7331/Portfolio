@@ -24,7 +24,7 @@ function typeLoop() {
             wordIndex = (wordIndex + 1) % words.length;
         }
     }
-
+ 
     setTimeout(typeLoop, isDeleting ? 60 : 120);
 }
 
@@ -51,6 +51,10 @@ document.getElementById("Project_List_4")
 .addEventListener("click", function(){
     this.classList.toggle("active");
 });
+document.getElementById("Project_List_5")   
+.addEventListener("click", function(){
+    this.classList.toggle("active");
+});
 
 let Linked_in = document.getElementById("Linked_in")
 Linked_in.addEventListener("click",()=>{
@@ -60,5 +64,34 @@ let Github = document.getElementById("Github")
 Github.addEventListener("click",()=>{
     window.open("https://github.com/")
 })
+
+document.addEventListener("DOMContentLoaded", function(){
+    emailjs.init("QH51fTLwwmsby2jcc");
+    
+    document.getElementById("submit_button").addEventListener("click",function(e){
+    e.preventDefault();
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+    
+    if (!name || !email || !message) {
+        alert("Please fill in all fields.");
+        return;
+    }
+    emailjs.send("service_oj5zrtc","template_4y9qy3s",{
+        from_name: name,
+        from_email: email,
+        message: message
+    }).then(function(response){
+        alert("Message sent successfully!");
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+    })
+    .catch(function(error){
+        alert("Failed to send message. Please try again later.");
+    });
+});
+});
 
 
