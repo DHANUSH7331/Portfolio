@@ -5,19 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Siriki Sai Dhanush — Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./new.css">
 </head>
 <body>
 
+    <!-- BOOT SEQUENCE -->
+    <div id="boot-screen">
+        <div class="boot-frame">
+            <div class="boot-ring"></div>
+            <div class="boot-log" id="boot-log"></div>
+            <div class="boot-bar"><span id="boot-fill"></span></div>
+        </div>
+    </div>
+
+    <!-- AMBIENT BACKGROUND -->
+    <canvas id="grid-canvas"></canvas>
+    <div class="scan-overlay"></div>
+
     <header id="nav">
-        <span class="nav-mark">SD</span>
+        <span class="nav-mark">S.D<span class="dot">/</span>OS</span>
         <nav>
-            <a href="#skills">Skills</a>
-            <a href="#education">Education</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
+            <a href="#skills"><em>01</em>Skills</a>
+            <a href="#education"><em>02</em>Education</a>
+            <a href="#projects"><em>03</em>Projects</a>
+            <a href="#contact"><em>04</em>Contact</a>
         </nav>
+        <span class="nav-status"><i class="pulse-dot"></i>SYSTEM ONLINE</span>
     </header>
 
     <main>
@@ -25,9 +39,9 @@
         <!-- HERO -->
         <section id="home" class="hero">
             <div class="hero-text">
-                <p class="eyebrow">Hello, I'm</p>
-                <h1>Siriki Sai Dhanush</h1>
-                <p class="role-line"><span id="typed-role"></span><span class="cursor">|</span></p>
+                <p class="eyebrow"><span class="brk">[</span> IDENTITY VERIFIED <span class="brk">]</span></p>
+                <h1 class="glitch-name" data-text="Siriki Sai Dhanush">Siriki Sai Dhanush</h1>
+                <p class="role-line">running <span id="typed-role"></span><span class="cursor">_</span></p>
                 <p class="pitch">
                     A fresher who builds things end to end — training a detection
                     model, wiring up a Django backend, or shaping raw data into a
@@ -35,84 +49,161 @@
                     between the three.
                 </p>
                 <div class="hero-actions">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+                    <a href="#projects" class="btn btn-primary"><span>View Projects</span></a>
+                    <a href="#contact" class="btn btn-ghost"><span>Get in Touch</span></a>
+                    <a href="./Images/Free-Premium-Resume-Templates.pdf" class="btn btn-ghost" target="_blank"><span>Resume ↗</span></a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat"><span class="stat-label">STATUS</span><span class="stat-value">Open to work</span></div>
+                    <div class="stat"><span class="stat-label">FOCUS</span><span class="stat-value">Full stack · ML · BI</span></div>
+                    <div class="stat"><span class="stat-label">BASED</span><span class="stat-value">India</span></div>
                 </div>
             </div>
             <div class="hero-photo-frame">
+                <svg class="ring ring-outer" viewBox="0 0 300 300"><circle cx="150" cy="150" r="146"/></svg>
+                <svg class="ring ring-inner" viewBox="0 0 300 300"><circle cx="150" cy="150" r="130"/></svg>
+                <span class="tick tick-0"></span><span class="tick tick-1"></span>
+                <span class="tick tick-2"></span><span class="tick tick-3"></span>
+                <div class="photo-clip">
+                    <img src="./WhatsApp Image 2026-01-28 at 2.31.09 PM.jpeg" alt="Siriki Sai Dhanush">
+                </div>
                 <span class="corner tl"></span>
                 <span class="corner tr"></span>
                 <span class="corner bl"></span>
                 <span class="corner br"></span>
-                <img src="./WhatsApp Image 2026-01-28 at 2.31.09 PM.jpeg" alt="Siriki Sai Dhanush">
+                <span class="reticle-label">TARGET LOCKED</span>
+                <div class="hero-connect">
+                    <a href="https://www.linkedin.com/in/siriki-sai-dhanush-404b5324a/" target="_blank" class="connect-btn" aria-label="LinkedIn">
+                        <img src="./Images/linkdin.png" alt="" onerror="this.remove()">
+                    </a>
+                    <a href="https://github.com/DHANUSH7331" target="_blank" class="connect-btn" aria-label="GitHub">
+                        <img src="./Images/github.png" alt="" onerror="this.remove()">
+                    </a>
+                </div>
             </div>
         </section>
 
         <!-- SKILLS -->
         <section id="skills" class="section">
-            <h2 class="section-label">Skills</h2>
+            <h2 class="section-label"><em>01</em>Skills</h2>
 
             <div class="skill-grid">
 
-                <div class="skill-panel">
-                    <h3>Backend Development</h3>
+                <div class="skill-panel" data-level="88">
+                    <div class="skill-head">
+                        <img class="panel-icon" src="./Images/Django.jpg" alt="" onerror="this.remove()">
+                        <h3>Backend Development</h3>
+                        <span class="skill-pct">88%</span>
+                    </div>
+                    <div class="skill-bar"><span class="skill-fill"></span></div>
                     <div class="chips">
-                        <span>Python</span><span>Django</span><span>REST APIs</span>
-                        <span>Django ORM</span><span>JWT / Sessions</span>
+                        <span><img src="./Images/python.png" alt="" onerror="this.remove()">Python</span>
+                        <span><img src="./Images/Django.jpg" alt="" onerror="this.remove()">Django</span>
+                        <span><img src="./Images/Api.jpg" alt="" onerror="this.remove()">REST APIs</span>
+                        <span><img src="./Images/Django.jpg" alt="" onerror="this.remove()">Django ORM</span>
+                        <span><img src="https://cdn.simpleicons.org/jsonwebtokens/4FE0FF" alt="" onerror="this.remove()">JWT / Sessions</span>
                     </div>
                 </div>
 
-                <div class="skill-panel">
-                    <h3>Frontend Development</h3>
+                <div class="skill-panel" data-level="80">
+                    <div class="skill-head">
+                        <img class="panel-icon" src="./Images/Html.png" alt="" onerror="this.remove()">
+                        <h3>Frontend Development</h3>
+                        <span class="skill-pct">80%</span>
+                    </div>
+                    <div class="skill-bar"><span class="skill-fill"></span></div>
                     <div class="chips">
-                        <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
-                        <span>Fetch API</span><span>Responsive Design</span>
+                        <span><img src="./Images/Html.png" alt="" onerror="this.remove()">HTML5</span>
+                        <span><img src="./Images/Css.png" alt="" onerror="this.remove()">CSS3</span>
+                        <span><img src="./Images/Js.png" alt="" onerror="this.remove()">JavaScript</span>
+                        <span><img src="./Images/Api.jpg" alt="" onerror="this.remove()">Fetch API</span>
+                        <span><svg class="chip-glyph" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" rx="2"/><circle cx="6" cy="6" r="1.6"/></svg>Responsive Design</span>
                     </div>
                 </div>
 
-                <div class="skill-panel">
-                    <h3>Data Analytics</h3>
+                <div class="skill-panel" data-level="82">
+                    <div class="skill-head">
+                        <img class="panel-icon" src="./Images/Data.png" alt="" onerror="this.remove()">
+                        <h3>Data Analytics</h3>
+                        <span class="skill-pct">82%</span>
+                    </div>
+                    <div class="skill-bar"><span class="skill-fill"></span></div>
                     <div class="chips">
-                        <span>Data Cleaning</span><span>Visualization</span>
-                        <span>KPI Reporting</span><span>Statistics</span>
+                        <span><img src="./Images/Data.png" alt="" onerror="this.remove()">Data Cleaning</span>
+                        <span><img src="./Images/Tableau.png" alt="" onerror="this.remove()">Tableau</span>
+                        <span><svg class="chip-glyph" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" rx="2"/><circle cx="6" cy="6" r="1.6"/></svg>Visualization</span>
+                        <span><svg class="chip-glyph" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" rx="2"/><circle cx="6" cy="6" r="1.6"/></svg>KPI Reporting</span><span><svg class="chip-glyph" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" rx="2"/><circle cx="6" cy="6" r="1.6"/></svg>Statistics</span>
                     </div>
                 </div>
 
-                <div class="skill-panel">
-                    <h3>Power BI & Visualization</h3>
+                <div class="skill-panel" data-level="85">
+                    <div class="skill-head">
+                        <img class="panel-icon" src="./Images/power bi.png" alt="" onerror="this.remove()">
+                        <h3>Power BI & Visualization</h3>
+                        <span class="skill-pct">85%</span>
+                    </div>
+                    <div class="skill-bar"><span class="skill-fill"></span></div>
                     <div class="chips">
-                        <span>Dashboards</span><span>DAX</span>
-                        <span>Data Modeling</span><span>ETL</span>
+                        <span><img src="./Images/power bi.png" alt="" onerror="this.remove()">Dashboards</span>
+                        <span><img src="./Images/dax.png" alt="" onerror="this.remove()">DAX</span>
+                        <span><svg class="chip-glyph" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" rx="2"/><circle cx="6" cy="6" r="1.6"/></svg>Data Modeling</span><span><svg class="chip-glyph" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" rx="2"/><circle cx="6" cy="6" r="1.6"/></svg>ETL</span>
                     </div>
                 </div>
 
-                <div class="skill-panel">
-                    <h3>Python for Data Analysis</h3>
+                <div class="skill-panel" data-level="83">
+                    <div class="skill-head">
+                        <img class="panel-icon" src="./Images/python.png" alt="" onerror="this.remove()">
+                        <h3>Python for Data Analysis</h3>
+                        <span class="skill-pct">83%</span>
+                    </div>
+                    <div class="skill-bar"><span class="skill-fill"></span></div>
                     <div class="chips">
-                        <span>OOP</span><span>Pandas</span>
-                        <span>NumPy</span><span>Matplotlib</span>
+                        <span><svg class="chip-glyph" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" rx="2"/><circle cx="6" cy="6" r="1.6"/></svg>OOP</span>
+                        <span><img src="https://cdn.simpleicons.org/pandas/4FE0FF" alt="" onerror="this.remove()">Pandas</span>
+                        <span><img src="./Images/numpy.png" alt="" onerror="this.remove()">NumPy</span>
+                        <span><img src="https://cdn.simpleicons.org/matplotlib/4FE0FF" alt="" onerror="this.remove()">Matplotlib</span>
                     </div>
                 </div>
 
-                <div class="skill-panel">
-                    <h3>Machine Learning</h3>
+                <div class="skill-panel" data-level="76">
+                    <div class="skill-head">
+                        <img class="panel-icon" src="./Images/ml.png" alt="" onerror="this.remove()">
+                        <h3>Machine Learning</h3>
+                        <span class="skill-pct">76%</span>
+                    </div>
+                    <div class="skill-bar"><span class="skill-fill"></span></div>
                     <div class="chips">
-                        <span>Supervised Learning</span><span>Scikit-Learn</span>
-                        <span>Model Evaluation</span>
+                        <span><svg class="chip-glyph" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" rx="2"/><circle cx="6" cy="6" r="1.6"/></svg>Supervised Learning</span>
+                        <span><img src="./Images/scikit.png" alt="" onerror="this.remove()">Scikit-Learn</span>
+                        <span><svg class="chip-glyph" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" rx="2"/><circle cx="6" cy="6" r="1.6"/></svg>Model Evaluation</span>
                     </div>
                 </div>
 
-                <div class="skill-panel">
-                    <h3>Databases & SQL</h3>
+                <div class="skill-panel" data-level="78">
+                    <div class="skill-head">
+                        <img class="panel-icon" src="./Images/sql.png" alt="" onerror="this.remove()">
+                        <h3>Databases & SQL</h3>
+                        <span class="skill-pct">78%</span>
+                    </div>
+                    <div class="skill-bar"><span class="skill-fill"></span></div>
                     <div class="chips">
-                        <span>SQL</span><span>MySQL</span><span>DBMS</span>
+                        <span><img src="./Images/sql.png" alt="" onerror="this.remove()">SQL</span>
+                        <span><img src="./Images/mysql.png" alt="" onerror="this.remove()">MySQL</span>
+                        <span><svg class="chip-glyph" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" rx="2"/><circle cx="6" cy="6" r="1.6"/></svg>DBMS</span>
                     </div>
                 </div>
 
-                <div class="skill-panel">
-                    <h3>Tools & Platforms</h3>
+                <div class="skill-panel" data-level="90">
+                    <div class="skill-head">
+                        <img class="panel-icon" src="./Images/github.png" alt="" onerror="this.remove()">
+                        <h3>Tools & Platforms</h3>
+                        <span class="skill-pct">90%</span>
+                    </div>
+                    <div class="skill-bar"><span class="skill-fill"></span></div>
                     <div class="chips">
-                        <span>Git / GitHub</span><span>VS Code</span><span>XAMPP</span>
+                        <span><img src="./Images/github.png" alt="" onerror="this.remove()">Git / GitHub</span>
+                        <span><img src="./Images/vscode.png" alt="" onerror="this.remove()">VS Code</span>
+                        <span><img src="https://cdn.simpleicons.org/xampp/4FE0FF" alt="" onerror="this.remove()">XAMPP</span>
                     </div>
                 </div>
 
@@ -121,33 +212,52 @@
 
         <!-- EDUCATION -->
         <section id="education" class="section">
-            <h2 class="section-label">Education</h2>
+            <h2 class="section-label"><em>02</em>Education</h2>
 
-            <div class="edu-grid">
-                <div class="edu-card">
-                    <span class="edu-tag">2023 — 2025</span>
-                    <h3>Master's of Computer Applications</h3>
-                    <p class="edu-meta">CGPA 8.22</p>
+            <div class="edu-timeline">
+                <div class="edu-node">
+                    <div class="edu-badge">
+                        <svg class="edu-ring edu-ring-outer" viewBox="0 0 120 120"><circle cx="60" cy="60" r="57"/></svg>
+                        <svg class="edu-ring edu-ring-inner" viewBox="0 0 120 120"><circle cx="60" cy="60" r="50"/></svg>
+                        <div class="edu-logo-clip">
+                            <img src="./Images/Au.jpg" alt="AU" onerror="this.parentElement.parentElement.remove()">
+                        </div>
+                    </div>
+                    <div class="edu-info">
+                        <span class="edu-tag">2023 — 2025</span>
+                        <h3>Master's of Computer Applications</h3>
+                        <p class="edu-meta">CGPA 8.22</p>
+                    </div>
                 </div>
-                <div class="edu-card">
-                    <span class="edu-tag">2020 — 2023</span>
-                    <h3>Bachelor's of Science</h3>
-                    <p class="edu-meta">CGPA 8.5</p>
+                <div class="edu-node">
+                    <div class="edu-badge">
+                        <svg class="edu-ring edu-ring-outer" viewBox="0 0 120 120"><circle cx="60" cy="60" r="57"/></svg>
+                        <svg class="edu-ring edu-ring-inner" viewBox="0 0 120 120"><circle cx="60" cy="60" r="50"/></svg>
+                        <div class="edu-logo-clip">
+                            <img src="./Images/Avn.jpg" alt="AVN" onerror="this.parentElement.parentElement.remove()">
+                        </div>
+                    </div>
+                    <div class="edu-info">
+                        <span class="edu-tag">2020 — 2023</span>
+                        <h3>Bachelor's of Science</h3>
+                        <p class="edu-meta">CGPA 8.5</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- PROJECTS -->
         <section id="projects" class="section">
-            <h2 class="section-label">Projects</h2>
+            <h2 class="section-label"><em>03</em>Projects</h2>
 
             <div class="project-list">
 
                 <article class="project-row" data-tag="Computer Vision">
                     <div class="project-head">
+                        <img class="project-thumb" src="./Images/drone-operator-piloting-flying-drone-sunset.jpg" alt="" onerror="this.remove()">
                         <span class="project-tag">Computer Vision</span>
                         <h3>Drone Detection System</h3>
-                        <button class="expand-btn" aria-label="Expand">+</button>
+                        <button class="expand-btn" aria-label="Expand"><span></span></button>
                     </div>
                     <div class="project-body">
                         <ul>
@@ -162,9 +272,10 @@
 
                 <article class="project-row" data-tag="Machine Learning">
                     <div class="project-head">
+                        <img class="project-thumb" src="./Images/businessman-writing-documents.jpg" alt="" onerror="this.remove()">
                         <span class="project-tag">Machine Learning</span>
                         <h3>Loan Approval Prediction</h3>
-                        <button class="expand-btn" aria-label="Expand">+</button>
+                        <button class="expand-btn" aria-label="Expand"><span></span></button>
                     </div>
                     <div class="project-body">
                         <ul>
@@ -179,9 +290,10 @@
 
                 <article class="project-row" data-tag="Business Intelligence">
                     <div class="project-head">
+                        <img class="project-thumb" src="./Images/modern-data-visualization-tech-office.jpg" alt="" onerror="this.remove()">
                         <span class="project-tag">Business Intelligence</span>
                         <h3>Urban Energy Smart Grid Dashboard</h3>
-                        <button class="expand-btn" aria-label="Expand">+</button>
+                        <button class="expand-btn" aria-label="Expand"><span></span></button>
                     </div>
                     <div class="project-body">
                         <ul>
@@ -196,9 +308,10 @@
 
                 <article class="project-row" data-tag="Backend / Full Stack">
                     <div class="project-head">
+                        <img class="project-thumb" src="./Images/Bank.jpg" alt="" onerror="this.remove()">
                         <span class="project-tag">Backend / Full Stack</span>
                         <h3>Bank Management System</h3>
-                        <button class="expand-btn" aria-label="Expand">+</button>
+                        <button class="expand-btn" aria-label="Expand"><span></span></button>
                     </div>
                     <div class="project-body">
                         <ul>
@@ -213,9 +326,10 @@
 
                 <article class="project-row" data-tag="Frontend">
                     <div class="project-head">
+                        <img class="project-thumb" src="./Images/young-man-using-discount-coupon-his-smartphone.jpg" alt="" onerror="this.remove()">
                         <span class="project-tag">Frontend</span>
                         <h3>Products Web Application</h3>
-                        <button class="expand-btn" aria-label="Expand">+</button>
+                        <button class="expand-btn" aria-label="Expand"><span></span></button>
                     </div>
                     <div class="project-body">
                         <ul>
@@ -233,7 +347,7 @@
         <!-- CONTACT -->
         <section id="contact" class="section contact-section">
             <div class="contact-copy">
-                <h2 class="section-label">Let's Talk</h2>
+                <h2 class="section-label"><em>04</em>Let's Talk</h2>
                 <p>
                     I'm a fresher at the start of my professional journey — eager to
                     learn, adapt, and contribute to real projects. If there's an
@@ -241,14 +355,15 @@
                     having, I'd like to hear from you.
                 </p>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/siriki-sai-dhanush-404b5324a/" target="_blank">LinkedIn ↗</a>
-                    <a href="https://github.com/DHANUSH7331" target="_blank">GitHub ↗</a>
-                    <a href="mailto:dhanushsirikisai@gmail.com">dhanushsirikisai@gmail.com</a>
-                    <a href="tel:+917331161567">+91 73311 61567</a>
+                    <a href="https://www.linkedin.com/in/siriki-sai-dhanush-404b5324a/" target="_blank"><span><img class="link-icon" src="./Images/linkedin.png" alt="" onerror="this.remove()">LinkedIn</span><i>↗</i></a>
+                    <a href="https://github.com/DHANUSH7331" target="_blank"><span><img class="link-icon" src="./Images/github.png" alt="" onerror="this.remove()">GitHub</span><i>↗</i></a>
+                    <a href="mailto:dhanushsirikisai@gmail.com"><span>dhanushsirikisai@gmail.com</span><i>↗</i></a>
+                    <a href="tel:+917331161567"><span>+91 73311 61567</span><i>↗</i></a>
                 </div>
             </div>
 
             <form id="contact-form" class="contact-form">
+                <div class="form-head"><span class="pulse-dot"></span>TRANSMIT MESSAGE</div>
                 <label for="name">Name</label>
                 <input type="text" id="name" required placeholder="Your name">
 
@@ -258,7 +373,8 @@
                 <label for="message">Message</label>
                 <textarea id="message" rows="4" required placeholder="What are you reaching out about?"></textarea>
 
-                <button type="submit" id="submit_button">Send Message</button>
+                <button type="submit" id="submit_button"><span>Send Message</span></button>
+                <p class="form-status" id="form-status"></p>
             </form>
         </section>
 
