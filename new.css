@@ -1304,3 +1304,13 @@ footer{
         height: 52px;
     }
 }
+
+
+/* Vesper project app logo thumbnail */
+.finance-project-logo{
+    object-fit: contain;
+    filter: none;
+    background: #0b1220;
+    padding: 3px;
+    border-radius: 6px;
+}
