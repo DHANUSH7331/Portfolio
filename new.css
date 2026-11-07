@@ -1756,3 +1756,515 @@ footer{
         transform:none;
     }
 }
+
+
+/* ==========================================================
+   BLACK-ORANGE CYBER GLASS
+   Cyberpunk atmosphere + warm orange luxury + glass surfaces
+   ========================================================== */
+:root{
+  --void:#070707;
+  --panel:rgba(18,18,20,.70);
+  --panel-soft:rgba(27,24,23,.78);
+  --line:rgba(255,132,62,.18);
+  --line-strong:rgba(255,132,62,.48);
+  --ink:#F5F0EB;
+  --ink-soft:#B9ADA5;
+  --ink-dim:#81746C;
+  --cyan:#FF873D;
+  --cyan-soft:#C96A32;
+  --amber:#FFD0A6;
+  --orange-hot:#FF5C1A;
+  --glass-blur:18px;
+}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:100px;
+}
+
+body{
+  color:var(--ink);
+  background:
+    radial-gradient(ellipse at 12% 7%,rgba(255,94,25,.13),transparent 34rem),
+    radial-gradient(ellipse at 92% 30%,rgba(255,137,61,.075),transparent 32rem),
+    radial-gradient(ellipse at 50% 100%,rgba(91,38,17,.16),transparent 42rem),
+    #070707;
+}
+
+body::before{
+  background:
+    radial-gradient(ellipse at 18% 10%,rgba(255,106,38,.08),transparent 48%),
+    radial-gradient(ellipse at 90% 85%,rgba(255,172,107,.045),transparent 42%);
+  opacity:.9;
+}
+
+#grid-canvas{
+  opacity:.30;
+}
+
+.scan-overlay{
+  opacity:.16;
+  background:repeating-linear-gradient(
+    to bottom,
+    rgba(255,132,62,.025),
+    rgba(255,132,62,.025) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+}
+
+::selection{
+  background:#FF873D;
+  color:#090909;
+}
+
+a{color:#FF9B5D}
+
+header#nav{
+  background:rgba(8,8,9,.76);
+  border-bottom:1px solid rgba(255,132,62,.18);
+  backdrop-filter:blur(22px) saturate(145%);
+  -webkit-backdrop-filter:blur(22px) saturate(145%);
+  box-shadow:0 10px 40px rgba(0,0,0,.18);
+}
+
+.nav-mark .dot,
+header#nav nav a:hover,
+header#nav nav a:focus-visible{
+  color:#FF873D;
+}
+
+header#nav nav a::after{
+  background:#FF873D;
+  box-shadow:0 0 12px rgba(255,117,48,.65);
+}
+
+.nav-status,
+.eyebrow,
+.eyebrow .brk,
+.section-label em,
+.experience-kicker,
+.training-label,
+.project-tag,
+.form-head,
+.contact-form label{
+  color:#FF9B5D;
+}
+
+.pulse-dot{
+  background:#FF873D;
+  box-shadow:0 0 9px #FF873D;
+}
+
+.hero{
+  position:relative;
+  min-height:660px;
+  gap:clamp(36px,6vw,82px);
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:46%;
+  height:70%;
+  top:10%;
+  right:0;
+  pointer-events:none;
+  background:radial-gradient(ellipse,rgba(255,103,38,.095),transparent 68%);
+  filter:blur(20px);
+}
+
+.glitch-name{
+  color:#FFF7F0;
+  text-shadow:0 0 32px rgba(255,112,49,.10);
+}
+
+.glitch-name::before{color:#FF873D}
+.glitch-name::after{color:#FFD0A6}
+
+.role-line{
+  color:#FF9B5D;
+}
+
+.pitch,
+.contact-copy p,
+.experience-summary{
+  color:#C0B4AC;
+}
+
+.hero-photo-frame::before{
+  background:linear-gradient(135deg,rgba(255,91,26,.30),rgba(255,184,126,.12));
+  filter:blur(44px);
+}
+
+.ring circle{
+  stroke:rgba(255,145,82,.48);
+}
+
+.ring-outer circle{
+  stroke:#D76D36;
+}
+
+.ring-inner circle{
+  stroke:rgba(255,184,126,.45);
+}
+
+.tick{
+  background:#FF873D;
+  box-shadow:0 0 8px rgba(255,117,48,.8);
+}
+
+.photo-clip{
+  border-color:rgba(255,155,93,.72);
+  box-shadow:
+    0 0 0 7px rgba(7,7,7,.94),
+    0 0 34px rgba(255,105,38,.24),
+    0 0 76px rgba(255,105,38,.12);
+}
+
+.photo-clip img{
+  /* Keep the original portrait and facial features intact. */
+  filter:contrast(1.045) saturate(1.06) brightness(1.035);
+}
+
+.corner{
+  border-color:#FFB178;
+}
+
+.reticle-label{
+  color:#FF9B5D;
+}
+
+.hero-stats .stat{
+  background:linear-gradient(145deg,rgba(37,27,22,.70),rgba(15,13,12,.68));
+  border:1px solid rgba(255,132,62,.22);
+  border-radius:10px;
+  backdrop-filter:blur(var(--glass-blur));
+  -webkit-backdrop-filter:blur(var(--glass-blur));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 14px 36px rgba(0,0,0,.18);
+}
+
+.stat-label,.stat-value{color:#E8DAD0}
+
+.btn-primary,
+#submit_button{
+  color:#130B07;
+  background:linear-gradient(120deg,#FF9B5D,#FF6B2B);
+  box-shadow:0 8px 26px rgba(255,105,38,.17);
+}
+
+.btn-primary:hover,
+#submit_button:hover{
+  box-shadow:0 0 28px rgba(255,117,48,.38);
+}
+
+.btn-ghost{
+  border-color:rgba(255,145,82,.40);
+  color:#F4E7DE;
+}
+
+.btn-ghost:hover{
+  border-color:#FF873D;
+  color:#FFAB77;
+  box-shadow:0 0 22px rgba(255,105,38,.12);
+}
+
+.section{
+  border-top-color:rgba(255,132,62,.15);
+}
+
+.section-label{
+  color:#FFF3EB;
+}
+
+.section-label em{
+  border-color:rgba(255,145,82,.42);
+  background:rgba(255,117,48,.06);
+}
+
+.experience-card,
+.skill-panel,
+.project-row,
+.contact-form{
+  background:
+    linear-gradient(145deg,rgba(30,25,22,.76),rgba(13,13,14,.78));
+  border:1px solid rgba(255,142,82,.20);
+  border-radius:12px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.035),
+    0 18px 48px rgba(0,0,0,.24);
+  backdrop-filter:blur(var(--glass-blur)) saturate(130%);
+  -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(130%);
+}
+
+.experience-card{
+  border-left:2px solid #FF873D;
+  padding:clamp(22px,3.2vw,34px);
+}
+
+.experience-card:hover,
+.skill-panel:hover{
+  border-color:rgba(255,151,92,.52);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.045),
+    0 22px 54px rgba(0,0,0,.30),
+    0 0 26px rgba(255,105,38,.075);
+}
+
+.experience-header h3,
+.project-head h3,
+.skill-panel h3{
+  color:#FFF4ED;
+}
+
+.experience-company,
+.experience-summary{
+  color:#C2B3A9;
+}
+
+.experience-period{
+  color:#FFAB77;
+  border-color:rgba(255,145,82,.35);
+  background:rgba(255,117,48,.055);
+  border-radius:5px;
+}
+
+.experience-company-logo{
+  border-radius:10px;
+  border-color:rgba(255,145,82,.38);
+  box-shadow:0 8px 24px rgba(0,0,0,.25);
+}
+
+.training-focus{
+  border-top-color:rgba(255,132,62,.18);
+}
+
+.training-topics span{
+  color:#E6D4C8;
+  border-color:rgba(255,145,82,.20);
+  background:rgba(255,117,48,.055);
+  border-radius:6px;
+  transition:transform .22s ease,border-color .22s ease,background .22s ease;
+}
+
+.training-topics span:hover{
+  transform:translateY(-2px);
+  border-color:rgba(255,151,92,.55);
+  background:rgba(255,117,48,.11);
+}
+
+.skill-panel{
+  border-radius:11px;
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+
+.skill-panel:hover,
+.project-row:hover{
+  transform:translateY(-4px);
+}
+
+.skill-pct{
+  color:#FF9B5D;
+}
+
+.skill-bar{
+  background:rgba(255,255,255,.075);
+}
+
+.skill-fill{
+  background:linear-gradient(90deg,#C95120,#FF873D,#FFC18F);
+  box-shadow:0 0 12px rgba(255,117,48,.35);
+}
+
+.chips span{
+  color:#D6C4B9;
+  border-color:rgba(255,145,82,.18);
+  background:rgba(255,117,48,.045);
+  border-radius:5px;
+}
+
+.project-list{gap:14px}
+
+.project-row{
+  border-left:2px solid rgba(255,145,82,.38);
+  overflow:hidden;
+  transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease;
+}
+
+.project-row.active{
+  border-left-color:#FF873D;
+}
+
+.project-row:hover{
+  border-color:rgba(255,151,92,.48);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 22px 48px rgba(0,0,0,.30),
+    0 0 25px rgba(255,105,38,.06);
+}
+
+.project-head{
+  min-height:82px;
+  padding:18px 22px;
+}
+
+.project-thumb{
+  border-color:rgba(255,145,82,.28);
+  border-radius:9px;
+}
+
+.finance-project-logo{
+  background:#0D1118;
+  border:1px solid rgba(255,145,82,.38);
+  box-shadow:0 0 18px rgba(255,105,38,.12);
+}
+
+.project-tag{
+  border-color:rgba(255,145,82,.34);
+  background:rgba(255,117,48,.055);
+  border-radius:5px;
+}
+
+.expand-btn{
+  border-color:rgba(255,145,82,.42);
+}
+
+.expand-btn span,
+.expand-btn span::before{
+  background:#FF9B5D;
+}
+
+.project-row.active .expand-btn{
+  border-color:#FF873D;
+  box-shadow:0 0 14px rgba(255,105,38,.16);
+}
+
+.project-body ul{
+  border-top-color:rgba(255,132,62,.17);
+}
+
+.project-body li{
+  color:#C2B4AB;
+}
+
+.project-body li::before{
+  color:#FF873D;
+}
+
+.tech-line{
+  color:#A99182;
+  line-height:1.8;
+}
+
+.project-repo-link{
+  color:#FFAB77;
+  border-color:rgba(255,145,82,.34);
+  background:rgba(255,117,48,.045);
+  border-radius:6px;
+}
+
+.project-repo-link:hover{
+  color:#FFD0A6;
+  border-color:#FF873D;
+  background:rgba(255,117,48,.12);
+  box-shadow:0 0 18px rgba(255,105,38,.10);
+}
+
+.contact-form{
+  border-radius:12px;
+}
+
+.contact-form input,
+.contact-form textarea{
+  color:#FFF2E9;
+  background:rgba(7,7,8,.48);
+  border-color:rgba(255,145,82,.22);
+  border-radius:6px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+  border-color:#FF873D;
+  box-shadow:0 0 0 3px rgba(255,117,48,.10),0 0 18px rgba(255,105,38,.09);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+  color:#89776B;
+}
+
+.contact-form label{
+  color:#D38B61;
+}
+
+.form-status{color:#FFAB77}
+.form-status.error{color:#FF6B6B}
+
+.social-links a{
+  color:#F0E5DE;
+  border-bottom-color:rgba(255,132,62,.17);
+}
+
+.social-links a:hover{color:#FFAB77}
+.social-links a i{color:#D87943}
+
+.link-icon{
+  border:1px solid rgba(255,145,82,.22);
+  padding:3px;
+  background:rgba(255,255,255,.04);
+}
+
+footer{
+  color:#8E7B70;
+  border-top-color:rgba(255,132,62,.16);
+}
+
+/* Fine cyberpunk detail: restrained orange edge illumination. */
+.experience-card,
+.skill-panel,
+.project-row,
+.contact-form{
+  position:relative;
+  isolation:isolate;
+}
+
+.experience-card::after,
+.skill-panel::after,
+.project-row::after,
+.contact-form::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  pointer-events:none;
+  opacity:0;
+  background:linear-gradient(115deg,transparent 15%,rgba(255,171,119,.045) 48%,transparent 78%);
+  transition:opacity .3s ease;
+  z-index:-1;
+}
+
+.experience-card:hover::after,
+.skill-panel:hover::after,
+.project-row:hover::after,
+.contact-form:focus-within::after{
+  opacity:1;
+}
+
+@media(max-width:900px){
+  .hero{min-height:0}
+}
+
+@media(max-width:680px){
+  header#nav{
+    background:rgba(8,8,9,.94);
+  }
+  .project-head{padding:15px}
+  .hero-stats .stat{backdrop-filter:blur(12px)}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .skill-panel:hover,.project-row:hover,.training-topics span:hover{
+    transform:none;
+  }
+}
