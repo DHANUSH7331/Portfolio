@@ -1275,3 +1275,32 @@ footer{
         font-size: 10.5px;
     }
 }
+
+/* Company mark inside the professional experience card. */
+.experience-brand-block{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.experience-company-logo{
+    width: 62px;
+    height: 62px;
+    object-fit: contain;
+    background: #fff;
+    border: 1px solid var(--line-strong);
+    border-radius: 6px;
+    padding: 7px;
+    flex-shrink: 0;
+}
+
+@media(max-width: 560px){
+    .experience-brand-block{
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .experience-company-logo{
+        width: 52px;
+        height: 52px;
+    }
+}
