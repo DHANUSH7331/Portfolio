@@ -1241,3 +1241,37 @@ footer{
         white-space: normal;
     }
 }
+
+/* Keep the five-link navigation usable on narrow screens. */
+@media(max-width: 560px){
+    header#nav{
+        gap: 10px;
+    }
+    .nav-mark{
+        font-size: 13px;
+    }
+    header#nav nav{
+        gap: 8px;
+        flex-wrap: nowrap;
+    }
+    header#nav nav a{
+        font-size: 11px;
+    }
+}
+
+@media(max-width: 380px){
+    .nav-mark{
+        display: none;
+    }
+    header#nav{
+        justify-content: center;
+    }
+    header#nav nav{
+        width: 100%;
+        justify-content: space-between;
+        gap: 5px;
+    }
+    header#nav nav a{
+        font-size: 10.5px;
+    }
+}
