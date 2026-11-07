@@ -53,8 +53,8 @@
 
     function step() {
         ctx.clearRect(0, 0, w, h);
-        ctx.strokeStyle = "rgba(79, 224, 255, 0.35)";
-        ctx.fillStyle = "rgba(79, 224, 255, 0.6)";
+        ctx.strokeStyle = "rgba(255, 121, 56, 0.28)";
+        ctx.fillStyle = "rgba(255, 173, 120, 0.48)";
 
         for (const n of nodes) {
             n.x += n.vx;
