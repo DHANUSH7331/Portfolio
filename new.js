@@ -141,8 +141,14 @@ document.querySelectorAll(".skill-panel").forEach((panel) => skillObserver.obser
 /* ============ PROJECT EXPAND / COLLAPSE ============ */
 document.querySelectorAll(".project-row").forEach((row) => {
     const head = row.querySelector(".project-head");
-    head.addEventListener("click", () => {
+    head.addEventListener("click", (event) => {
         row.classList.toggle("active");
+        const button = row.querySelector(".expand-btn");
+        if (button) {
+            const expanded = row.classList.contains("active");
+            button.setAttribute("aria-expanded", String(expanded));
+            button.setAttribute("aria-label", expanded ? "Collapse project details" : "Expand project details");
+        }
     });
 });
 
