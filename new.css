@@ -1144,3 +1144,100 @@ footer{
         transition-duration: 0.01ms !important;
     }
 }
+
+/* ============ PROFESSIONAL EXPERIENCE ============ */
+.experience-card{
+    background: linear-gradient(180deg, var(--panel-soft), var(--panel));
+    border: 1px solid var(--line);
+    border-left: 2px solid var(--cyan);
+    border-radius: 5px;
+    padding: 26px 30px;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.experience-card:hover{
+    border-color: var(--line-strong);
+    box-shadow: 0 0 28px rgba(79,224,255,0.08);
+}
+
+.experience-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 18px;
+}
+
+.experience-kicker,
+.training-label{
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    color: var(--cyan-soft);
+}
+
+.experience-header h3{
+    font-family: var(--tech);
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 7px 0 3px;
+}
+
+.experience-company{
+    color: var(--ink-soft);
+    font-size: 15px;
+}
+
+.experience-period{
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--cyan);
+    border: 1px solid var(--line-strong);
+    padding: 8px 10px;
+    white-space: nowrap;
+}
+
+.experience-summary{
+    color: var(--ink-soft);
+    max-width: 760px;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.training-focus{
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+}
+
+.training-topics{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 12px;
+}
+
+.training-topics span{
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-soft);
+    background: rgba(79,224,255,0.05);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 7px 10px;
+}
+
+@media(max-width: 560px){
+    .experience-card{
+        padding: 21px 18px;
+    }
+    .experience-header{
+        flex-direction: column;
+        gap: 12px;
+    }
+    .experience-period{
+        white-space: normal;
+    }
+}
