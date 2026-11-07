@@ -93,7 +93,7 @@
 })();
 
 /* ============ TYPING ROLE EFFECT ============ */
-const roles = ["Full Stack Developer", "Python Developer", "Data Analyst", "ML Enthusiast"];
+const roles = ["Junior Developer", "Python Developer", "Web Developer", "AI Automation Learner"];
 let roleIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
