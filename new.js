@@ -53,8 +53,8 @@
 
     function step() {
         ctx.clearRect(0, 0, w, h);
-        ctx.strokeStyle = "rgba(0, 229, 255, 0.30)";
-        ctx.fillStyle = "rgba(255, 43, 214, 0.58)";
+        ctx.strokeStyle = "rgba(79, 224, 255, 0.35)";
+        ctx.fillStyle = "rgba(79, 224, 255, 0.6)";
 
         for (const n of nodes) {
             n.x += n.vx;
@@ -141,14 +141,8 @@ document.querySelectorAll(".skill-panel").forEach((panel) => skillObserver.obser
 /* ============ PROJECT EXPAND / COLLAPSE ============ */
 document.querySelectorAll(".project-row").forEach((row) => {
     const head = row.querySelector(".project-head");
-    head.addEventListener("click", (event) => {
+    head.addEventListener("click", () => {
         row.classList.toggle("active");
-        const button = row.querySelector(".expand-btn");
-        if (button) {
-            const expanded = row.classList.contains("active");
-            button.setAttribute("aria-expanded", String(expanded));
-            button.setAttribute("aria-label", expanded ? "Collapse project details" : "Expand project details");
-        }
     });
 });
 
@@ -192,38 +186,3 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-
-/* ============ CYBER COMMAND INTERACTIONS ============ */
-(function cyberInteractions(){
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const aura = document.querySelector(".cursor-aura");
-  const photo = document.querySelector(".hero-photo-frame");
-  if (!reduce && window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
-    let px=innerWidth/2, py=innerHeight/2, ax=px, ay=py;
-    window.addEventListener("pointermove", e=>{
-      px=e.clientX; py=e.clientY;
-      if(aura){aura.style.left=px+"px";aura.style.top=py+"px";aura.style.opacity="1";}
-      if(photo){
-        const r=photo.getBoundingClientRect();
-        const dx=(e.clientX-(r.left+r.width/2))/(r.width/2);
-        const dy=(e.clientY-(r.top+r.height/2))/(r.height/2);
-        if(Math.abs(dx)<1.6 && Math.abs(dy)<1.6){
-          photo.style.animation="none";
-          photo.style.transform="perspective(900px) rotateY("+(-dx*10)+"deg) rotateX("+(dy*8)+"deg) translateZ(8px)";
-        } else photo.style.transform="";
-      }
-    },{passive:true});
-    window.addEventListener("pointerleave",()=>{if(aura)aura.style.opacity="0";if(photo)photo.style.transform="";});
-  }
-  const revealTargets=document.querySelectorAll(".section-label,.experience-card,.skill-panel,.edu-node,.project-row,.contact-copy,.contact-form");
-  revealTargets.forEach(el=>el.classList.add("reveal-ready"));
-  if("IntersectionObserver" in window){
-    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
-      if(entry.isIntersecting){entry.target.classList.add("revealed");observer.unobserve(entry.target);}
-    }),{threshold:.12,rootMargin:"0px 0px -35px 0px"});
-    revealTargets.forEach(el=>observer.observe(el));
-  } else revealTargets.forEach(el=>el.classList.add("revealed"));
-  document.querySelectorAll(".skill-panel,.project-row").forEach((el,i)=>{
-    el.style.transitionDelay=(i%4)*55+"ms";
-  });
-})();
