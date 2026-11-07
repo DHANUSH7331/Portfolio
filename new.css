@@ -1314,3 +1314,445 @@ footer{
     padding: 3px;
     border-radius: 6px;
 }
+
+
+/* =========================================================
+   HYBRID REDESIGN — cinematic sci-fi × clean editorial layout
+   Keeps the existing cyan/amber identity and all interactions.
+   ========================================================= */
+:root{
+    --void:#05090D;
+    --panel:rgba(11,20,27,.88);
+    --panel-soft:rgba(16,29,38,.92);
+    --line:rgba(93,211,232,.16);
+    --line-strong:rgba(93,211,232,.38);
+    --ink:#E8F3F6;
+    --ink-soft:#A1B7C0;
+    --ink-dim:#718A95;
+    --cyan:#55DDF5;
+    --cyan-soft:#43AFC4;
+    --amber:#FFB86B;
+}
+
+body{
+    background:
+      radial-gradient(ellipse at 12% 8%,rgba(50,174,198,.10),transparent 34rem),
+      radial-gradient(ellipse at 88% 36%,rgba(255,184,107,.055),transparent 30rem),
+      var(--void);
+}
+
+main{
+    max-width:1160px;
+}
+
+header#nav{
+    max-width:1160px;
+    padding-left:clamp(18px,4vw,42px);
+    padding-right:clamp(18px,4vw,42px);
+    background:rgba(5,9,13,.88);
+    backdrop-filter:blur(18px) saturate(145%);
+    -webkit-backdrop-filter:blur(18px) saturate(145%);
+    border-bottom-color:rgba(93,211,232,.13);
+}
+
+header#nav nav a{
+    font-size:14px;
+    letter-spacing:.15px;
+}
+
+header#nav nav a:hover,
+header#nav nav a:focus-visible{
+    color:var(--cyan);
+}
+
+.nav-status{
+    font-size:10px;
+    letter-spacing:1px;
+}
+
+.hero{
+    min-height:650px;
+    grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);
+    gap:clamp(32px,6vw,76px);
+    padding-top:clamp(58px,8vw,104px);
+    padding-bottom:clamp(68px,9vw,112px);
+}
+
+.glitch-name{
+    font-size:clamp(34px,4.5vw,56px);
+    letter-spacing:-1.2px;
+    line-height:1.08;
+}
+
+.pitch{
+    max-width:650px;
+    color:#AFC2C9;
+    line-height:1.85;
+}
+
+.hero-photo-frame{
+    max-width:330px;
+    margin:0 auto;
+    isolation:isolate;
+}
+
+.hero-photo-frame::before{
+    content:"";
+    position:absolute;
+    inset:12%;
+    z-index:-1;
+    border-radius:50%;
+    background:linear-gradient(135deg,rgba(85,221,245,.2),rgba(255,184,107,.12));
+    filter:blur(38px);
+    opacity:.9;
+}
+
+.photo-clip{
+    inset:28px;
+    border:1px solid rgba(119,226,242,.62);
+    box-shadow:
+      0 0 0 8px rgba(5,9,13,.92),
+      0 0 34px rgba(85,221,245,.2),
+      0 0 70px rgba(255,184,107,.08);
+}
+
+.photo-clip img{
+    /* Preserve the original photograph and facial features. */
+    filter:contrast(1.035) saturate(1.08) brightness(1.025);
+    object-position:center 42%;
+}
+
+.hero-stats{
+    gap:12px;
+    margin-top:34px;
+}
+
+.hero-stats .stat{
+    min-width:120px;
+    padding:12px 14px;
+    background:linear-gradient(145deg,rgba(18,34,43,.82),rgba(8,15,20,.76));
+    border:1px solid var(--line);
+    border-radius:8px;
+}
+
+.stat-label{
+    letter-spacing:1.3px;
+}
+
+.stat-value{
+    font-size:13px;
+}
+
+.section{
+    padding:clamp(54px,7vw,82px) 0;
+    border-top-color:rgba(93,211,232,.13);
+}
+
+.section-label{
+    font-size:clamp(19px,2.2vw,24px);
+    letter-spacing:-.25px;
+    margin-bottom:30px;
+}
+
+.experience-card,
+.skill-panel,
+.project-row,
+.contact-form{
+    background:linear-gradient(145deg,rgba(15,27,35,.94),rgba(7,14,19,.94));
+    border-color:rgba(93,211,232,.17);
+    border-radius:10px;
+    box-shadow:0 14px 42px rgba(0,0,0,.16);
+}
+
+.experience-card{
+    padding:clamp(20px,3vw,32px);
+    border-left:2px solid var(--cyan);
+}
+
+.experience-company-logo{
+    border-radius:9px;
+    box-shadow:0 6px 24px rgba(0,0,0,.2);
+}
+
+.training-topics span{
+    border-radius:5px;
+    padding:8px 11px;
+    background:rgba(85,221,245,.055);
+    transition:background .2s ease,border-color .2s ease,transform .2s ease;
+}
+
+.training-topics span:hover{
+    background:rgba(85,221,245,.11);
+    border-color:var(--line-strong);
+    transform:translateY(-2px);
+}
+
+.skill-grid{
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:14px;
+}
+
+.skill-panel{
+    min-width:0;
+    padding:20px;
+    border-radius:9px;
+    transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+
+.skill-panel:hover{
+    transform:translateY(-4px);
+    border-color:rgba(85,221,245,.42);
+    box-shadow:0 18px 38px rgba(0,0,0,.24),0 0 24px rgba(85,221,245,.055);
+}
+
+.skill-head{
+    min-height:38px;
+}
+
+.skill-panel h3{
+    font-size:16px;
+}
+
+.chips span{
+    border-radius:4px;
+}
+
+.project-list{
+    gap:13px;
+}
+
+.project-row{
+    border-radius:9px;
+    border-left-width:2px;
+    transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+}
+
+.project-row:hover{
+    transform:translateY(-2px);
+    border-color:rgba(85,221,245,.32);
+    box-shadow:0 14px 34px rgba(0,0,0,.2);
+}
+
+.project-head{
+    min-height:82px;
+    padding:17px 20px;
+    gap:14px;
+}
+
+.project-thumb{
+    width:48px;
+    height:48px;
+    border-radius:8px;
+    border-color:rgba(93,211,232,.24);
+    filter:none;
+}
+
+.finance-project-logo{
+    width:46px;
+    height:46px;
+    padding:5px;
+    background:#0B1420;
+    border:1px solid rgba(85,221,245,.32);
+    box-shadow:0 0 18px rgba(85,221,245,.08);
+}
+
+.project-tag{
+    border-radius:5px;
+    font-size:10px;
+    letter-spacing:.2px;
+}
+
+.project-head h3{
+    font-size:clamp(16px,1.7vw,19px);
+    line-height:1.3;
+}
+
+.project-body{
+    transition:max-height .45s ease,padding .35s ease;
+}
+
+.project-row.active .project-body{
+    max-height:1200px;
+}
+
+.project-body ul{
+    border-top-color:rgba(93,211,232,.15);
+}
+
+.project-body li{
+    line-height:1.7;
+}
+
+.tech-line{
+    color:#8EA9B3;
+    line-height:1.8;
+}
+
+.project-repo-link{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    margin-top:14px;
+    padding:9px 12px;
+    border:1px solid rgba(85,221,245,.3);
+    border-radius:5px;
+    color:var(--cyan);
+    font-family:var(--mono);
+    font-size:11px;
+    transition:background .2s ease,border-color .2s ease,transform .2s ease;
+}
+
+.project-repo-link:hover{
+    background:rgba(85,221,245,.09);
+    border-color:var(--cyan);
+    transform:translateY(-1px);
+}
+
+.contact-form{
+    border-radius:10px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    border-radius:5px;
+    background:rgba(255,255,255,.035);
+}
+
+#submit_button{
+    border-radius:5px;
+}
+
+footer{
+    border-top-color:rgba(93,211,232,.14);
+}
+
+/* Tablet and mobile: retain every section without squeezing navigation. */
+@media(max-width:900px){
+    main{
+        padding-left:clamp(20px,5vw,36px);
+        padding-right:clamp(20px,5vw,36px);
+    }
+    .hero{
+        min-height:0;
+        grid-template-columns:1fr;
+        gap:44px;
+        padding-top:54px;
+        text-align:left;
+    }
+    .hero-photo-frame{
+        order:-1;
+        width:min(270px,72vw);
+        margin:0 auto 14px;
+    }
+    .skill-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+}
+
+@media(max-width:680px){
+    header#nav{
+        height:auto;
+        min-height:68px;
+        padding:13px 18px;
+        flex-wrap:wrap;
+        gap:10px 16px;
+    }
+    header#nav nav{
+        order:3;
+        width:100%;
+        justify-content:space-between;
+        gap:12px;
+        overflow-x:auto;
+        scrollbar-width:none;
+        padding:3px 0 2px;
+    }
+    header#nav nav::-webkit-scrollbar{display:none}
+    header#nav nav a{
+        flex:0 0 auto;
+        font-size:12px;
+    }
+    .nav-status{
+        margin-left:auto;
+        font-size:9px;
+    }
+    main{
+        padding-left:19px;
+        padding-right:19px;
+    }
+    .hero{
+        padding-top:42px;
+        padding-bottom:58px;
+    }
+    .hero-stats{
+        display:grid;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+    .hero-stats .stat:last-child{
+        grid-column:1/-1;
+    }
+    .experience-header{
+        align-items:flex-start;
+    }
+    .project-head{
+        display:grid;
+        grid-template-columns:46px minmax(0,1fr) 28px;
+        gap:8px 12px;
+        padding:15px;
+    }
+    .project-head .project-thumb{
+        grid-row:1 / span 2;
+    }
+    .project-head .project-tag{
+        grid-column:2;
+        justify-self:start;
+    }
+    .project-head h3{
+        grid-column:2;
+        grid-row:2;
+        font-size:16px;
+    }
+    .project-head .expand-btn{
+        grid-column:3;
+        grid-row:1 / span 2;
+        justify-self:end;
+    }
+    .project-body,
+    .project-row.active .project-body{
+        padding-left:15px;
+        padding-right:15px;
+    }
+}
+
+@media(max-width:420px){
+    .skill-grid{
+        grid-template-columns:1fr;
+    }
+    .glitch-name{
+        font-size:clamp(29px,9vw,36px);
+        overflow-wrap:anywhere;
+    }
+    .hero-stats{
+        grid-template-columns:1fr;
+    }
+    .hero-stats .stat:last-child{
+        grid-column:auto;
+    }
+    .experience-brand-block{
+        gap:10px;
+    }
+    .experience-company-logo{
+        width:46px;
+        height:46px;
+    }
+    .experience-header h3{
+        font-size:22px;
+    }
+}
+
+/* Motion is decorative only; honor the visitor's accessibility setting. */
+@media(prefers-reduced-motion:reduce){
+    .hero-photo-frame::before{filter:none}
+    .skill-panel:hover,.project-row:hover,.training-topics span:hover{
+        transform:none;
+    }
+}
