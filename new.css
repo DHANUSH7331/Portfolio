@@ -2484,3 +2484,67 @@ body::after{opacity:.075!important}
 @media(max-width:560px){
  .project-row.active .project-body{padding-bottom:19px!important}
 }
+
+
+/* =========================================================
+   REAL VIDEO BACKGROUND — MUTED GOLD SILK MOTION
+   Portrait animation rules are intentionally untouched.
+   ========================================================= */
+body{background:#090806!important;isolation:isolate}
+#silk-video-bg{
+ position:fixed!important;inset:0!important;z-index:0!important;
+ display:block!important;width:100vw!important;height:100vh!important;
+ object-fit:cover!important;object-position:center center;
+ opacity:.34;pointer-events:none;
+ filter:brightness(.42) sepia(.38) saturate(.72) contrast(1.08);
+ transform:scale(1.025);
+}
+.silk-video-shade{
+ position:fixed;inset:0;z-index:1;pointer-events:none;
+ background:
+  linear-gradient(180deg,rgba(9,8,6,.58) 0%,rgba(10,9,7,.22) 35%,rgba(9,8,6,.52) 100%),
+  radial-gradient(ellipse at 50% 45%,rgba(8,7,5,.06),rgba(8,7,5,.55) 78%),
+  linear-gradient(115deg,rgba(154,111,56,.13),transparent 42%,rgba(195,153,94,.10));
+}
+#grid-canvas,.scan-overlay{display:none!important}
+body::before{
+ z-index:2!important;pointer-events:none;
+ background:
+  radial-gradient(ellipse at 14% 16%,rgba(210,169,104,.10),transparent 48%),
+  radial-gradient(ellipse at 88% 76%,rgba(180,132,72,.09),transparent 50%)!important;
+}
+body::after{z-index:2!important;opacity:.055!important}
+main,footer{position:relative;z-index:3}
+.top-nav{z-index:1100}
+#boot-screen{z-index:1200}
+@media(max-width:700px){
+ #silk-video-bg{opacity:.23;filter:brightness(.34) sepia(.4) saturate(.65)}
+ .silk-video-shade{background:linear-gradient(180deg,rgba(9,8,6,.68),rgba(9,8,6,.42) 45%,rgba(9,8,6,.7))}
+}
+@media(prefers-reduced-motion:reduce){
+ #silk-video-bg{display:none!important}
+}
+
+/* =========================================================
+   PROJECTS — EXCLUSIVE ACCORDION STATE
+   ========================================================= */
+#projects .project-row .project-body{
+ max-height:var(--project-body-height,0px)!important;
+ overflow:hidden!important;
+ padding-top:0!important;padding-bottom:0!important;
+ opacity:0;transform:translateY(-5px);
+ transition:max-height .58s cubic-bezier(.22,.72,.2,1),opacity .3s ease,transform .42s ease,padding .4s ease!important;
+}
+#projects .project-row.active .project-body{
+ max-height:var(--project-body-height,0px)!important;
+ padding-bottom:24px!important;
+ opacity:1;transform:translateY(0);
+}
+#projects .project-row .project-head{cursor:pointer}
+#projects .project-row .expand-btn{pointer-events:auto!important}
+#projects .project-row.active .expand-btn{transform:rotate(45deg)}
+#projects .project-row:not(.active) .project-body{visibility:hidden;transition:visibility 0s linear .58s, max-height .58s cubic-bezier(.22,.72,.2,1),opacity .3s ease,transform .42s ease!important}
+#projects .project-row.active .project-body{visibility:visible}
+@media(max-width:560px){
+ #projects .project-row.active .project-body{padding-bottom:19px!important}
+}
