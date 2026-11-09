@@ -138,66 +138,55 @@ const skillObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll(".skill-panel").forEach((panel) => skillObserver.observe(panel));
 
-/* ============ PROJECT ACCORDION — HARD EXCLUSIVE STATE ============ */
-(function projectAccordion(){
+/* ============ PROJECT ACCORDION — EXCLUSIVE, ANIMATED ============ */
+(function(){
  const root=document.querySelector("#projects .project-list");
  if(!root)return;
- const rows=[...root.querySelectorAll(":scope > .project-row")];
- const duration=620;
-
- function close(row,animate){
-  const body=row.querySelector(":scope > .project-body");
-  const button=row.querySelector(".expand-btn");
+ const rows=Array.from(root.children).filter(el=>el.classList.contains("project-row"));
+ const close=(row,animate)=>{
+  const body=row.querySelector(".project-body");
+  const btn=row.querySelector(".expand-btn");
   row.classList.remove("active");
-  if(button){
-   button.setAttribute("aria-expanded","false");
-   button.setAttribute("aria-label","Expand project details");
-  }
+  if(btn){btn.setAttribute("aria-expanded","false");btn.setAttribute("aria-label","Expand project details");}
   if(!body)return;
-  if(!animate){
-   body.hidden=true;
-   body.style.maxHeight="0px";
-   return;
-  }
-  body.style.maxHeight=body.scrollHeight+"px";
-  requestAnimationFrame(()=>{body.style.maxHeight="0px";});
-  window.setTimeout(()=>{if(!row.classList.contains("active"))body.hidden=true;},duration);
- }
-
- function open(row){
-  const body=row.querySelector(":scope > .project-body");
-  const button=row.querySelector(".expand-btn");
+  const current=body.getBoundingClientRect().height;
+  if(!animate){body.hidden=true;body.style.setProperty("--project-body-height","0px");return;}
+  body.hidden=false;
+  body.style.setProperty("--project-body-height",current+"px");
+  requestAnimationFrame(()=>body.style.setProperty("--project-body-height","0px"));
+  window.setTimeout(()=>{if(!row.classList.contains("active"))body.hidden=true;},650);
+ };
+ const open=row=>{
+  const body=row.querySelector(".project-body");
+  const btn=row.querySelector(".expand-btn");
   if(!body)return;
   body.hidden=false;
-  body.style.maxHeight="0px";
   row.classList.add("active");
-  if(button){
-   button.setAttribute("aria-expanded","true");
-   button.setAttribute("aria-label","Collapse project details");
-  }
-  requestAnimationFrame(()=>{body.style.maxHeight=body.scrollHeight+"px";});
- }
-
+  if(btn){btn.setAttribute("aria-expanded","true");btn.setAttribute("aria-label","Collapse project details");}
+  body.style.setProperty("--project-body-height","0px");
+  requestAnimationFrame(()=>{
+   body.style.setProperty("--project-body-height",body.scrollHeight+"px");
+  });
+ };
  rows.forEach(row=>close(row,false));
-
  root.addEventListener("click",event=>{
   const head=event.target.closest(".project-head");
-  if(!head || !root.contains(head))return;
+  if(!head||!root.contains(head))return;
+  const row=head.closest(".project-row");
+  if(!row)return;
   event.preventDefault();
   event.stopPropagation();
   event.stopImmediatePropagation();
-  const row=head.closest(".project-row");
-  if(!row)return;
-  const alreadyOpen=row.classList.contains("active");
-  rows.forEach(item=>close(item,item!==row));
-  if(!alreadyOpen)open(row);
+  const isOpen=row.classList.contains("active");
+  rows.forEach(item=>{if(item!==row || isOpen)close(item,true);});
+  if(!isOpen)open(row);
  },true);
-
  window.addEventListener("resize",()=>{
-  const active=rows.find(row=>row.classList.contains("active"));
-  if(!active)return;
-  const body=active.querySelector(":scope > .project-body");
-  if(body)body.style.maxHeight=body.scrollHeight+"px";
+  const row=rows.find(item=>item.classList.contains("active"));
+  if(row){
+   const body=row.querySelector(".project-body");
+   if(body)body.style.setProperty("--project-body-height",body.scrollHeight+"px");
+  }
  },{passive:true});
 })();
 /* ============ CONTACT FORM/* ============ CONTACT FORM (EmailJS) ============ */
@@ -373,4 +362,16 @@ document.addEventListener("DOMContentLoaded", function () {
  if(video.readyState>=2)start();
  else video.addEventListener("canplay",start,{once:true});
  document.addEventListener("visibilitychange",()=>{if(!document.hidden&&video.paused)start();});
+})();
+
+
+/* Retry muted ambient video playback after page visibility changes */
+(function(){
+ const video=document.getElementById("silk-video-bg");
+ if(!video)return;
+ video.muted=true;video.defaultMuted=true;video.playsInline=true;
+ const play=()=>{const result=video.play();if(result&&result.catch)result.catch(()=>{});};
+ video.addEventListener("loadeddata",play,{once:true});
+ document.addEventListener("visibilitychange",()=>{if(!document.hidden&&video.paused)play();});
+ play();
 })();
