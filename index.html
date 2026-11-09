@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./new.css?v=20261109-gold-dust-visible-6">
+    <link rel="stylesheet" href="./new.css?v=20261109-spacing-projects-fix-7">
 </head>
 <body>
 
@@ -479,34 +479,39 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script src="./new.js?v=20261109-accordion-isolated-5"></script>
+    <script src="./new.js?v=20261109-spacing-projects-fix-7"></script>
     <script>
-    /* Isolated project accordion: independent of the main animation bundle. */
+    /* Accessible, exclusive project accordion: only the selected card opens. */
     (function () {
-      var rows = Array.prototype.slice.call(document.querySelectorAll("#projects .project-row"));
+      var rows = Array.from(document.querySelectorAll("#projects .project-row"));
+      function closeRow(row) {
+        var body = row.querySelector(".project-body");
+        var button = row.querySelector(".expand-btn");
+        row.classList.remove("active");
+        if (body) body.hidden = true;
+        if (button) {
+          button.setAttribute("aria-expanded", "false");
+          button.setAttribute("aria-label", "Expand project details");
+        }
+      }
       rows.forEach(function (row) {
         var head = row.querySelector(".project-head");
         var body = row.querySelector(".project-body");
         var button = row.querySelector(".expand-btn");
         if (!head || !body) return;
-        body.hidden = true;
-        row.classList.remove("active");
-        if (button) button.setAttribute("aria-expanded", "false");
+        closeRow(row);
         head.addEventListener("click", function (event) {
           if (event.target.closest("a")) return;
           event.preventDefault();
-          var wasOpen = row.classList.contains("active");
-          rows.forEach(function (item) {
-            item.classList.remove("active");
-            var detail = item.querySelector(".project-body");
-            var control = item.querySelector(".expand-btn");
-            if (detail) detail.hidden = true;
-            if (control) control.setAttribute("aria-expanded", "false");
-          });
-          if (!wasOpen) {
+          var shouldOpen = body.hidden;
+          rows.forEach(closeRow);
+          if (shouldOpen) {
             row.classList.add("active");
             body.hidden = false;
-            if (button) button.setAttribute("aria-expanded", "true");
+            if (button) {
+              button.setAttribute("aria-expanded", "true");
+              button.setAttribute("aria-label", "Collapse project details");
+            }
           }
         });
       });
