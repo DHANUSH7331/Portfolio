@@ -270,3 +270,20 @@ document.addEventListener("DOMContentLoaded", function () {
     toggle.setAttribute("aria-label",open?"Close navigation":"Open navigation");
   });
 })();
+
+/* ============ TOP NAV SCROLL STATE + ACTIVE SECTION ============ */
+(function topNavigation(){
+ const nav=document.getElementById("top-nav");
+ const links=[...document.querySelectorAll(".top-nav-links a")];
+ const sections=links.map(link=>document.querySelector(link.getAttribute("href"))).filter(Boolean);
+ const update=()=>{if(nav)nav.classList.toggle("scrolled",window.scrollY>24)};
+ window.addEventListener("scroll",update,{passive:true});update();
+ if("IntersectionObserver" in window){
+  const observer=new IntersectionObserver(entries=>{
+   entries.forEach(entry=>{
+    if(entry.isIntersecting)links.forEach(link=>link.classList.toggle("active",link.getAttribute("href")==="#"+entry.target.id));
+   });
+  },{rootMargin:"-35% 0px -55% 0px",threshold:0});
+  sections.forEach(section=>observer.observe(section));
+ }
+})();
