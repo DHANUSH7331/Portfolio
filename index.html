@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./new.css?v=20261109-restored-layout-13">
+    <link rel="stylesheet" href="./new.css?v=20261109-final-restored-14">
 </head>
 <body>
 
@@ -479,7 +479,34 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script src="./new.js?v=20261109-restored-layout-13"></script>
+    <script src="./new.js?v=20261109-final-restored-14"></script>
+
+    <script>
+    /* Standalone project accordion — page-level click controller */
+    (function () {
+      var section = document.getElementById("projects");
+      if (!section || section.dataset.accordionReady === "true") return;
+      section.dataset.accordionReady = "true";
+      var cards = Array.prototype.slice.call(section.querySelectorAll(".project-row"));
+      function setOpen(card, open) {
+        var body = card.querySelector(".project-body");
+        var head = card.querySelector(".project-head");
+        card.classList.toggle("active", open);
+        if (body) body.hidden = !open;
+        if (head) head.setAttribute("aria-expanded", String(open));
+      }
+      cards.forEach(function (card) { setOpen(card, false); });
+      section.addEventListener("click", function (event) {
+        var head = event.target.closest(".project-head");
+        if (!head || !section.contains(head)) return;
+        var selected = head.closest(".project-row");
+        if (!selected) return;
+        var shouldOpen = !selected.classList.contains("active");
+        cards.forEach(function (card) { setOpen(card, false); });
+        if (shouldOpen) setOpen(selected, true);
+      });
+    })();
+    </script>
 
     <script>
     // Standalone project accordion: does not depend on the main animation bundle.
