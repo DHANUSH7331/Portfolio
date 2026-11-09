@@ -2415,3 +2415,72 @@ footer{margin:0!important;width:100%!important}
 @media(prefers-reduced-motion:reduce){
  .hero-photo-frame,.hero-photo-frame::before,.hero-photo-frame::after,.portrait-orbit,.portrait-spark{animation:none!important}
 }
+
+
+/* =========================================================
+   SILK-NIGHT BACKGROUND — SLOW AMBIENT GOLD FLOW
+   ========================================================= */
+body{
+ background-color:#0d0c0a!important;
+ background-image:
+  radial-gradient(ellipse 65% 52% at 8% 12%,rgba(155,112,58,.13),transparent 72%),
+  radial-gradient(ellipse 58% 65% at 91% 34%,rgba(105,83,48,.12),transparent 72%),
+  radial-gradient(ellipse 70% 55% at 52% 100%,rgba(174,132,76,.085),transparent 70%),
+  linear-gradient(135deg,#0b0a09 0%,#15120d 48%,#0b0a09 100%)!important;
+ background-size:170% 170%,180% 180%,160% 160%,100% 100%!important;
+ background-attachment:fixed!important;
+ animation:silk-background-drift 38s ease-in-out infinite alternate;
+}
+@keyframes silk-background-drift{
+ 0%{background-position:0% 0%,100% 20%,40% 100%,center}
+ 50%{background-position:70% 28%,25% 75%,80% 35%,center}
+ 100%{background-position:20% 85%,75% 5%,10% 55%,center}
+}
+body::before{
+ z-index:0!important;
+ background:
+  radial-gradient(ellipse 42% 28% at 18% 25%,rgba(224,185,123,.095),transparent 75%),
+  radial-gradient(ellipse 48% 34% at 82% 68%,rgba(191,146,83,.075),transparent 76%),
+  linear-gradient(112deg,transparent 15%,rgba(235,207,161,.025) 42%,transparent 65%)!important;
+ background-size:160% 160%,180% 180%,220% 220%!important;
+ animation:silk-light-pass 29s cubic-bezier(.45,0,.55,1) infinite alternate!important;
+ opacity:.9;
+}
+@keyframes silk-light-pass{
+ 0%{background-position:0% 10%,100% 90%,0% 50%;filter:blur(0)}
+ 50%{background-position:70% 55%,15% 20%,100% 35%;filter:blur(5px)}
+ 100%{background-position:100% 90%,0% 10%,20% 70%;filter:blur(1px)}
+}
+main,footer{position:relative;z-index:1}
+.top-nav{z-index:1100}
+body::after{opacity:.075!important}
+@media(prefers-reduced-motion:reduce){
+ body,body::before{animation:none!important}
+}
+
+/* =========================================================
+   PROJECT ACCORDION — ONE OPEN ITEM, TRUE MEASURED HEIGHT
+   ========================================================= */
+.project-row{overflow:hidden;will-change:transform}
+.project-row .project-body{
+ max-height:var(--project-body-height,0px)!important;
+ overflow:hidden!important;
+ padding-top:0!important;
+ padding-bottom:0!important;
+ opacity:0;transform:translateY(-7px);
+ transition:max-height .62s cubic-bezier(.22,.72,.2,1),opacity .32s ease,transform .45s ease,padding .45s ease!important;
+}
+.project-row.active .project-body{
+ max-height:var(--project-body-height,0px)!important;
+ padding-bottom:24px!important;
+ opacity:1;transform:translateY(0);
+}
+.project-row .project-head{cursor:pointer;user-select:none}
+.project-row .project-head .expand-btn{pointer-events:none}
+.project-row .expand-btn{transition:transform .5s cubic-bezier(.2,.75,.25,1),background .35s,border-color .35s}
+.project-row.active .expand-btn{transform:rotate(45deg)}
+.project-row.active{border-color:rgba(232,198,142,.52)}
+.project-row:not(.active):hover{border-color:rgba(232,198,142,.42)}
+@media(max-width:560px){
+ .project-row.active .project-body{padding-bottom:19px!important}
+}
