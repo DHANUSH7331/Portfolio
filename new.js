@@ -138,57 +138,7 @@ const skillObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll(".skill-panel").forEach((panel) => skillObserver.observe(panel));
 
-/* ============ PROJECT ACCORDION — EXCLUSIVE, ANIMATED ============ */
-(function(){
- const root=document.querySelector("#projects .project-list");
- if(!root)return;
- const rows=Array.from(root.children).filter(el=>el.classList.contains("project-row"));
- const close=(row,animate)=>{
-  const body=row.querySelector(".project-body");
-  const btn=row.querySelector(".expand-btn");
-  row.classList.remove("active");
-  if(btn){btn.setAttribute("aria-expanded","false");btn.setAttribute("aria-label","Expand project details");}
-  if(!body)return;
-  const current=body.getBoundingClientRect().height;
-  if(!animate){body.hidden=true;body.style.setProperty("--project-body-height","0px");return;}
-  body.hidden=false;
-  body.style.setProperty("--project-body-height",current+"px");
-  requestAnimationFrame(()=>body.style.setProperty("--project-body-height","0px"));
-  window.setTimeout(()=>{if(!row.classList.contains("active"))body.hidden=true;},650);
- };
- const open=row=>{
-  const body=row.querySelector(".project-body");
-  const btn=row.querySelector(".expand-btn");
-  if(!body)return;
-  body.hidden=false;
-  row.classList.add("active");
-  if(btn){btn.setAttribute("aria-expanded","true");btn.setAttribute("aria-label","Collapse project details");}
-  body.style.setProperty("--project-body-height","0px");
-  requestAnimationFrame(()=>{
-   body.style.setProperty("--project-body-height",body.scrollHeight+"px");
-  });
- };
- rows.forEach(row=>close(row,false));
- root.addEventListener("click",event=>{
-  const head=event.target.closest(".project-head");
-  if(!head||!root.contains(head))return;
-  const row=head.closest(".project-row");
-  if(!row)return;
-  event.preventDefault();
-  event.stopPropagation();
-  event.stopImmediatePropagation();
-  const isOpen=row.classList.contains("active");
-  rows.forEach(item=>{if(item!==row || isOpen)close(item,true);});
-  if(!isOpen)open(row);
- },true);
- window.addEventListener("resize",()=>{
-  const row=rows.find(item=>item.classList.contains("active"));
-  if(row){
-   const body=row.querySelector(".project-body");
-   if(body)body.style.setProperty("--project-body-height",body.scrollHeight+"px");
-  }
- },{passive:true});
-})();
+/* Project accordion is handled by the isolated inline controller in index.html. */
 /* ============ CONTACT FORM/* ============ CONTACT FORM (EmailJS) ============ */
 document.addEventListener("DOMContentLoaded", function () {
     emailjs.init("QH51fTLwwmsby2jcc");
