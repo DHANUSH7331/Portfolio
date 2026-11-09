@@ -138,38 +138,44 @@ const skillObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll(".skill-panel").forEach((panel) => skillObserver.observe(panel));
 
-/* ============ PROJECT ACCORDION — SINGLE-OPEN CONTROLLER ============ */
+/* ============ PROJECT ACCORDION — EXCLUSIVE & CACHE-BUSTED FIX ============ */
 (function projectAccordion(){
- const list=document.querySelector(".project-list");
- if(!list)return;
- const rows=[...list.querySelectorAll(".project-row")];
+ const rows=[...document.querySelectorAll("#projects .project-row")];
+ if(!rows.length)return;
 
- function setExpanded(row,expanded){
+ function updateRow(row,open){
   const body=row.querySelector(".project-body");
   const button=row.querySelector(".expand-btn");
-  row.classList.toggle("active",expanded);
+  row.classList.toggle("active",open);
   if(button){
-   button.setAttribute("aria-expanded",String(expanded));
-   button.setAttribute("aria-label",expanded?"Collapse project details":"Expand project details");
+   button.setAttribute("aria-expanded",String(open));
+   button.setAttribute("aria-label",open?"Collapse project details":"Expand project details");
   }
   if(body){
-   body.style.setProperty("--project-body-height",expanded?body.scrollHeight+"px":"0px");
+   body.style.setProperty("--project-body-height",open?"0px":"0px");
+   if(open){
+    requestAnimationFrame(()=>body.style.setProperty("--project-body-height",body.scrollHeight+"px"));
+   }
   }
  }
- rows.forEach(row=>setExpanded(row,false));
 
- list.addEventListener("click",event=>{
-  const head=event.target.closest(".project-head");
-  if(!head || !list.contains(head))return;
-  if(event.target.closest("a"))return;
-  const row=head.closest(".project-row");
-  if(!row)return;
-  const shouldOpen=!row.classList.contains("active");
-  rows.forEach(item=>setExpanded(item,item===row && shouldOpen));
+ rows.forEach(row=>{
+  updateRow(row,false);
+  const head=row.querySelector(".project-head");
+  if(!head)return;
+  head.addEventListener("click",event=>{
+   if(event.target.closest("a"))return;
+   const wasOpen=row.classList.contains("active");
+   rows.forEach(item=>updateRow(item,false));
+   if(!wasOpen)updateRow(row,true);
+  });
  });
+
  window.addEventListener("resize",()=>{
   const openRow=rows.find(row=>row.classList.contains("active"));
-  if(openRow)setExpanded(openRow,true);
+  if(!openRow)return;
+  const body=openRow.querySelector(".project-body");
+  if(body)body.style.setProperty("--project-body-height",body.scrollHeight+"px");
  },{passive:true});
 })();
 /* ============ CONTACT FORM/* ============ CONTACT FORM (EmailJS) ============ */
