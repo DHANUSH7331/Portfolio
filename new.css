@@ -3149,3 +3149,49 @@ footer{padding-top:18px!important;padding-bottom:18px!important}
   display:block!important;
   height:auto!important;
 }
+
+
+/* MOTION POLISH — reduce jank and prevent reveal/hover animations competing */
+:root{scroll-behavior:smooth}
+html{scroll-behavior:smooth}
+.reveal-ready{
+  transition:opacity .55s cubic-bezier(.22,.72,.2,1),
+             transform .55s cubic-bezier(.22,.72,.2,1)!important;
+  filter:none!important;
+  will-change:opacity,transform;
+  backface-visibility:hidden;
+}
+.reveal-ready.revealed{filter:none!important}
+.section-label.reveal-ready{will-change:opacity}
+.experience-card,.skill-panel,.edu-node,.project-row,.contact-copy,.contact-form{
+  backface-visibility:hidden;
+  transform:translateZ(0);
+}
+.skill-panel,.experience-card,.edu-node,.project-row,.social-links a,.hero-actions .btn{
+  transition:transform .28s cubic-bezier(.2,.75,.25,1),
+             border-color .28s ease,
+             box-shadow .28s ease,
+             background-color .28s ease!important;
+}
+#projects .project-row{transform:translateZ(0)!important}
+#projects .project-row > .project-body:not([hidden]){
+  animation:project-detail-in .3s cubic-bezier(.22,.72,.2,1) both;
+}
+.hero-photo-frame{
+  backface-visibility:hidden;
+  transform:translateZ(0);
+}
+.photo-clip img{backface-visibility:hidden}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
+}
+@media(max-width:700px){
+  .reveal-ready{will-change:auto}
+  .hero-photo-frame{animation:portrait-lux-entry 1s ease both!important}
+}
