@@ -3158,10 +3158,10 @@ footer{padding-top:18px!important;padding-bottom:18px!important}
   .hero-photo-frame{margin:0 auto 48px!important}
 }
 
-/* Hero section: nudge the opening content slightly lower. */
+/* Hero section: lower the opening content a little further. */
 @media (min-width:761px){
-  .hero{padding-top:130px!important;padding-bottom:100px!important}
+  .hero{padding-top:175px!important;padding-bottom:100px!important}
 }
 @media (max-width:760px){
-  .hero{padding-top:75px!important}
+  .hero{padding-top:100px!important}
 }
