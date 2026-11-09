@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./new.css?v=20261109-compact-projects-8">
+    <link rel="stylesheet" href="./new.css?v=20261109-projects-large-fix-9">
 </head>
 <body>
 
@@ -346,12 +346,12 @@
                 </article>
 
                 <article class="project-row" data-tag="Computer Vision">
-                    <div class="project-head">
+                    <button class="project-head" type="button" aria-expanded="false">
                         <img class="project-thumb" src="./Images/drone-operator-piloting-flying-drone-sunset.jpg" alt="" onerror="this.remove()">
                         <span class="project-tag">Computer Vision</span>
                         <h3>Drone Detection System</h3>
-                        <button class="expand-btn" aria-label="Expand project details" aria-expanded="false" type="button"><span></span></button>
-                    </div>
+                        <span class="expand-btn" aria-hidden="true"><span></span></span>
+                    </button>
                     <div class="project-body" hidden>
                         <ul>
                             <li>Built a drone detection system using YOLOv8 for accurate identification in images and video.</li>
@@ -364,12 +364,12 @@
                 </article>
 
                 <article class="project-row" data-tag="Machine Learning">
-                    <div class="project-head">
+                    <button class="project-head" type="button" aria-expanded="false">
                         <img class="project-thumb" src="./Images/businessman-writing-documents.jpg" alt="" onerror="this.remove()">
                         <span class="project-tag">Machine Learning</span>
                         <h3>Loan Approval Prediction</h3>
-                        <button class="expand-btn" aria-label="Expand project details" aria-expanded="false" type="button"><span></span></button>
-                    </div>
+                        <span class="expand-btn" aria-hidden="true"><span></span></span>
+                    </button>
                     <div class="project-body" hidden>
                         <ul>
                             <li>Developed a classification model with scikit-learn to predict loan approvals from applicant data.</li>
@@ -382,12 +382,12 @@
                 </article>
 
                 <article class="project-row" data-tag="Business Intelligence">
-                    <div class="project-head">
+                    <button class="project-head" type="button" aria-expanded="false">
                         <img class="project-thumb" src="./Images/modern-data-visualization-tech-office.jpg" alt="" onerror="this.remove()">
                         <span class="project-tag">Business Intelligence</span>
                         <h3>Urban Energy Smart Grid Dashboard</h3>
-                        <button class="expand-btn" aria-label="Expand project details" aria-expanded="false" type="button"><span></span></button>
-                    </div>
+                        <span class="expand-btn" aria-hidden="true"><span></span></span>
+                    </button>
                     <div class="project-body" hidden>
                         <ul>
                             <li>Built a Power BI dashboard monitoring energy consumption across 10+ urban zones.</li>
@@ -400,12 +400,12 @@
                 </article>
 
                 <article class="project-row" data-tag="Backend / Full Stack">
-                    <div class="project-head">
+                    <button class="project-head" type="button" aria-expanded="false">
                         <img class="project-thumb" src="./Images/Bank.jpg" alt="" onerror="this.remove()">
                         <span class="project-tag">Backend / Full Stack</span>
                         <h3>Bank Management System</h3>
-                        <button class="expand-btn" aria-label="Expand project details" aria-expanded="false" type="button"><span></span></button>
-                    </div>
+                        <span class="expand-btn" aria-hidden="true"><span></span></span>
+                    </button>
                     <div class="project-body" hidden>
                         <ul>
                             <li>Built a full bank management system in Python and Django.</li>
@@ -418,12 +418,12 @@
                 </article>
 
                 <article class="project-row" data-tag="Frontend">
-                    <div class="project-head">
+                    <button class="project-head" type="button" aria-expanded="false">
                         <img class="project-thumb" src="./Images/young-man-using-discount-coupon-his-smartphone-some-online-shopping-laptop.jpg" alt="" onerror="this.remove()">
                         <span class="project-tag">Frontend</span>
                         <h3>Products Web Application</h3>
-                        <button class="expand-btn" aria-label="Expand project details" aria-expanded="false" type="button"><span></span></button>
-                    </div>
+                        <span class="expand-btn" aria-hidden="true"><span></span></span>
+                    </button>
                     <div class="project-body" hidden>
                         <ul>
                             <li>Built a responsive products app that displays and manages product data dynamically.</li>
@@ -479,7 +479,39 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script src="./new.js?v=20261109-compact-projects-8"></script>
+    <script src="./new.js?v=20261109-projects-large-fix-9"></script>
+
+    <script>
+    // Standalone project accordion: does not depend on the main animation bundle.
+    (() => {
+      const section = document.getElementById("projects");
+      if (!section || section.dataset.accordionReady === "true") return;
+      section.dataset.accordionReady = "true";
+      const cards = [...section.querySelectorAll(".project-row")];
+      const close = card => {
+        card.classList.remove("active");
+        const body = card.querySelector(".project-body");
+        const head = card.querySelector(".project-head");
+        if (body) body.hidden = true;
+        if (head) head.setAttribute("aria-expanded", "false");
+      };
+      cards.forEach(close);
+      section.addEventListener("click", event => {
+        const head = event.target.closest(".project-head");
+        if (!head || !section.contains(head)) return;
+        const card = head.closest(".project-row");
+        if (!card) return;
+        const open = !card.classList.contains("active");
+        cards.forEach(close);
+        if (open) {
+          card.classList.add("active");
+          card.querySelector(".project-body").hidden = false;
+          head.setAttribute("aria-expanded", "true");
+        }
+      });
+    })();
+    </script>
+
 
     <!-- Chat Bot Integration  -->
     <script type="module" src="https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs"></script>
