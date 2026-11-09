@@ -138,44 +138,66 @@ const skillObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll(".skill-panel").forEach((panel) => skillObserver.observe(panel));
 
-/* ============ PROJECT ACCORDION — EXCLUSIVE & CACHE-BUSTED FIX ============ */
+/* ============ PROJECT ACCORDION — HARD EXCLUSIVE STATE ============ */
 (function projectAccordion(){
- const rows=[...document.querySelectorAll("#projects .project-row")];
- if(!rows.length)return;
+ const root=document.querySelector("#projects .project-list");
+ if(!root)return;
+ const rows=[...root.querySelectorAll(":scope > .project-row")];
+ const duration=620;
 
- function updateRow(row,open){
-  const body=row.querySelector(".project-body");
+ function close(row,animate){
+  const body=row.querySelector(":scope > .project-body");
   const button=row.querySelector(".expand-btn");
-  row.classList.toggle("active",open);
+  row.classList.remove("active");
   if(button){
-   button.setAttribute("aria-expanded",String(open));
-   button.setAttribute("aria-label",open?"Collapse project details":"Expand project details");
+   button.setAttribute("aria-expanded","false");
+   button.setAttribute("aria-label","Expand project details");
   }
-  if(body){
-   body.style.setProperty("--project-body-height",open?"0px":"0px");
-   if(open){
-    requestAnimationFrame(()=>body.style.setProperty("--project-body-height",body.scrollHeight+"px"));
-   }
+  if(!body)return;
+  if(!animate){
+   body.hidden=true;
+   body.style.maxHeight="0px";
+   return;
   }
+  body.style.maxHeight=body.scrollHeight+"px";
+  requestAnimationFrame(()=>{body.style.maxHeight="0px";});
+  window.setTimeout(()=>{if(!row.classList.contains("active"))body.hidden=true;},duration);
  }
 
- rows.forEach(row=>{
-  updateRow(row,false);
-  const head=row.querySelector(".project-head");
-  if(!head)return;
-  head.addEventListener("click",event=>{
-   if(event.target.closest("a"))return;
-   const wasOpen=row.classList.contains("active");
-   rows.forEach(item=>updateRow(item,false));
-   if(!wasOpen)updateRow(row,true);
-  });
- });
+ function open(row){
+  const body=row.querySelector(":scope > .project-body");
+  const button=row.querySelector(".expand-btn");
+  if(!body)return;
+  body.hidden=false;
+  body.style.maxHeight="0px";
+  row.classList.add("active");
+  if(button){
+   button.setAttribute("aria-expanded","true");
+   button.setAttribute("aria-label","Collapse project details");
+  }
+  requestAnimationFrame(()=>{body.style.maxHeight=body.scrollHeight+"px";});
+ }
+
+ rows.forEach(row=>close(row,false));
+
+ root.addEventListener("click",event=>{
+  const head=event.target.closest(".project-head");
+  if(!head || !root.contains(head))return;
+  event.preventDefault();
+  event.stopPropagation();
+  event.stopImmediatePropagation();
+  const row=head.closest(".project-row");
+  if(!row)return;
+  const alreadyOpen=row.classList.contains("active");
+  rows.forEach(item=>close(item,item!==row));
+  if(!alreadyOpen)open(row);
+ },true);
 
  window.addEventListener("resize",()=>{
-  const openRow=rows.find(row=>row.classList.contains("active"));
-  if(!openRow)return;
-  const body=openRow.querySelector(".project-body");
-  if(body)body.style.setProperty("--project-body-height",body.scrollHeight+"px");
+  const active=rows.find(row=>row.classList.contains("active"));
+  if(!active)return;
+  const body=active.querySelector(":scope > .project-body");
+  if(body)body.style.maxHeight=body.scrollHeight+"px";
  },{passive:true});
 })();
 /* ============ CONTACT FORM/* ============ CONTACT FORM (EmailJS) ============ */
@@ -337,4 +359,18 @@ document.addEventListener("DOMContentLoaded", function () {
   portrait.style.setProperty("--tilt-x","0deg");
   portrait.style.setProperty("--tilt-y","0deg");
  });
+})();
+
+
+/* Ensure muted background footage starts where autoplay is permitted. */
+(function silkVideoPlayback(){
+ const video=document.getElementById("silk-video-bg");
+ if(!video)return;
+ video.muted=true;
+ video.defaultMuted=true;
+ video.playsInline=true;
+ const start=()=>{const p=video.play();if(p&&typeof p.catch==="function")p.catch(()=>{});};
+ if(video.readyState>=2)start();
+ else video.addEventListener("canplay",start,{once:true});
+ document.addEventListener("visibilitychange",()=>{if(!document.hidden&&video.paused)start();});
 })();
