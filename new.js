@@ -42,7 +42,7 @@
     function resize() {
         w = canvas.width = window.innerWidth;
         h = canvas.height = window.innerHeight;
-        const count = Math.min(38, Math.floor((w * h) / 42000));
+        const count = Math.min(70, Math.floor((w * h) / 22000));
         nodes = Array.from({ length: count }, () => ({
             x: Math.random() * w,
             y: Math.random() * h,
@@ -197,8 +197,41 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll",updateScroll,{passive:true});
   updateScroll();
 
-  // Avoid per-pointer layout reads and competing inline transforms.
-  // Hover and portrait float effects are handled by lightweight CSS transitions.
+  if(!reduceMotion && window.matchMedia("(hover:hover) and (pointer:fine)").matches){
+    window.addEventListener("pointermove",event=>{
+      targetX=event.clientX;targetY=event.clientY;
+      if(!framePending){
+        framePending=true;
+        requestAnimationFrame(()=>{
+          pointerX+=(targetX-pointerX)*.22;
+          pointerY+=(targetY-pointerY)*.22;
+          if(glow){glow.style.left=pointerX+"px";glow.style.top=pointerY+"px";}
+          framePending=false;
+        });
+      }
+      const card=event.target.closest(".skill-panel,.project-row,.experience-card,.contact-form");
+      if(card){
+        const rect=card.getBoundingClientRect();
+        card.style.setProperty("--mx",(event.clientX-rect.left)+"px");
+        card.style.setProperty("--my",(event.clientY-rect.top)+"px");
+      }
+      if(photo){
+        const rect=photo.getBoundingClientRect();
+        const x=(event.clientX-(rect.left+rect.width/2))/rect.width;
+        const y=(event.clientY-(rect.top+rect.height/2))/rect.height;
+        photo.style.setProperty("--tilt-x",(-y*5)+"deg");
+        photo.style.setProperty("--tilt-y",(x*7)+"deg");
+      }
+    },{passive:true});
+    if(photo)photo.addEventListener("pointerleave",()=>{photo.style.setProperty("--tilt-x","0deg");photo.style.setProperty("--tilt-y","0deg");});
+    document.querySelectorAll(".hero-actions .btn").forEach(btn=>{
+      btn.addEventListener("pointermove",event=>{
+        const r=btn.getBoundingClientRect();
+        btn.style.transform="translate("+((event.clientX-r.left-r.width/2)*.08)+"px,"+((event.clientY-r.top-r.height/2)*.12)+"px)";
+      });
+      btn.addEventListener("pointerleave",()=>btn.style.transform="");
+    });
+  }
 
   const links=[...document.querySelectorAll(".sidebar-nav a")];
   const sections=links.map(link=>document.querySelector(link.getAttribute("href"))).filter(Boolean);
@@ -243,7 +276,29 @@ document.addEventListener("DOMContentLoaded", function () {
  }
 })();
 
-/* Portrait tilt is handled once by motionController to prevent competing transforms. */
+
+/* ============ PORTRAIT PARALLAX ============ */
+(function portraitParallax(){
+ const portrait=document.querySelector(".hero-photo-frame");
+ if(!portrait || window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+    !window.matchMedia("(hover:hover) and (pointer:fine)").matches)return;
+ let raf=0;
+ portrait.addEventListener("pointermove",event=>{
+  if(raf)return;
+  raf=requestAnimationFrame(()=>{
+   const rect=portrait.getBoundingClientRect();
+   const x=(event.clientX-rect.left)/rect.width-.5;
+   const y=(event.clientY-rect.top)/rect.height-.5;
+   portrait.style.setProperty("--tilt-x",(-y*6)+"deg");
+   portrait.style.setProperty("--tilt-y",(x*8)+"deg");
+   raf=0;
+  });
+ });
+ portrait.addEventListener("pointerleave",()=>{
+  portrait.style.setProperty("--tilt-x","0deg");
+  portrait.style.setProperty("--tilt-y","0deg");
+ });
+})();
 
 
 /* Ensure muted background footage starts where autoplay is permitted. */
@@ -259,4 +314,14 @@ document.addEventListener("DOMContentLoaded", function () {
  document.addEventListener("visibilitychange",()=>{if(!document.hidden&&video.paused)start();});
 })();
 
-/* Duplicate video retry removed; silkVideoPlayback handles resume. */
+
+/* Retry muted ambient video playback after page visibility changes */
+(function(){
+ const video=document.getElementById("silk-video-bg");
+ if(!video)return;
+ video.muted=true;video.defaultMuted=true;video.playsInline=true;
+ const play=()=>{const result=video.play();if(result&&result.catch)result.catch(()=>{});};
+ video.addEventListener("loadeddata",play,{once:true});
+ document.addEventListener("visibilitychange",()=>{if(!document.hidden&&video.paused)play();});
+ play();
+})();
