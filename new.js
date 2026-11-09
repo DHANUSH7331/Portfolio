@@ -186,3 +186,48 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+/* ============ SIDEBAR NAVIGATION + EDITORIAL REVEALS ============ */
+(function layoutInteractions(){
+  const links=[...document.querySelectorAll(".sidebar-nav a")];
+  const sections=links.map(link=>document.querySelector(link.getAttribute("href"))).filter(Boolean);
+  if("IntersectionObserver" in window){
+    const navObserver=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          links.forEach(link=>link.classList.toggle("active",link.getAttribute("href")==="#"+entry.target.id));
+        }
+      });
+    },{rootMargin:"-35% 0px -55% 0px",threshold:0});
+    sections.forEach(section=>navObserver.observe(section));
+  }
+  const revealTargets=document.querySelectorAll(".section-label,.experience-card,.skill-panel,.edu-node,.project-row,.contact-copy,.contact-form");
+  revealTargets.forEach(el=>el.classList.add("reveal-ready"));
+  if("IntersectionObserver" in window){
+    const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
+      if(entry.isIntersecting){entry.target.classList.add("revealed");revealObserver.unobserve(entry.target);}
+    }),{threshold:.12});
+    revealTargets.forEach(el=>revealObserver.observe(el));
+  }else revealTargets.forEach(el=>el.classList.add("revealed"));
+  document.querySelectorAll(".project-row").forEach(row=>{
+    const button=row.querySelector(".expand-btn");
+    const head=row.querySelector(".project-head");
+    if(!button||!head)return;
+    button.setAttribute("aria-expanded","false");
+    head.addEventListener("click",event=>{
+      if(event.target.closest("a"))return;
+      const expanded=row.classList.toggle("active");
+      button.setAttribute("aria-expanded",String(expanded));
+      button.setAttribute("aria-label",expanded?"Collapse project details":"Expand project details");
+    });
+  });
+  const toggle=document.getElementById("mobile-menu-toggle");
+  if(toggle){
+    toggle.addEventListener("click",()=>{
+      const sidebar=document.getElementById("portfolio-sidebar");
+      const open=sidebar.classList.toggle("mobile-open");
+      toggle.setAttribute("aria-expanded",String(open));
+      toggle.setAttribute("aria-label",open?"Close navigation":"Open navigation");
+    });
+  }
+})();
