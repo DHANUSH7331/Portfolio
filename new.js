@@ -287,3 +287,51 @@ document.addEventListener("DOMContentLoaded", function () {
   sections.forEach(section=>observer.observe(section));
  }
 })();
+
+
+/* ============ PROJECT ACCORDION HEIGHT + PORTRAIT PARALLAX ============ */
+(function portfolioPolish(){
+ const projectRows=[...document.querySelectorAll(".project-row")];
+ const setBodyHeight=row=>{
+  const body=row.querySelector(".project-body");
+  if(!body)return;
+  body.style.maxHeight=row.classList.contains("active")?body.scrollHeight+"px":"0px";
+ };
+ projectRows.forEach(row=>{
+  const button=row.querySelector(".expand-btn");
+  const head=row.querySelector(".project-head");
+  const body=row.querySelector(".project-body");
+  if(!button||!head||!body)return;
+  const sync=()=>{
+   const expanded=row.classList.contains("active");
+   button.setAttribute("aria-expanded",String(expanded));
+   button.setAttribute("aria-label",expanded?"Collapse project details":"Expand project details");
+   body.style.maxHeight=expanded?body.scrollHeight+"px":"0px";
+  };
+  sync();
+  if("ResizeObserver" in window){
+   const ro=new ResizeObserver(()=>{if(row.classList.contains("active"))setBodyHeight(row)});
+   ro.observe(body);
+  }
+ });
+ window.addEventListener("resize",()=>projectRows.forEach(setBodyHeight),{passive:true});
+ const portrait=document.querySelector(".hero-photo-frame");
+ if(portrait && !window.matchMedia("(prefers-reduced-motion: reduce)").matches && window.matchMedia("(hover:hover) and (pointer:fine)").matches){
+  let raf=0;
+  portrait.addEventListener("pointermove",event=>{
+   if(raf)return;
+   raf=requestAnimationFrame(()=>{
+    const r=portrait.getBoundingClientRect();
+    const x=(event.clientX-r.left)/r.width-.5;
+    const y=(event.clientY-r.top)/r.height-.5;
+    portrait.style.setProperty("--tilt-x",(-y*8)+"deg");
+    portrait.style.setProperty("--tilt-y",(x*10)+"deg");
+    raf=0;
+   });
+  });
+  portrait.addEventListener("pointerleave",()=>{
+   portrait.style.setProperty("--tilt-x","0deg");
+   portrait.style.setProperty("--tilt-y","0deg");
+  });
+ }
+})();
