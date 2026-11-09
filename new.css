@@ -3149,3 +3149,11 @@ footer{padding-top:18px!important;padding-bottom:18px!important}
   display:block!important;
   height:auto!important;
 }
+
+
+/* Safe hero portrait alignment: center the photo alongside the introduction. */
+.hero{align-items:center!important}
+.hero-photo-frame{align-self:center!important;margin:0 auto!important}
+@media(max-width:760px){
+  .hero-photo-frame{margin:0 auto 48px!important}
+}
