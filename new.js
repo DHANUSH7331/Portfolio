@@ -138,19 +138,40 @@ const skillObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll(".skill-panel").forEach((panel) => skillObserver.observe(panel));
 
-/* ============ PROJECT EXPAND / COLLAPSE ============ */
-document.querySelectorAll(".project-row").forEach((row) => {
-    const head = row.querySelector(".project-head");
-    const button = row.querySelector(".expand-btn");
-    if (!head || !button) return;
-    head.addEventListener("click", (event) => {
-        if (event.target.closest("a")) return;
-        const expanded = row.classList.toggle("active");
-        button.setAttribute("aria-expanded", String(expanded));
-        button.setAttribute("aria-label", expanded ? "Collapse project details" : "Expand project details");
-    });
-});
+/* ============ PROJECT ACCORDION — SINGLE-OPEN CONTROLLER ============ */
+(function projectAccordion(){
+ const list=document.querySelector(".project-list");
+ if(!list)return;
+ const rows=[...list.querySelectorAll(".project-row")];
 
+ function setExpanded(row,expanded){
+  const body=row.querySelector(".project-body");
+  const button=row.querySelector(".expand-btn");
+  row.classList.toggle("active",expanded);
+  if(button){
+   button.setAttribute("aria-expanded",String(expanded));
+   button.setAttribute("aria-label",expanded?"Collapse project details":"Expand project details");
+  }
+  if(body){
+   body.style.setProperty("--project-body-height",expanded?body.scrollHeight+"px":"0px");
+  }
+ }
+ rows.forEach(row=>setExpanded(row,false));
+
+ list.addEventListener("click",event=>{
+  const head=event.target.closest(".project-head");
+  if(!head || !list.contains(head))return;
+  if(event.target.closest("a"))return;
+  const row=head.closest(".project-row");
+  if(!row)return;
+  const shouldOpen=!row.classList.contains("active");
+  rows.forEach(item=>setExpanded(item,item===row && shouldOpen));
+ });
+ window.addEventListener("resize",()=>{
+  const openRow=rows.find(row=>row.classList.contains("active"));
+  if(openRow)setExpanded(openRow,true);
+ },{passive:true});
+})();
 /* ============ CONTACT FORM/* ============ CONTACT FORM (EmailJS) ============ */
 document.addEventListener("DOMContentLoaded", function () {
     emailjs.init("QH51fTLwwmsby2jcc");
@@ -289,49 +310,25 @@ document.addEventListener("DOMContentLoaded", function () {
 })();
 
 
-/* ============ PROJECT ACCORDION HEIGHT + PORTRAIT PARALLAX ============ */
-(function portfolioPolish(){
- const projectRows=[...document.querySelectorAll(".project-row")];
- const setBodyHeight=row=>{
-  const body=row.querySelector(".project-body");
-  if(!body)return;
-  body.style.maxHeight=row.classList.contains("active")?body.scrollHeight+"px":"0px";
- };
- projectRows.forEach(row=>{
-  const button=row.querySelector(".expand-btn");
-  const head=row.querySelector(".project-head");
-  const body=row.querySelector(".project-body");
-  if(!button||!head||!body)return;
-  const sync=()=>{
-   const expanded=row.classList.contains("active");
-   button.setAttribute("aria-expanded",String(expanded));
-   button.setAttribute("aria-label",expanded?"Collapse project details":"Expand project details");
-   body.style.maxHeight=expanded?body.scrollHeight+"px":"0px";
-  };
-  sync();
-  if("ResizeObserver" in window){
-   const ro=new ResizeObserver(()=>{if(row.classList.contains("active"))setBodyHeight(row)});
-   ro.observe(body);
-  }
- });
- window.addEventListener("resize",()=>projectRows.forEach(setBodyHeight),{passive:true});
+/* ============ PORTRAIT PARALLAX ============ */
+(function portraitParallax(){
  const portrait=document.querySelector(".hero-photo-frame");
- if(portrait && !window.matchMedia("(prefers-reduced-motion: reduce)").matches && window.matchMedia("(hover:hover) and (pointer:fine)").matches){
-  let raf=0;
-  portrait.addEventListener("pointermove",event=>{
-   if(raf)return;
-   raf=requestAnimationFrame(()=>{
-    const r=portrait.getBoundingClientRect();
-    const x=(event.clientX-r.left)/r.width-.5;
-    const y=(event.clientY-r.top)/r.height-.5;
-    portrait.style.setProperty("--tilt-x",(-y*8)+"deg");
-    portrait.style.setProperty("--tilt-y",(x*10)+"deg");
-    raf=0;
-   });
+ if(!portrait || window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+    !window.matchMedia("(hover:hover) and (pointer:fine)").matches)return;
+ let raf=0;
+ portrait.addEventListener("pointermove",event=>{
+  if(raf)return;
+  raf=requestAnimationFrame(()=>{
+   const rect=portrait.getBoundingClientRect();
+   const x=(event.clientX-rect.left)/rect.width-.5;
+   const y=(event.clientY-rect.top)/rect.height-.5;
+   portrait.style.setProperty("--tilt-x",(-y*6)+"deg");
+   portrait.style.setProperty("--tilt-y",(x*8)+"deg");
+   raf=0;
   });
-  portrait.addEventListener("pointerleave",()=>{
-   portrait.style.setProperty("--tilt-x","0deg");
-   portrait.style.setProperty("--tilt-y","0deg");
-  });
- }
+ });
+ portrait.addEventListener("pointerleave",()=>{
+  portrait.style.setProperty("--tilt-x","0deg");
+  portrait.style.setProperty("--tilt-y","0deg");
+ });
 })();
