@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./new.css">
+    <link rel="stylesheet" href="./new.css?v=20261109-video-projects-2">
 </head>
 <body>
 
@@ -23,9 +23,12 @@
             <div class="boot-bar"><span id="boot-fill"></span></div>
         </div>
     </div>
-    <!-- AMBIENT BACKGROUND -->
-    <canvas id="grid-canvas"></canvas>
-    <div class="scan-overlay"></div>
+    <!-- AMBIENT GOLD SILK VIDEO BACKGROUND -->
+    <video id="silk-video-bg" class="silk-video-bg" autoplay muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1">
+        <source src="https://videos.pexels.com/video-files/7430072/7430072-hd_1920_1080_25fps.mp4" type="video/mp4">
+        <source src="https://videos.pexels.com/video-files/7430072/7430072-hd_1280_720_25fps.mp4" type="video/mp4">
+    </video>
+    <div class="silk-video-shade" aria-hidden="true"></div>
 
     <header class="top-nav" id="top-nav">
         <a class="top-brand" href="#home" aria-label="Back to top">
@@ -473,10 +476,11 @@
 
     <footer>
         <p>Siriki Sai Dhanush — built with intent, not a template.</p>
+        <small class="media-credit">Background footage: <a href="https://www.pexels.com/video/a-gold-fabric-7430072/" target="_blank" rel="noopener noreferrer">gold silk fabric by alleksana / Pexels</a>.</small>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script src="./new.js"></script>
+    <script src="./new.js?v=20261109-video-projects-2"></script>
     <!-- Chat Bot Integration  -->
     <script type="module" src="https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs"></script>
     <script type="module">
