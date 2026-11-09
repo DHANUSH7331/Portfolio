@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./new.css?v=20261109-goldparticles-4">
+    <link rel="stylesheet" href="./new.css?v=20261109-accordion-isolated-5">
 </head>
 <body>
 
@@ -24,8 +24,8 @@
         </div>
     </div>
     <!-- GOLD SILK VIDEO BACKGROUND -->
-    <video id="silk-video-bg" class="silk-video-bg" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-hidden="true" tabindex="-1" poster="https://images.pexels.com/videos/10296179/pexels-photo-10296179.jpeg?auto=compress&cs=tinysrgb&w=1920">
-        <source src="https://videos.pexels.com/video-files/10296179/10296179-hd_1920_1080_25fps.mp4" type="video/mp4">
+    <video id="silk-video-bg" class="silk-video-bg" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-hidden="true" tabindex="-1" poster="https://images.pexels.com/videos/5561389/free-video-5561389.jpg?auto=compress&cs=tinysrgb&w=1920">
+        <source src="https://videos.pexels.com/video-files/5561389/5561389-hd_1920_1080_25fps.mp4" type="video/mp4">
     </video>
     <div class="silk-video-shade" aria-hidden="true"></div>
 
@@ -475,11 +475,43 @@
 
     <footer>
         <p>Siriki Sai Dhanush — built with intent, not a template.</p>
-        <small class="media-credit">Background footage: <a href="https://www.pexels.com/video/a-gold-fabric-7430072/" target="_blank" rel="noopener noreferrer">gold silk fabric by alleksana / Pexels</a>.</small>
+        <small class="media-credit">Background footage: <a href="https://www.pexels.com/video/golden-dust-particles-floating-5561389/" target="_blank" rel="noopener noreferrer">Golden Dust Particles Floating — Dan Cristian Pădureț / Pexels</a>.</small>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script src="./new.js?v=20261109-goldparticles-4"></script>
+    <script src="./new.js?v=20261109-accordion-isolated-5"></script>
+    <script>
+    /* Isolated project accordion: independent of the main animation bundle. */
+    (function () {
+      var rows = Array.prototype.slice.call(document.querySelectorAll("#projects .project-row"));
+      rows.forEach(function (row) {
+        var head = row.querySelector(".project-head");
+        var body = row.querySelector(".project-body");
+        var button = row.querySelector(".expand-btn");
+        if (!head || !body) return;
+        body.hidden = true;
+        row.classList.remove("active");
+        if (button) button.setAttribute("aria-expanded", "false");
+        head.addEventListener("click", function (event) {
+          if (event.target.closest("a")) return;
+          event.preventDefault();
+          var wasOpen = row.classList.contains("active");
+          rows.forEach(function (item) {
+            item.classList.remove("active");
+            var detail = item.querySelector(".project-body");
+            var control = item.querySelector(".expand-btn");
+            if (detail) detail.hidden = true;
+            if (control) control.setAttribute("aria-expanded", "false");
+          });
+          if (!wasOpen) {
+            row.classList.add("active");
+            body.hidden = false;
+            if (button) button.setAttribute("aria-expanded", "true");
+          }
+        });
+      });
+    })();
+    </script>
     <!-- Chat Bot Integration  -->
     <script type="module" src="https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs"></script>
     <script type="module">
