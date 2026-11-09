@@ -2645,3 +2645,52 @@ main,footer{position:relative;z-index:3!important}
 }
 @media(max-width:700px){#silk-video-bg{opacity:.36!important;filter:brightness(.38) saturate(.8) sepia(.24)!important}}
 @media(prefers-reduced-motion:reduce){#silk-video-bg{display:none!important}}
+
+
+/* FINAL: use the native hidden attribute as the only project visibility state */
+#projects .project-row > .project-body{
+ display:block!important;
+ max-height:none!important;
+ height:auto!important;
+ overflow:visible!important;
+ padding-top:0!important;
+ padding-bottom:0!important;
+ opacity:1!important;
+ transform:none!important;
+ transition:none!important;
+}
+#projects .project-row > .project-body[hidden]{
+ display:none!important;
+}
+#projects .project-row.active > .project-body:not([hidden]){
+ display:block!important;
+ padding-bottom:24px!important;
+ animation:project-detail-in .34s cubic-bezier(.2,.75,.25,1) both;
+}
+@keyframes project-detail-in{
+ from{opacity:0;transform:translateY(9px);filter:blur(3px)}
+ to{opacity:1;transform:translateY(0);filter:blur(0)}
+}
+#projects .project-row .project-head{cursor:pointer}
+#projects .project-row .expand-btn{pointer-events:none}
+#projects .project-row.active .expand-btn{transform:rotate(45deg)}
+@media(max-width:560px){
+ #projects .project-row.active > .project-body:not([hidden]){padding-bottom:19px!important}
+}
+
+/* Gold dust / floating particle footage, not silk or cloth */
+#silk-video-bg{
+ position:fixed!important;inset:0!important;z-index:0!important;
+ display:block!important;width:100vw!important;height:100vh!important;
+ object-fit:cover!important;object-position:center!important;
+ opacity:.43!important;pointer-events:none!important;
+ filter:brightness(.40) saturate(.82) sepia(.25) contrast(1.12)!important;
+ background:#070605;
+}
+.silk-video-shade{
+ position:fixed!important;inset:0!important;z-index:1!important;pointer-events:none!important;
+ background:linear-gradient(180deg,rgba(7,6,5,.60),rgba(8,7,6,.24) 44%,rgba(7,6,5,.65)),
+ radial-gradient(ellipse at 50% 45%,rgba(8,7,5,.04),rgba(8,7,5,.32) 82%)!important;
+}
+@media(max-width:700px){#silk-video-bg{opacity:.31!important;filter:brightness(.34) saturate(.76) sepia(.25)!important}}
+@media(prefers-reduced-motion:reduce){#silk-video-bg{display:none!important}}
