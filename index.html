@@ -555,44 +555,12 @@
     </script>
 
 
-    <!-- Landbot v3 Livechat integration -->
-    <script>
-    (function () {
-      // Prevent duplicate widgets if the page scripts are evaluated more than once.
-      if (window.__saiDhanushLandbotLoading || window.__saiDhanushLandbot) return;
-      window.__saiDhanushLandbotLoading = true;
-
-      var script = document.createElement('script');
-      script.type = 'module';
-      script.async = true;
-      script.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs';
-
-      script.addEventListener('load', function () {
-        // Landbot exposes its widget constructors on window after the module evaluates.
-        window.setTimeout(function () {
-          try {
-            if (!window.Landbot || typeof window.Landbot.Livechat !== 'function') {
-              throw new Error('Landbot SDK loaded, but Livechat constructor is unavailable.');
-            }
-
-            window.__saiDhanushLandbot = new window.Landbot.Livechat({
-              configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-3517702-W4TUPJNPKY9MH6SB/index.json?v=4'
-            });
-            window.__saiDhanushLandbotLoading = false;
-          } catch (error) {
-            window.__saiDhanushLandbotLoading = false;
-            console.error('[Landbot] Initialization failed:', error);
-          }
-        }, 500);
+    <!-- Landbot v3 Livechat integration (official embed code) -->
+    <script type="module" src="https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs"></script>
+    <script type="module">
+      var myLandbot = new Landbot.Livechat({
+        configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-3517702-W4TUPJNPKY9MH6SB/index.json',
       });
-
-      script.addEventListener('error', function () {
-        window.__saiDhanushLandbotLoading = false;
-        console.error('[Landbot] Could not load the Landbot v3 SDK.');
-      });
-
-      document.body.appendChild(script);
-    })();
     </script>
 </body>
 </html>
