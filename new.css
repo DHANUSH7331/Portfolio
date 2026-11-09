@@ -3107,3 +3107,45 @@ footer{padding-top:18px!important;padding-bottom:18px!important}
  #projects .project-row.active > .project-body:not([hidden]){padding:0 16px 18px!important}
  #projects .project-body li{font-size:13px!important;line-height:1.6!important}
 }
+
+
+/* PROJECT DETAILS CONTENT FIX — remove stale measured-height accordion clamps.
+   The old stylesheet expected --project-body-height, but no script ever set it.
+   When a card opens, let the full content determine its natural height. */
+#projects .project-row > .project-body:not([hidden]),
+#projects .project-row.active > .project-body:not([hidden]){
+  display:block!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  overflow:visible!important;
+  visibility:visible!important;
+  opacity:1!important;
+  transform:none!important;
+  padding-top:12px!important;
+  padding-bottom:24px!important;
+  clip:auto!important;
+  contain:none!important;
+  transition:none!important;
+}
+#projects .project-row > .project-body[hidden]{
+  display:none!important;
+}
+#projects .project-row{
+  height:auto!important;
+  max-height:none!important;
+  overflow:visible!important;
+}
+#projects .project-row > .project-body p,
+#projects .project-row > .project-body ul,
+#projects .project-row > .project-body li,
+#projects .project-row > .project-body a{
+  visibility:visible!important;
+  opacity:1!important;
+  max-height:none!important;
+  overflow:visible!important;
+}
+#projects .project-row > .project-body ul{
+  display:block!important;
+  height:auto!important;
+}
