@@ -2694,3 +2694,19 @@ main,footer{position:relative;z-index:3!important}
 }
 @media(max-width:700px){#silk-video-bg{opacity:.31!important;filter:brightness(.34) saturate(.76) sepia(.25)!important}}
 @media(prefers-reduced-motion:reduce){#silk-video-bg{display:none!important}}
+
+
+/* FINAL VISIBILITY BOOST — make the gold dust particles clearly visible */
+#silk-video-bg{
+ opacity:.88!important;
+ filter:brightness(.92) saturate(1.35) sepia(.30) contrast(1.18)!important;
+}
+.silk-video-shade{
+ background:
+  linear-gradient(180deg,rgba(7,6,5,.28) 0%,rgba(8,7,6,.10) 42%,rgba(7,6,5,.34) 100%),
+  radial-gradient(ellipse at 50% 45%,rgba(8,7,5,0),rgba(8,7,5,.18) 82%)!important;
+}
+@media(max-width:700px){
+ #silk-video-bg{opacity:.72!important;filter:brightness(.82) saturate(1.25) sepia(.32) contrast(1.14)!important}
+ .silk-video-shade{background:linear-gradient(180deg,rgba(7,6,5,.38),rgba(8,7,6,.18) 45%,rgba(7,6,5,.42))!important}
+}
