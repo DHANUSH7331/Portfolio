@@ -2597,3 +2597,51 @@ main,footer{position:relative;z-index:3!important}
 @media(prefers-reduced-motion:reduce){
  #silk-video-bg{display:none!important}
 }
+
+
+/* PROJECT ACCORDION FINAL FIX: animate explicit measured height variable */
+#projects .project-row > .project-body{
+ display:block!important;
+ max-height:var(--project-body-height,0px)!important;
+ overflow:hidden!important;
+ transition:max-height .64s cubic-bezier(.22,.72,.2,1),opacity .36s ease,transform .42s ease,padding .42s ease!important;
+ opacity:0;
+ transform:translateY(-6px);
+}
+#projects .project-row > .project-body[hidden]{
+ display:none!important;
+ max-height:0!important;
+ padding-top:0!important;padding-bottom:0!important;
+ opacity:0!important;
+}
+#projects .project-row.active > .project-body:not([hidden]){
+ opacity:1!important;
+ transform:translateY(0)!important;
+ padding-bottom:24px!important;
+}
+#projects .project-row > .project-body:not([hidden]){
+ visibility:visible!important;
+}
+#projects .project-row .expand-btn{pointer-events:auto!important}
+#projects .project-row .project-head{position:relative;z-index:2;cursor:pointer}
+@media(max-width:560px){
+ #projects .project-row.active > .project-body:not([hidden]){padding-bottom:19px!important}
+}
+
+/* Replace fabric footage with dark abstract gold particle motion */
+#silk-video-bg{
+ position:fixed!important;inset:0!important;z-index:0!important;
+ display:block!important;width:100vw!important;height:100vh!important;
+ object-fit:cover!important;object-position:center!important;
+ opacity:.50!important;pointer-events:none!important;
+ filter:brightness(.45) saturate(.9) sepia(.22) contrast(1.12)!important;
+ background:#080706;
+}
+.silk-video-shade{
+ position:fixed!important;inset:0!important;z-index:1!important;pointer-events:none!important;
+ background:
+  linear-gradient(180deg,rgba(7,6,5,.62),rgba(8,7,6,.23) 42%,rgba(7,6,5,.64)),
+  radial-gradient(ellipse at 50% 45%,rgba(11,9,6,.05),rgba(8,7,5,.36) 82%)!important;
+}
+@media(max-width:700px){#silk-video-bg{opacity:.36!important;filter:brightness(.38) saturate(.8) sepia(.24)!important}}
+@media(prefers-reduced-motion:reduce){#silk-video-bg{display:none!important}}
