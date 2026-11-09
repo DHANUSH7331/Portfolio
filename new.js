@@ -325,30 +325,3 @@ document.addEventListener("DOMContentLoaded", function () {
  document.addEventListener("visibilitychange",()=>{if(!document.hidden&&video.paused)play();});
  play();
 })();
-
-
-/* Project accordion — one delegated handler, one open card at a time. */
-(function projectAccordion(){
-  const section=document.getElementById("projects");
-  if(!section)return;
-  const rows=Array.from(section.querySelectorAll(".project-row"));
-  function setOpen(row,open){
-    const body=row.querySelector(".project-body");
-    const head=row.querySelector(".project-head");
-    const icon=row.querySelector(".expand-btn");
-    row.classList.toggle("active",open);
-    if(body)body.hidden=!open;
-    if(head)head.setAttribute("aria-expanded",String(open));
-    if(icon)icon.setAttribute("aria-hidden","true");
-  }
-  rows.forEach(row=>setOpen(row,false));
-  section.addEventListener("click",event=>{
-    const head=event.target.closest(".project-head");
-    if(!head||!section.contains(head))return;
-    const row=head.closest(".project-row");
-    if(!row)return;
-    const shouldOpen=!row.classList.contains("active");
-    rows.forEach(item=>setOpen(item,false));
-    if(shouldOpen)setOpen(row,true);
-  });
-})();
