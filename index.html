@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./new.css?v=20261109-spacing-projects-fix-7">
+    <link rel="stylesheet" href="./new.css?v=20261109-compact-projects-8">
 </head>
 <body>
 
@@ -314,7 +314,7 @@
             <div class="project-list">
 
                 <article class="project-row finance-project" data-tag="PWA / Finance">
-                    <div class="project-head">
+                    <button class="project-head" type="button" aria-expanded="false">
                         <img
                             class="project-thumb finance-project-logo"
                             src="https://raw.githubusercontent.com/DHANUSH7331/Finance-Dashboard-UI/main/icons/finance-icon.svg"
@@ -323,8 +323,8 @@
                         >
                         <span class="project-tag">PWA / Finance</span>
                         <h3>Vesper — Personal Finance Dashboard</h3>
-                        <button class="expand-btn" aria-label="Expand project details" aria-expanded="false" type="button"><span></span></button>
-                    </div>
+                        <span class="expand-btn" aria-hidden="true"><span></span></span>
+                    </button>
                     <div class="project-body" hidden>
                         <p class="finance-project-description">
                             Built Vesper as a responsive, local-first personal finance dashboard.
@@ -479,44 +479,8 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script src="./new.js?v=20261109-spacing-projects-fix-7"></script>
-    <script>
-    /* Accessible, exclusive project accordion: only the selected card opens. */
-    (function () {
-      var rows = Array.from(document.querySelectorAll("#projects .project-row"));
-      function closeRow(row) {
-        var body = row.querySelector(".project-body");
-        var button = row.querySelector(".expand-btn");
-        row.classList.remove("active");
-        if (body) body.hidden = true;
-        if (button) {
-          button.setAttribute("aria-expanded", "false");
-          button.setAttribute("aria-label", "Expand project details");
-        }
-      }
-      rows.forEach(function (row) {
-        var head = row.querySelector(".project-head");
-        var body = row.querySelector(".project-body");
-        var button = row.querySelector(".expand-btn");
-        if (!head || !body) return;
-        closeRow(row);
-        head.addEventListener("click", function (event) {
-          if (event.target.closest("a")) return;
-          event.preventDefault();
-          var shouldOpen = body.hidden;
-          rows.forEach(closeRow);
-          if (shouldOpen) {
-            row.classList.add("active");
-            body.hidden = false;
-            if (button) {
-              button.setAttribute("aria-expanded", "true");
-              button.setAttribute("aria-label", "Collapse project details");
-            }
-          }
-        });
-      });
-    })();
-    </script>
+    <script src="./new.js?v=20261109-compact-projects-8"></script>
+
     <!-- Chat Bot Integration  -->
     <script type="module" src="https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs"></script>
     <script type="module">
