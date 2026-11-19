@@ -121,52 +121,17 @@
         </section>
 
         <!-- SKILLS -->
-        <section id="skills" class="section">
-            <div class="section-head reveal">
-                <span class="eyebrow">What I work with</span>
-                <h2>Skills</h2>
+        <section id="skills" class="section skills-sec">
+            <div class="sk-head">
+                <h2 class="sk-title"><span>What I</span><span class="outline">work with</span></h2>
+                <p class="sk-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11V5a2 2 0 014 0v6m0 0V9a2 2 0 014 0v5a6 6 0 01-6 6h-1a6 6 0 01-5-3l-2-3a2 2 0 013-2l1 1.5"/></svg><span id="sk-hint-text">Hover a skill to explore</span></p>
             </div>
-            <div class="skill-grid">
-                <article class="card skill reveal" style="--lvl:88%">
-                    <header><h3>Backend Development</h3><span>88%</span></header>
-                    <div class="bar"><span></span></div>
-                    <ul class="chips"><li>Python</li><li>Django</li><li>REST APIs</li><li>Django ORM</li><li>JWT / Sessions</li></ul>
-                </article>
-                <article class="card skill reveal" style="--lvl:80%">
-                    <header><h3>Frontend Development</h3><span>80%</span></header>
-                    <div class="bar"><span></span></div>
-                    <ul class="chips"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Fetch API</li><li>Responsive Design</li></ul>
-                </article>
-                <article class="card skill reveal" style="--lvl:82%">
-                    <header><h3>Data Analytics</h3><span>82%</span></header>
-                    <div class="bar"><span></span></div>
-                    <ul class="chips"><li>Data Cleaning</li><li>Tableau</li><li>Visualization</li><li>KPI Reporting</li><li>Statistics</li></ul>
-                </article>
-                <article class="card skill reveal" style="--lvl:85%">
-                    <header><h3>Power BI &amp; Visualization</h3><span>85%</span></header>
-                    <div class="bar"><span></span></div>
-                    <ul class="chips"><li>Dashboards</li><li>DAX</li><li>Data Modeling</li><li>ETL</li></ul>
-                </article>
-                <article class="card skill reveal" style="--lvl:83%">
-                    <header><h3>Python for Data Analysis</h3><span>83%</span></header>
-                    <div class="bar"><span></span></div>
-                    <ul class="chips"><li>OOP</li><li>Pandas</li><li>NumPy</li><li>Matplotlib</li></ul>
-                </article>
-                <article class="card skill reveal" style="--lvl:76%">
-                    <header><h3>Machine Learning</h3><span>76%</span></header>
-                    <div class="bar"><span></span></div>
-                    <ul class="chips"><li>Supervised Learning</li><li>Scikit-Learn</li><li>Model Evaluation</li></ul>
-                </article>
-                <article class="card skill reveal" style="--lvl:78%">
-                    <header><h3>Databases &amp; SQL</h3><span>78%</span></header>
-                    <div class="bar"><span></span></div>
-                    <ul class="chips"><li>SQL</li><li>MySQL</li><li>DBMS</li></ul>
-                </article>
-                <article class="card skill reveal" style="--lvl:90%">
-                    <header><h3>Tools &amp; Platforms</h3><span>90%</span></header>
-                    <div class="bar"><span></span></div>
-                    <ul class="chips"><li>Git / GitHub</li><li>VS Code</li><li>XAMPP</li></ul>
-                </article>
+            <div class="sk-layout">
+                <div class="sk-orbit-col"><div class="sk-orbit" id="sk-orbit" role="group" aria-label="Skills"></div></div>
+                <div class="sk-lists">
+                    <div class="sk-list" data-side="left" data-list="dev"></div>
+                    <div class="sk-list" data-side="right" data-list="data"></div>
+                </div>
             </div>
         </section>
 
@@ -317,29 +282,58 @@
         </section>
 
         <!-- CONTACT -->
-        <section id="contact" class="section contact">
-            <div class="contact-top reveal">
-                <span class="eyebrow">Local time <b id="clock">--:--:-- IST</b></span>
-                <h2>Let's talk</h2>
-                <p class="lede">I am a junior developer at Expand Software Solutions, happy to connect with developers, teams and people working across web development and AI-powered automation.</p>
+        <section id="contact" class="section contact ct">
+            <div class="ct-bg" aria-hidden="true"><div class="ct-dots"></div><div class="ct-glow" id="ct-glow"></div></div>
+
+            <div class="ct-top">Local time <b id="clock">--:--:-- IST</b></div>
+
+            <div class="ct-title" id="ct-title">
+                <h2 class="sr-only">Let&rsquo;s talk</h2>
+                <canvas id="ct-canvas" aria-hidden="true"></canvas>
             </div>
 
-            <a class="marquee" href="mailto:dhanushsirikisai@gmail.com?subject=Hello%20Dhanush" aria-label="Start a conversation by email">
-                <span class="marquee-track" aria-hidden="true">
-                    <span class="mq-group"><em>Start a conversation</em><b>&bull;</b><em>Start a conversation</em><b>&bull;</b><em>Start a conversation</em><b>&bull;</b></span>
-                    <span class="mq-group"><em>Start a conversation</em><b>&bull;</b><em>Start a conversation</em><b>&bull;</b><em>Start a conversation</em><b>&bull;</b></span>
-                </span>
-            </a>
+            <div class="ct-mid">
+                <div class="ct-blurb">
+                    <p>Have an idea, a dashboard or an automation in mind?</p>
+                    <p>I am a junior developer at Expand Software Solutions, happy to connect with developers, teams and people working across web development and AI-powered automation.</p>
+                </div>
+                <div class="ct-magnet" id="ct-magnet">
+                    <a class="ct-cta" href="mailto:dhanushsirikisai@gmail.com?subject=Hello%20Dhanush" aria-label="Start a conversation by email">
+                        <svg class="ct-ring" viewBox="0 0 200 200" aria-hidden="true">
+                            <defs><path id="ct-ring-path" d="M 100,100 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0"/></defs>
+                            <text fill="currentColor" font-size="14" font-weight="600" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"><textPath href="#ct-ring-path" textLength="485" lengthAdjust="spacing">START A CONVERSATION &#8226; START A CONVERSATION &#8226; </textPath></text>
+                        </svg>
+                        <svg class="ct-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+                    </a>
+                </div>
+            </div>
 
-            <div class="contact-grid">
-                <ul class="contact-rows reveal">
-                    <li><a href="mailto:dhanushsirikisai@gmail.com"><small>Email</small><span>dhanushsirikisai@gmail.com</span><i>&#8599;</i></a></li>
-                    <li><a href="tel:+917331161567"><small>Phone</small><span>+91 73311 61567</span><i>&#8599;</i></a></li>
-                    <li><a href="https://www.linkedin.com/in/siriki-sai-dhanush-404b5324a/" target="_blank" rel="noopener noreferrer"><small>LinkedIn</small><span>Siriki Sai Dhanush</span><i>&#8599;</i></a></li>
-                    <li><a href="https://github.com/DHANUSH7331" target="_blank" rel="noopener noreferrer"><small>GitHub</small><span>DHANUSH7331</span><i>&#8599;</i></a></li>
-                </ul>
+            <div class="ct-marquee" aria-hidden="true">
+                <div class="ct-track">
+                    <div class="ct-group"><span>Python &amp; Django</span><i>&#9670;</i><span class="o">Data &amp; dashboards</span><i>&#9670;</i><span>AI-assisted automation</span><i>&#9670;</i><span class="o">Let&rsquo;s build something</span><i>&#9670;</i></div>
+                    <div class="ct-group"><span>Python &amp; Django</span><i>&#9670;</i><span class="o">Data &amp; dashboards</span><i>&#9670;</i><span>AI-assisted automation</span><i>&#9670;</i><span class="o">Let&rsquo;s build something</span><i>&#9670;</i></div>
+                </div>
+            </div>
 
-                <form id="contact-form" class="card contact-form reveal" novalidate>
+            <div class="ct-grid">
+                <div class="ct-rows">
+                    <ul class="ct-list">
+                        <li><div class="ct-rowwrap"><span class="ct-wipe" aria-hidden="true"></span>
+                            <a class="ct-link" href="mailto:dhanushsirikisai@gmail.com"><span class="ct-lab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span>Email</span></span><span class="ct-val"><span class="ct-v1">dhanushsirikisai@gmail.com</span><span class="ct-v2" aria-hidden="true">Write me an email</span></span></a>
+                            <button class="ct-copy" type="button" data-copy="dhanushsirikisai@gmail.com" aria-label="Copy email address">Copy</button><i class="ct-arrow2" aria-hidden="true">&#8599;</i></div></li>
+                        <li><div class="ct-rowwrap"><span class="ct-wipe" aria-hidden="true"></span>
+                            <a class="ct-link" href="tel:+917331161567"><span class="ct-lab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg><span>Phone</span></span><span class="ct-val"><span class="ct-v1">+91 73311 61567</span><span class="ct-v2" aria-hidden="true">Call me</span></span></a>
+                            <button class="ct-copy" type="button" data-copy="+917331161567" aria-label="Copy phone number">Copy</button><i class="ct-arrow2" aria-hidden="true">&#8599;</i></div></li>
+                    </ul>
+                    <ul class="ct-list">
+                        <li><div class="ct-rowwrap"><span class="ct-wipe" aria-hidden="true"></span>
+                            <a class="ct-link" href="https://github.com/DHANUSH7331" target="_blank" rel="noopener noreferrer"><span class="ct-lab"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 00-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 015.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.7.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0012 .5z"/></svg><span>GitHub</span></span><span class="ct-val"><span class="ct-v1">DHANUSH7331</span><span class="ct-v2" aria-hidden="true">Open GitHub</span></span></a><i class="ct-arrow2" aria-hidden="true">&#8599;</i></div></li>
+                        <li><div class="ct-rowwrap"><span class="ct-wipe" aria-hidden="true"></span>
+                            <a class="ct-link" href="https://www.linkedin.com/in/siriki-sai-dhanush-404b5324a/" target="_blank" rel="noopener noreferrer"><span class="ct-lab"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM3 9.5h4v11H3zM10 9.5h3.8v1.5h.1c.5-1 1.8-1.8 3.7-1.8 3.9 0 4.6 2.5 4.6 5.8v5.5h-4v-4.9c0-1.2 0-2.7-1.7-2.7s-1.9 1.3-1.9 2.6v5H10z"/></svg><span>LinkedIn</span></span><span class="ct-val"><span class="ct-v1">Siriki Sai Dhanush</span><span class="ct-v2" aria-hidden="true">Open LinkedIn</span></span></a><i class="ct-arrow2" aria-hidden="true">&#8599;</i></div></li>
+                    </ul>
+                </div>
+
+                <form id="contact-form" class="card contact-form" novalidate>
                     <h3>Or send a message here</h3>
                     <label for="name">Name</label>
                     <input type="text" id="name" required placeholder="Your name" autocomplete="name">
@@ -366,6 +360,8 @@
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script src="./script.js"></script>
+    <script src="./skills.js"></script>
+    <script src="./contact.js"></script>
 
     <!-- Landbot v3 Livechat integration (official embed code) -->
     <script type="module" src="https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs"></script>
