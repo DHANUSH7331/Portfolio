@@ -6,16 +6,25 @@
   var lenis = null;
 
   /* ---------- Hero entrance ---------- */
-  requestAnimationFrame(function () {
-    requestAnimationFrame(function () { body.classList.add("ready"); });
-  });
+  /* The preloader (fx.js) adds "ready"; fall back if it did not load. */
+  function releasePage() {
+    body.classList.add("ready");
+    var l = document.getElementById("loader");
+    if (l && l.parentNode) l.parentNode.removeChild(l);
+    document.documentElement.style.overflow = ""; body.style.overflow = "";
+    if (lenis) lenis.start();
+  }
+  setTimeout(function () { if (!window.__fx) releasePage(); }, 1500);
+  setTimeout(function () { if (!body.classList.contains("ready")) releasePage(); }, 14000);
 
   /* ---------- Smooth scroll (Lenis, optional) ---------- */
   if (window.Lenis && !reduce) {
     lenis = new Lenis({
-      duration: 1.15,
+      duration: 1.5,
       easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }
     });
+    window.lenis = lenis;
+    if (document.getElementById("loader")) lenis.stop();
     var raf = function (time) { lenis.raf(time); requestAnimationFrame(raf); };
     requestAnimationFrame(raf);
   }
@@ -95,7 +104,7 @@
         }
       });
     }, { rootMargin: "-45% 0px -50% 0px" });
-    ["about", "skills", "projects", "contact"].forEach(function (id) {
+    ["about", "experience", "education", "skills", "projects", "contact"].forEach(function (id) {
       var s = document.getElementById(id);
       if (s) spy.observe(s);
     });
