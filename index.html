@@ -17,6 +17,15 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <div class="loader" id="loader" role="status" aria-label="Loading" data-images="./WhatsApp%20Image%202026-01-28%20at%202.31.09%20PM.jpeg">
+        <div class="loader-grid" aria-hidden="true"></div>
+        <div class="loader-ring">
+            <div class="loader-glow" aria-hidden="true"></div>
+            <div class="loader-dash" aria-hidden="true"></div>
+            <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/><circle id="loader-arc" cx="60" cy="60" r="54" fill="none" stroke="#ff7a1a" stroke-width="2" stroke-linecap="round"/></svg>
+            <div class="loader-count"><b id="loader-num">00</b><small>%</small></div>
+        </div>
+    </div>
 
     <!-- Background footage (unchanged) -->
     <video id="silk-video-bg" class="silk-video-bg" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-hidden="true" tabindex="-1" poster="https://images.pexels.com/videos/5561389/free-video-5561389.jpg?auto=compress&cs=tinysrgb&w=1920">
@@ -28,24 +37,28 @@
     <header class="nav" id="nav">
         <a class="brand" href="#home" aria-label="Siriki Sai Dhanush, home"><span class="brand-mark">SD</span><span class="brand-name">Siriki Sai Dhanush</span></a>
         <nav class="nav-links" aria-label="Main navigation">
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
             <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
         </nav>
         <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
     </header>
     <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
         <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
     </div>
 
     <main>
 
         <!-- HERO -->
-        <section id="home" class="hero">
+        <section id="home" class="hero" data-no-squeeze>
             <div class="status reveal"><span class="dot"></span><b>Junior Developer</b><span class="status-sep">at Expand Software Solutions</span></div>
             <h1 class="name" aria-label="Siriki Sai Dhanush">
                 <span class="line"><span>Siriki Sai</span></span>
@@ -91,31 +104,63 @@
                     <img src="./WhatsApp%20Image%202026-01-28%20at%202.31.09%20PM.jpeg" alt="Siriki Sai Dhanush" loading="lazy" decoding="async">
                 </figure>
             </div>
+        </section>
 
-            <div class="journey">
-                <article class="card journey-card reveal">
-                    <span class="tag">Current role &middot; Training</span>
-                    <h3>Junior Developer</h3>
-                    <p class="muted">Expand Software Solutions</p>
-                    <p class="period">21 Sep 2026 &mdash; Present</p>
-                    <p class="body">Building practical understanding of web development, chatbot platforms, AI-assisted workflows and tool integrations.</p>
-                    <ul class="chips">
-                        <li>WordPress Development</li><li>Landbot.io</li><li>Claude Skills</li><li>MCP Connections</li><li>Webhook URLs</li><li>API Integrations</li>
-                    </ul>
+        <!-- EXPERIENCE -->
+        <section id="experience" class="stk" data-stk data-no-squeeze>
+            <div class="stk-heading" data-heading><h2>Experience</h2><p>Scroll to explore</p></div>
+            <div class="stk-body">
+                <article class="xp" data-rv>
+                    <h3 class="xp-title mk"><span>Junior Developer</span></h3>
+                    <div class="xp-grid">
+                        <div class="xp-side">
+                            <p class="xp-kicker" data-it>Expand Software Solutions</p>
+                            <p class="xp-period" data-it>21 Sep 2026 &mdash; Present</p>
+                            <p class="xp-status" data-it><span class="dot"></span>Currently in training</p>
+                        </div>
+                        <div class="xp-main">
+                            <p class="xp-desc" data-it>Building practical understanding of web development, chatbot platforms, AI-assisted workflows and tool integrations.</p>
+                            <ol class="xp-list">
+                                <li data-it><b>01</b><div><h4>WordPress Development</h4><p>Building and customising WordPress websites.</p></div></li>
+                                <li data-it><b>02</b><div><h4>Landbot.io</h4><p>Designing chatbot conversations and live chat flows.</p></div></li>
+                                <li data-it><b>03</b><div><h4>Claude Skills</h4><p>Reusable instructions that teach Claude specific workflows.</p></div></li>
+                                <li data-it><b>04</b><div><h4>MCP Connections</h4><p>Connecting Claude to external tools and services.</p></div></li>
+                                <li data-it><b>05</b><div><h4>Webhook URLs</h4><p>Triggering automations between apps and services.</p></div></li>
+                                <li data-it><b>06</b><div><h4>API Integrations</h4><p>Connecting platforms through their APIs.</p></div></li>
+                            </ol>
+                        </div>
+                    </div>
                 </article>
-                <article class="card journey-card edu reveal">
-                    <img src="./Images/Au.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()">
-                    <span class="tag">Postgraduate &middot; 2023 &mdash; 2025</span>
-                    <h3>Master's of Computer Applications</h3>
-                    <p class="muted">Andhra University College of Engineering</p>
-                    <p class="period">CGPA 8.22</p>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education" class="stk" data-stk data-no-squeeze>
+            <div class="stk-heading" data-heading><h2>Education</h2><p>Scroll to explore</p></div>
+            <div class="stk-body">
+                <article class="ed" data-rv>
+                    <h3 class="ed-title mk"><span>Master&rsquo;s of Computer Applications</span></h3>
+                    <div class="ed-grid">
+                        <div class="ed-img" data-img><div class="pj-frame"><img src="./Images/Au.jpg" alt="" loading="lazy" decoding="async" draggable="false" onerror="this.remove()"></div></div>
+                        <div class="ed-text">
+                            <p class="ed-years" data-it>2023 &mdash; 2025</p>
+                            <p class="ed-college" data-it>Andhra University College of Engineering</p>
+                            <p class="ed-level" data-it>Postgraduate</p>
+                            <p class="ed-cgpa" data-it><b>8.22</b><span>CGPA</span></p>
+                        </div>
+                    </div>
                 </article>
-                <article class="card journey-card edu reveal">
-                    <img src="./Images/Avn.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()">
-                    <span class="tag">Undergraduate &middot; 2020 &mdash; 2023</span>
-                    <h3>Bachelor's of Science</h3>
-                    <p class="muted">Mrs. A.V.N. College</p>
-                    <p class="period">CGPA 8.5</p>
+                <article class="ed" data-rv>
+                    <h3 class="ed-title mk"><span>Bachelor&rsquo;s of Science</span></h3>
+                    <div class="ed-grid">
+                        <div class="ed-img" data-img><div class="pj-frame"><img src="./Images/Avn.jpg" alt="" loading="lazy" decoding="async" draggable="false" onerror="this.remove()"></div></div>
+                        <div class="ed-text">
+                            <p class="ed-years" data-it>2020 &mdash; 2023</p>
+                            <p class="ed-college" data-it>Mrs. A.V.N. College</p>
+                            <p class="ed-level" data-it>Undergraduate</p>
+                            <p class="ed-cgpa" data-it><b>8.5</b><span>CGPA</span></p>
+                        </div>
+                    </div>
                 </article>
             </div>
         </section>
@@ -136,148 +181,87 @@
         </section>
 
         <!-- PROJECTS -->
-        <section id="projects" class="section">
-            <div class="section-head reveal">
-                <span class="eyebrow">Scroll to explore</span>
-                <h2>Projects</h2>
-            </div>
-
-            <div class="projects">
-
-                <article class="card project reveal">
-                    <div class="project-media logo">
-                        <span class="num">01</span>
-                        <img src="https://raw.githubusercontent.com/DHANUSH7331/Finance-Dashboard-UI/main/icons/finance-icon.svg" alt="Vesper Finance Dashboard app logo" loading="lazy" decoding="async">
-                    </div>
-                    <div class="project-info">
-                        <span class="tag">PWA / Finance</span>
-                        <h3>Vesper: Personal Finance Dashboard</h3>
-                        <p class="body">A responsive, local-first personal finance dashboard with monthly summaries, transaction management, interactive spending charts and a PWA-enabled app shell in one mobile-friendly interface.</p>
-                        <ul class="chips"><li>HTML5</li><li>CSS3</li><li>JavaScript ES6</li><li>Canvas API</li><li>IndexedDB</li><li>PWA</li></ul>
-                        <details>
-                            <summary>More details</summary>
-                            <ul class="points">
-                                <li>Overview of total balance, monthly income and expenses, with a month-by-month income editor and calculated available balance.</li>
-                                <li>Transaction creation, deletion, description search, income/expense filtering, sorting and duplicate-entry validation.</li>
-                                <li>Canvas-based charts and insights: six-month balance trends, category spending, top expense category, monthly comparison, average expenses and savings rate.</li>
-                                <li>Browser persistence with LocalStorage, JSON import/export and optional device-file saving through the File System Access API.</li>
-                                <li>Web App Manifest and Service Worker with standalone display, cached app-shell assets and an offline fallback.</li>
-                                <li>Responsive mobile navigation drawer and reduced-motion support.</li>
-                            </ul>
-                        </details>
-                        <a class="link" href="https://github.com/DHANUSH7331/Finance-Dashboard-UI" target="_blank" rel="noopener noreferrer">View source on GitHub <i>&#8599;</i></a>
+        <section id="projects" class="stk" data-stk data-no-squeeze>
+            <div class="stk-heading" data-heading><h2>Projects</h2><p>Scroll to explore</p></div>
+            <div class="stk-body">
+                <article class="pj" data-rv>
+                    <h3 class="pj-title mk"><span>Vesper: Personal Finance Dashboard</span></h3>
+                    <div class="pj-grid">
+                        <div class="pj-img" data-img><a class="pj-frame logo" href="https://github.com/DHANUSH7331/Finance-Dashboard-UI" target="_blank" rel="noopener noreferrer" aria-label="View Vesper: Personal Finance Dashboard on GitHub" data-pillhost><img src="https://raw.githubusercontent.com/DHANUSH7331/Finance-Dashboard-UI/main/icons/finance-icon.svg" alt="Vesper Finance Dashboard app logo" loading="lazy" decoding="async" draggable="false"><span class="pj-pill" data-pill aria-hidden="true">View on GitHub</span></a></div>
+                        <div class="pj-text">
+                            <p class="pj-meta" data-it>01 / PWA / Finance</p>
+                            <p class="pj-desc" data-it>A responsive, local-first personal finance dashboard with monthly summaries, transaction management, interactive spending charts and a PWA-enabled app shell in one mobile-friendly interface.</p>
+                            <ul class="pj-tags" data-it><li>HTML5</li><li>CSS3</li><li>JavaScript ES6</li><li>Canvas API</li><li>IndexedDB</li><li>PWA</li></ul>
+                            <details data-it><summary>More details</summary><ul class="points"><li>Overview of total balance, monthly income and expenses, with a month-by-month income editor and calculated available balance.</li><li>Transaction creation, deletion, description search, income/expense filtering, sorting and duplicate-entry validation.</li><li>Canvas-based charts and insights: six-month balance trends, category spending, top expense category, monthly comparison, average expenses and savings rate.</li><li>Browser persistence with LocalStorage, JSON import/export and optional device-file saving through the File System Access API.</li><li>Web App Manifest and Service Worker with standalone display, cached app-shell assets and an offline fallback.</li><li>Responsive mobile navigation drawer and reduced-motion support.</li></ul></details>
+                            <a class="link" data-it href="https://github.com/DHANUSH7331/Finance-Dashboard-UI" target="_blank" rel="noopener noreferrer">View source on GitHub <i>&#8599;</i></a>
+                        </div>
                     </div>
                 </article>
-
-                <article class="card project reveal">
-                    <div class="project-media">
-                        <span class="num">02</span>
-                        <img src="./Images/drone-operator-piloting-flying-drone-sunset.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()">
-                    </div>
-                    <div class="project-info">
-                        <span class="tag">Computer Vision</span>
-                        <h3>Drone Detection System</h3>
-                        <p class="body">A drone detection system built on YOLOv8 for accurate identification in images and video, with ESRGAN super-resolution to enhance low-quality aerial footage.</p>
-                        <ul class="chips"><li>Python</li><li>YOLOv8</li><li>ESRGAN</li><li>OpenCV</li></ul>
-                        <details>
-                            <summary>More details</summary>
-                            <ul class="points">
-                                <li>Built a drone detection system using YOLOv8 for accurate identification in images and video.</li>
-                                <li>Applied ESRGAN super-resolution to enhance low-quality aerial footage, improving detection accuracy by 18%.</li>
-                                <li>Trained and evaluated the model on 5,000+ images and video frames.</li>
-                                <li>Optimized preprocessing to reduce noise and improve clarity before inference.</li>
-                            </ul>
-                        </details>
+                <article class="pj" data-rv>
+                    <h3 class="pj-title mk"><span>Drone Detection System</span></h3>
+                    <div class="pj-grid rev">
+                        <div class="pj-img" data-img><div class="pj-frame"><img src="./Images/drone-operator-piloting-flying-drone-sunset.jpg" alt="" loading="lazy" decoding="async" draggable="false" onerror="this.remove()"></div></div>
+                        <div class="pj-text">
+                            <p class="pj-meta" data-it>02 / Computer Vision</p>
+                            <p class="pj-desc" data-it>A drone detection system built on YOLOv8 for accurate identification in images and video, with ESRGAN super-resolution to enhance low-quality aerial footage.</p>
+                            <ul class="pj-tags" data-it><li>Python</li><li>YOLOv8</li><li>ESRGAN</li><li>OpenCV</li></ul>
+                            <details data-it><summary>More details</summary><ul class="points"><li>Built a drone detection system using YOLOv8 for accurate identification in images and video.</li><li>Applied ESRGAN super-resolution to enhance low-quality aerial footage, improving detection accuracy by 18%.</li><li>Trained and evaluated the model on 5,000+ images and video frames.</li><li>Optimized preprocessing to reduce noise and improve clarity before inference.</li></ul></details>
+                            
+                        </div>
                     </div>
                 </article>
-
-                <article class="card project reveal">
-                    <div class="project-media">
-                        <span class="num">03</span>
-                        <img src="./Images/businessman-writing-documents.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()">
-                    </div>
-                    <div class="project-info">
-                        <span class="tag">Machine Learning</span>
-                        <h3>Loan Approval Prediction</h3>
-                        <p class="body">A scikit-learn classification model that predicts loan approvals from applicant data, reaching about 85% prediction accuracy.</p>
-                        <ul class="chips"><li>Python</li><li>scikit-learn</li><li>Pandas</li><li>NumPy</li><li>SQL</li></ul>
-                        <details>
-                            <summary>More details</summary>
-                            <ul class="points">
-                                <li>Developed a classification model with scikit-learn to predict loan approvals from applicant data.</li>
-                                <li>Performed data cleaning, feature selection and statistical analysis to improve performance.</li>
-                                <li>Achieved ~85% prediction accuracy through optimized training.</li>
-                                <li>Used SQL and Python for data processing and preparation.</li>
-                            </ul>
-                        </details>
+                <article class="pj" data-rv>
+                    <h3 class="pj-title mk"><span>Loan Approval Prediction</span></h3>
+                    <div class="pj-grid">
+                        <div class="pj-img" data-img><div class="pj-frame"><img src="./Images/businessman-writing-documents.jpg" alt="" loading="lazy" decoding="async" draggable="false" onerror="this.remove()"></div></div>
+                        <div class="pj-text">
+                            <p class="pj-meta" data-it>03 / Machine Learning</p>
+                            <p class="pj-desc" data-it>A scikit-learn classification model that predicts loan approvals from applicant data, reaching about 85% prediction accuracy.</p>
+                            <ul class="pj-tags" data-it><li>Python</li><li>scikit-learn</li><li>Pandas</li><li>NumPy</li><li>SQL</li></ul>
+                            <details data-it><summary>More details</summary><ul class="points"><li>Developed a classification model with scikit-learn to predict loan approvals from applicant data.</li><li>Performed data cleaning, feature selection and statistical analysis to improve performance.</li><li>Achieved ~85% prediction accuracy through optimized training.</li><li>Used SQL and Python for data processing and preparation.</li></ul></details>
+                            
+                        </div>
                     </div>
                 </article>
-
-                <article class="card project reveal">
-                    <div class="project-media">
-                        <span class="num">04</span>
-                        <img src="./Images/modern-data-visualization-tech-office.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()">
-                    </div>
-                    <div class="project-info">
-                        <span class="tag">Business Intelligence</span>
-                        <h3>Urban Energy Smart Grid Dashboard</h3>
-                        <p class="body">A Power BI dashboard monitoring energy consumption across 10+ urban zones, with KPI-driven visuals for faster decisions.</p>
-                        <ul class="chips"><li>Power BI</li><li>SQL</li><li>Excel</li><li>ETL</li></ul>
-                        <details>
-                            <summary>More details</summary>
-                            <ul class="points">
-                                <li>Built a Power BI dashboard monitoring energy consumption across 10+ urban zones.</li>
-                                <li>Analyzed usage patterns, uncovering a 20% variation in consumption trends.</li>
-                                <li>Designed KPI-driven visuals to support faster decision-making.</li>
-                                <li>Cleaned and transformed datasets to ensure accurate, reliable reporting.</li>
-                            </ul>
-                        </details>
+                <article class="pj" data-rv>
+                    <h3 class="pj-title mk"><span>Urban Energy Smart Grid Dashboard</span></h3>
+                    <div class="pj-grid rev">
+                        <div class="pj-img" data-img><div class="pj-frame"><img src="./Images/modern-data-visualization-tech-office.jpg" alt="" loading="lazy" decoding="async" draggable="false" onerror="this.remove()"></div></div>
+                        <div class="pj-text">
+                            <p class="pj-meta" data-it>04 / Business Intelligence</p>
+                            <p class="pj-desc" data-it>A Power BI dashboard monitoring energy consumption across 10+ urban zones, with KPI-driven visuals for faster decisions.</p>
+                            <ul class="pj-tags" data-it><li>Power BI</li><li>SQL</li><li>Excel</li><li>ETL</li></ul>
+                            <details data-it><summary>More details</summary><ul class="points"><li>Built a Power BI dashboard monitoring energy consumption across 10+ urban zones.</li><li>Analyzed usage patterns, uncovering a 20% variation in consumption trends.</li><li>Designed KPI-driven visuals to support faster decision-making.</li><li>Cleaned and transformed datasets to ensure accurate, reliable reporting.</li></ul></details>
+                            
+                        </div>
                     </div>
                 </article>
-
-                <article class="card project reveal">
-                    <div class="project-media">
-                        <span class="num">05</span>
-                        <img src="./Images/Bank.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()">
-                    </div>
-                    <div class="project-info">
-                        <span class="tag">Backend / Full Stack</span>
-                        <h3>Bank Management System</h3>
-                        <p class="body">A full bank management system in Python and Django with OTP email verification, balance checks, deposits, withdrawals and transfers.</p>
-                        <ul class="chips"><li>Python</li><li>Django</li><li>SQLite</li><li>reCAPTCHA</li></ul>
-                        <details>
-                            <summary>More details</summary>
-                            <ul class="points">
-                                <li>Built a full bank management system in Python and Django.</li>
-                                <li>OTP-based email verification before setting an ATM PIN, with a session-based flow.</li>
-                                <li>Balance checks, deposits, withdrawals and transfers between accounts.</li>
-                                <li>Account creation with file upload and Google reCAPTCHA bot protection.</li>
-                            </ul>
-                        </details>
+                <article class="pj" data-rv>
+                    <h3 class="pj-title mk"><span>Bank Management System</span></h3>
+                    <div class="pj-grid">
+                        <div class="pj-img" data-img><div class="pj-frame"><img src="./Images/Bank.jpg" alt="" loading="lazy" decoding="async" draggable="false" onerror="this.remove()"></div></div>
+                        <div class="pj-text">
+                            <p class="pj-meta" data-it>05 / Backend / Full Stack</p>
+                            <p class="pj-desc" data-it>A full bank management system in Python and Django with OTP email verification, balance checks, deposits, withdrawals and transfers.</p>
+                            <ul class="pj-tags" data-it><li>Python</li><li>Django</li><li>SQLite</li><li>reCAPTCHA</li></ul>
+                            <details data-it><summary>More details</summary><ul class="points"><li>Built a full bank management system in Python and Django.</li><li>OTP-based email verification before setting an ATM PIN, with a session-based flow.</li><li>Balance checks, deposits, withdrawals and transfers between accounts.</li><li>Account creation with file upload and Google reCAPTCHA bot protection.</li></ul></details>
+                            
+                        </div>
                     </div>
                 </article>
-
-                <article class="card project reveal">
-                    <div class="project-media">
-                        <span class="num">06</span>
-                        <img src="./Images/young-man-using-discount-coupon-his-smartphone-some-online-shopping-laptop.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()">
-                    </div>
-                    <div class="project-info">
-                        <span class="tag">Frontend</span>
-                        <h3>Products Web Application</h3>
-                        <p class="body">A responsive products app that displays and manages product data dynamically, fetching it in real time and keeping it across sessions.</p>
-                        <ul class="chips"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Fetch API</li><li>localStorage</li></ul>
-                        <details>
-                            <summary>More details</summary>
-                            <ul class="points">
-                                <li>Built a responsive products app that displays and manages product data dynamically.</li>
-                                <li>Integrated the Fetch API to retrieve and render product data in real time.</li>
-                                <li>Used localStorage to persist data across sessions.</li>
-                            </ul>
-                        </details>
+                <article class="pj" data-rv>
+                    <h3 class="pj-title mk"><span>Products Web Application</span></h3>
+                    <div class="pj-grid rev">
+                        <div class="pj-img" data-img><div class="pj-frame"><img src="./Images/young-man-using-discount-coupon-his-smartphone-some-online-shopping-laptop.jpg" alt="" loading="lazy" decoding="async" draggable="false" onerror="this.remove()"></div></div>
+                        <div class="pj-text">
+                            <p class="pj-meta" data-it>06 / Frontend</p>
+                            <p class="pj-desc" data-it>A responsive products app that displays and manages product data dynamically, fetching it in real time and keeping it across sessions.</p>
+                            <ul class="pj-tags" data-it><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Fetch API</li><li>localStorage</li></ul>
+                            <details data-it><summary>More details</summary><ul class="points"><li>Built a responsive products app that displays and manages product data dynamically.</li><li>Integrated the Fetch API to retrieve and render product data in real time.</li><li>Used localStorage to persist data across sessions.</li></ul></details>
+                            
+                        </div>
                     </div>
                 </article>
-
             </div>
         </section>
 
@@ -362,6 +346,7 @@
     <script src="./script.js"></script>
     <script src="./skills.js"></script>
     <script src="./contact.js"></script>
+    <script src="./fx.js"></script>
 
     <!-- Landbot v3 Livechat integration (official embed code) -->
     <script type="module" src="https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs"></script>
