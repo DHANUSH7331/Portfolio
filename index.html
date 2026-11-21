@@ -3,557 +3,350 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Siriki Sai Dhanush — Python, web development, finance dashboards and AI-assisted automation projects.">
-    <title>Siriki Sai Dhanush — Developer Portfolio</title>
-    <meta name="theme-color" content="#11100e">
+    <title>Siriki Sai Dhanush | Developer Portfolio</title>
+    <meta name="description" content="Siriki Sai Dhanush, junior developer at Expand Software Solutions. Python, Django, data analytics and AI-assisted automation.">
+    <meta name="theme-color" content="#090806">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Siriki Sai Dhanush | Developer Portfolio">
+    <meta property="og:description" content="Python, Django, data analytics and AI-assisted automation projects.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23090806'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='28' text-anchor='middle' fill='%23ff7a1a'%3ESD%3C/text%3E%3C/svg%3E">
+    <script>document.documentElement.classList.add('js');</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./new.css?v=20261109-education-cards-01">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-
-    <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-fill"></span></div>
-    <div class="cursor-glow" aria-hidden="true"></div>
-    <!-- BOOT SEQUENCE -->
-    <div id="boot-screen">
-        <div class="boot-frame">
-            <div class="boot-ring"></div>
-            <div class="boot-log" id="boot-log"></div>
-            <div class="boot-bar"><span id="boot-fill"></span></div>
+    <div class="loader" id="loader" role="status" aria-label="Loading" data-images="./WhatsApp%20Image%202026-01-28%20at%202.31.09%20PM.jpeg">
+        <div class="loader-grid" aria-hidden="true"></div>
+        <div class="loader-ring">
+            <div class="loader-glow" aria-hidden="true"></div>
+            <div class="loader-dash" aria-hidden="true"></div>
+            <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/><circle id="loader-arc" cx="60" cy="60" r="54" fill="none" stroke="#ff7a1a" stroke-width="2" stroke-linecap="round"/></svg>
+            <div class="loader-count"><b id="loader-num">00</b><small>%</small></div>
         </div>
     </div>
-    <!-- GOLD SILK VIDEO BACKGROUND -->
-    <video id="silk-video-bg" class="silk-video-bg" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-hidden="true" tabindex="-1" poster="https://images.pexels.com/videos/5561389/free-video-5561389.jpg?auto=compress&cs=tinysrgb&w=1920">
-        <source src="https://videos.pexels.com/video-files/5561389/5561389-hd_1920_1080_25fps.mp4" type="video/mp4">
+
+    <!-- Background footage -->
+    <video id="silk-video-bg" class="silk-video-bg" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-hidden="true" tabindex="-1" poster="./bg-poster.jpg">
+        <source src="./bg-loop.mp4" type="video/mp4">
     </video>
     <div class="silk-video-shade" aria-hidden="true"></div>
+    <div class="progress" aria-hidden="true"><span id="progress-fill"></span></div>
 
-    <header class="top-nav" id="top-nav">
-        <a class="top-brand" href="#home" aria-label="Back to top">
-            <span class="brand-monogram">SD</span>
-            <span><strong>SAI DHANUSH</strong><small>DEVELOPER PORTFOLIO</small></span>
-        </a>
-        <nav class="top-nav-links" aria-label="Main navigation">
-            <a class="active" href="#home">Home</a>
+    <header class="nav" id="nav">
+        <a class="brand" href="#home" aria-label="Siriki Sai Dhanush, home"><span class="brand-mark">SD</span><span class="brand-name">Siriki Sai Dhanush</span></a>
+        <nav class="nav-links" aria-label="Main navigation">
+            <a href="#about">About</a>
             <a href="#experience">Experience</a>
-            <a href="#skills">Skills</a>
             <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
         </nav>
-        <a class="nav-contact" href="#contact">LET'S TALK <span>↗</span></a>
+        <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
     </header>
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
 
     <main>
 
         <!-- HERO -->
-        <section id="home" class="hero">
-            <div class="village-atmosphere" aria-hidden="true"><span class="village-sun"></span><span class="village-horizon"></span><span class="village-path"></span></div>
-            <div class="hero-text">
-                <p class="eyebrow"><span class="brk">[</span> IDENTITY VERIFIED <span class="brk">]</span></p>
-                <h1 class="glitch-name" data-text="Siriki Sai Dhanush">Siriki Sai Dhanush</h1>
-                <p class="role-line">running <span id="typed-role"></span><span class="cursor">_</span></p>
-                <p class="pitch">
-                    Junior Developer at Expand Software Solutions, currently in
-                    training and building practical knowledge across web development
-                    and AI-assisted automation — from WordPress and chatbots to
-                    MCP tool connections and webhook-based workflows.
-                </p>
-                <div class="hero-actions">
-                    <a href="#projects" class="btn btn-primary"><span>View Projects</span></a>
-                    <a href="#contact" class="btn btn-ghost"><span>Get in Touch</span></a>
-                    <a href="https://drive.google.com/file/d/1uAuYgmc8Dg9K5MMs_1VLA9D_MOY-PN-5/view?usp=drive_link" class="btn btn-ghost" target="_blank"><span>Resume ↗</span></a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat"><span class="stat-label">STATUS</span><span class="stat-value">Junior Developer</span></div>
-                    <div class="stat"><span class="stat-label">FOCUS</span><span class="stat-value">Web · AI Automation</span></div>
-                    <div class="stat"><span class="stat-label">BASED</span><span class="stat-value">India</span></div>
+        <section id="home" class="hero" data-no-squeeze>
+            <div class="status reveal"><span class="dot"></span><b>Junior Developer</b><span class="status-sep">at Expand Software Solutions</span></div>
+            <h1 class="name" aria-label="Siriki Sai Dhanush">
+                <span class="line"><span>Siriki Sai</span></span>
+                <span class="line accent"><span>Dhanush</span></span>
+            </h1>
+            <div class="hero-row">
+                <ul class="roles" aria-label="What I do">
+                    <li><i>01</i>Python Developer</li>
+                    <li><i>02</i>Django Backend</li>
+                    <li><i>03</i>Data Analyst</li>
+                    <li><i>04</i>AI Automation</li>
+                </ul>
+                <div class="hero-copy">
+                    <p class="lede reveal">I build with Python, Django and the web, from data dashboards to backend systems, and I am growing into AI-assisted automation: WordPress, chatbots, MCP connections and webhook workflows.</p>
+                    <div class="social reveal">
+                        <a href="https://github.com/DHANUSH7331" target="_blank" rel="noopener noreferrer">GitHub <i>&#8599;</i></a>
+                        <a href="https://www.linkedin.com/in/siriki-sai-dhanush-404b5324a/" target="_blank" rel="noopener noreferrer">LinkedIn <i>&#8599;</i></a>
+                        <a href="https://drive.google.com/file/d/1uAuYgmc8Dg9K5MMs_1VLA9D_MOY-PN-5/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Resume <i>&#8599;</i></a>
+                    </div>
+                    <div class="cta reveal">
+                        <a class="btn btn-solid" href="#projects">View projects</a>
+                        <a class="btn btn-ghost" href="#contact">Contact me</a>
+                    </div>
                 </div>
             </div>
-            <div class="hero-photo-frame">
-                <span class="portrait-orbit orbit-one" aria-hidden="true"></span>
-                <span class="portrait-orbit orbit-two" aria-hidden="true"></span>
-                <span class="portrait-spark spark-one" aria-hidden="true"></span>
-                <span class="portrait-spark spark-two" aria-hidden="true"></span>
-                <span class="portrait-spark spark-three" aria-hidden="true"></span>
-                <svg class="ring ring-outer" viewBox="0 0 300 300"><circle cx="150" cy="150" r="146"/></svg>
-                <svg class="ring ring-inner" viewBox="0 0 300 300"><circle cx="150" cy="150" r="130"/></svg>
-                <span class="tick tick-0"></span><span class="tick tick-1"></span>
-                <span class="tick tick-2"></span><span class="tick tick-3"></span>
-                <div class="photo-clip">
-                    <img src="./WhatsApp Image 2026-01-28 at 2.31.09 PM.jpeg" alt="Siriki Sai Dhanush">
+            <a class="scroll-cue" href="#about" aria-label="Scroll to about"><span></span>Scroll</a>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="section">
+            <div class="section-head reveal">
+                <span class="eyebrow">Get to know me</span>
+                <h2>About</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p class="about-kicker reveal">Who am I?</p>
+                    <h3 class="about-title reveal">I turn data and ideas<br>into working software.</h3>
+                    <p class="sr-only">I am Siriki Sai Dhanush, a junior developer at Expand Software Solutions. I studied Computer Applications at Andhra University and now build with Python, Django and the web, from data dashboards to backend systems. Right now I am training in WordPress, chatbots, MCP connections and webhook workflows, learning how AI can take care of the repetitive work.</p>
+                    <p class="about-words" data-words aria-hidden="true">I am Siriki Sai Dhanush, a junior developer at Expand Software Solutions. I studied Computer Applications at Andhra University and now build with Python, Django and the web, from data dashboards to backend systems. Right now I am training in WordPress, chatbots, MCP connections and webhook workflows, learning how AI can take care of the repetitive work.</p>
                 </div>
-                <span class="corner tl"></span>
-                <span class="corner tr"></span>
-                <span class="corner bl"></span>
-                <span class="corner br"></span>
-                <span class="reticle-label">TARGET LOCKED</span>
-                <div class="hero-connect">
-                    <a href="https://www.linkedin.com/in/siriki-sai-dhanush-404b5324a/" target="_blank" class="connect-btn" aria-label="LinkedIn">
-                        <img src="./Images/linkedin.png" alt="" onerror="this.remove()">
-                    </a>
-                    <a href="https://github.com/DHANUSH7331" target="_blank" class="connect-btn" aria-label="GitHub">
-                        <img src="./Images/github.png" alt="" onerror="this.remove()">
-                    </a>
-                </div>
+                <figure class="portrait reveal">
+                    <img src="./WhatsApp%20Image%202026-01-28%20at%202.31.09%20PM.jpeg" alt="Siriki Sai Dhanush" loading="lazy" decoding="async">
+                </figure>
             </div>
         </section>
 
-        <!-- PROFESSIONAL EXPERIENCE -->
-        <section id="experience" class="section">
-            <h2 class="section-label"><em>01</em>Professional Experience</h2>
-
-            <article class="experience-card">
-                <div class="experience-header">
-                    <div class="experience-brand-block">
-                        <img
-                            class="experience-company-logo"
-                            src="https://www.google.com/s2/favicons?domain=expandsoftwaresolutions.com&sz=128"
-                            alt="Expand Software Solutions company logo"
-                            loading="lazy"
-                            onerror="this.onerror=null;this.src='./Images/github.png';"
-                        >
-                        <div>
-                            <span class="experience-kicker">CURRENT ROLE · TRAINING</span>
-                            <h3>Junior Developer</h3>
-                            <p class="experience-company">Expand Software Solutions</p>
+        <!-- EXPERIENCE -->
+        <section id="experience" class="stk" data-stk data-no-squeeze>
+            <div class="stk-heading" data-heading><h2>Experience</h2><p>Scroll to explore</p></div>
+            <div class="stk-body">
+                <article class="xp" data-rv>
+                    <h3 class="xp-title mk"><span>Junior Developer</span></h3>
+                    <div class="xp-grid">
+                        <div class="xp-side">
+                            <p class="xp-kicker" data-it>Expand Software Solutions</p>
+                            <p class="xp-period" data-it>21 Sep 2026 &mdash; Present</p>
+                            <p class="xp-status" data-it><span class="dot"></span>Currently in training</p>
+                        </div>
+                        <div class="xp-main">
+                            <p class="xp-desc" data-it>Building practical understanding of web development, chatbot platforms, AI-assisted workflows and tool integrations.</p>
+                            <ol class="xp-list">
+                                <li data-it><b>01</b><div><h4>WordPress Development</h4><p>Building and customising WordPress websites.</p></div></li>
+                                <li data-it><b>02</b><div><h4>Landbot.io</h4><p>Designing chatbot conversations and live chat flows.</p></div></li>
+                                <li data-it><b>03</b><div><h4>Claude Skills</h4><p>Reusable instructions that teach Claude specific workflows.</p></div></li>
+                                <li data-it><b>04</b><div><h4>MCP Connections</h4><p>Connecting Claude to external tools and services.</p></div></li>
+                                <li data-it><b>05</b><div><h4>Webhook URLs</h4><p>Triggering automations between apps and services.</p></div></li>
+                                <li data-it><b>06</b><div><h4>API Integrations</h4><p>Connecting platforms through their APIs.</p></div></li>
+                            </ol>
                         </div>
                     </div>
-                    <span class="experience-period">21 Sep 2026 — Present</span>
-                </div>
-
-                <p class="experience-summary">
-                    Joined as a Junior Developer and currently undergoing professional
-                    training. Building practical understanding of web development,
-                    chatbot platforms, AI-assisted workflows, and tool integrations.
-                </p>
-
-                <div class="training-focus">
-                    <span class="training-label">CURRENT TRAINING FOCUS</span>
-                    <div class="training-topics">
-                        <span>WordPress Development</span>
-                        <span>Landbot.io</span>
-                        <span>Claude Skills</span>
-                        <span>MCP Connections</span>
-                        <span>Webhook URLs</span>
-                        <span>API Integrations</span>
-                    </div>
-                </div>
-            </article>
-        </section>
-
-        <!-- SKILLS -->
-        <section id="skills" class="section">
-            <h2 class="section-label"><em>02</em>Skills</h2>
-
-            <div class="skill-grid">
-
-                <div class="skill-panel" data-level="88">
-                    <div class="skill-head">
-                        <img class="panel-icon" src="./Images/Django.jpg" alt="" onerror="this.remove()">
-                        <h3>Backend Development</h3>
-                        <span class="skill-pct">88%</span>
-                    </div>
-                    <div class="skill-bar"><span class="skill-fill"></span></div>
-                    <div class="chips">
-                        <span><img src="./Images/python.png" alt="" onerror="this.remove()">Python</span>
-                        <span><img src="./Images/Django.jpg" alt="" onerror="this.remove()">Django</span>
-                        <span><img src="./Images/Api.jpg" alt="" onerror="this.remove()">REST APIs</span>
-                        <span><img src="./Images/Django.jpg" alt="" onerror="this.remove()">Django ORM</span>
-                        <span><img src="https://cdn.simpleicons.org/jsonwebtokens/4FE0FF" alt="" onerror="this.remove()">JWT / Sessions</span>
-                    </div>
-                </div>
-
-                <div class="skill-panel" data-level="80">
-                    <div class="skill-head">
-                        <img class="panel-icon" src="./Images/Html.png" alt="" onerror="this.remove()">
-                        <h3>Frontend Development</h3>
-                        <span class="skill-pct">80%</span>
-                    </div>
-                    <div class="skill-bar"><span class="skill-fill"></span></div>
-                    <div class="chips">
-                        <span><img src="./Images/Html.png" alt="" onerror="this.remove()">HTML5</span>
-                        <span><img src="./Images/Css.png" alt="" onerror="this.remove()">CSS3</span>
-                        <span><img src="./Images/Js.png" alt="" onerror="this.remove()">JavaScript</span>
-                        <span><img src="./Images/Api.jpg" alt="" onerror="this.remove()">Fetch API</span>
-                        <span><svg class="chip-glyph" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" rx="2"/><circle cx="6" cy="6" r="1.6"/></svg>Responsive Design</span>
-                    </div>
-                </div>
-
-                <div class="skill-panel" data-level="82">
-                    <div class="skill-head">
-                        <img class="panel-icon" src="./Images/Data.png" alt="" onerror="this.remove()">
-                        <h3>Data Analytics</h3>
-                        <span class="skill-pct">82%</span>
-                    </div>
-                    <div class="skill-bar"><span class="skill-fill"></span></div>
-                    <div class="chips">
-                        <span><img src="./Images/Data.png" alt="" onerror="this.remove()">Data Cleaning</span>
-                        <span><img src="./Images/Tableau.png" alt="" onerror="this.remove()">Tableau</span>
-                        <span><svg class="chip-glyph" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" rx="2"/><circle cx="6" cy="6" r="1.6"/></svg>Visualization</span>
-                        <span><svg class="chip-glyph" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" rx="2"/><circle cx="6" cy="6" r="1.6"/></svg>KPI Reporting</span><span><svg class="chip-glyph" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" rx="2"/><circle cx="6" cy="6" r="1.6"/></svg>Statistics</span>
-                    </div>
-                </div>
-
-                <div class="skill-panel" data-level="85">
-                    <div class="skill-head">
-                        <img class="panel-icon" src="./Images/power bi.png" alt="" onerror="this.remove()">
-                        <h3>Power BI & Visualization</h3>
-                        <span class="skill-pct">85%</span>
-                    </div>
-                    <div class="skill-bar"><span class="skill-fill"></span></div>
-                    <div class="chips">
-                        <span><img src="./Images/power bi.png" alt="" onerror="this.remove()">Dashboards</span>
-                        <span><img src="./Images/dax.png" alt="" onerror="this.remove()">DAX</span>
-                        <span><svg class="chip-glyph" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" rx="2"/><circle cx="6" cy="6" r="1.6"/></svg>Data Modeling</span><span><svg class="chip-glyph" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" rx="2"/><circle cx="6" cy="6" r="1.6"/></svg>ETL</span>
-                    </div>
-                </div>
-
-                <div class="skill-panel" data-level="83">
-                    <div class="skill-head">
-                        <img class="panel-icon" src="./Images/python.png" alt="" onerror="this.remove()">
-                        <h3>Python for Data Analysis</h3>
-                        <span class="skill-pct">83%</span>
-                    </div>
-                    <div class="skill-bar"><span class="skill-fill"></span></div>
-                    <div class="chips">
-                        <span><svg class="chip-glyph" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" rx="2"/><circle cx="6" cy="6" r="1.6"/></svg>OOP</span>
-                        <span><img src="https://cdn.simpleicons.org/pandas/4FE0FF" alt="" onerror="this.remove()">Pandas</span>
-                        <span><img src="./Images/numpy.png" alt="" onerror="this.remove()">NumPy</span>
-                        <span><img src="https://cdn.simpleicons.org/matplotlib/4FE0FF" alt="" onerror="this.remove()">Matplotlib</span>
-                    </div>
-                </div>
-
-                <div class="skill-panel" data-level="76">
-                    <div class="skill-head">
-                        <img class="panel-icon" src="./Images/ml.png" alt="" onerror="this.remove()">
-                        <h3>Machine Learning</h3>
-                        <span class="skill-pct">76%</span>
-                    </div>
-                    <div class="skill-bar"><span class="skill-fill"></span></div>
-                    <div class="chips">
-                        <span><svg class="chip-glyph" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" rx="2"/><circle cx="6" cy="6" r="1.6"/></svg>Supervised Learning</span>
-                        <span><img src="./Images/scikit.png" alt="" onerror="this.remove()">Scikit-Learn</span>
-                        <span><svg class="chip-glyph" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" rx="2"/><circle cx="6" cy="6" r="1.6"/></svg>Model Evaluation</span>
-                    </div>
-                </div>
-
-                <div class="skill-panel" data-level="78">
-                    <div class="skill-head">
-                        <img class="panel-icon" src="./Images/sql.png" alt="" onerror="this.remove()">
-                        <h3>Databases & SQL</h3>
-                        <span class="skill-pct">78%</span>
-                    </div>
-                    <div class="skill-bar"><span class="skill-fill"></span></div>
-                    <div class="chips">
-                        <span><img src="./Images/sql.png" alt="" onerror="this.remove()">SQL</span>
-                        <span><img src="./Images/mysql.png" alt="" onerror="this.remove()">MySQL</span>
-                        <span><svg class="chip-glyph" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" rx="2"/><circle cx="6" cy="6" r="1.6"/></svg>DBMS</span>
-                    </div>
-                </div>
-
-                <div class="skill-panel" data-level="90">
-                    <div class="skill-head">
-                        <img class="panel-icon" src="./Images/github.png" alt="" onerror="this.remove()">
-                        <h3>Tools & Platforms</h3>
-                        <span class="skill-pct">90%</span>
-                    </div>
-                    <div class="skill-bar"><span class="skill-fill"></span></div>
-                    <div class="chips">
-                        <span><img src="./Images/github.png" alt="" onerror="this.remove()">Git / GitHub</span>
-                        <span><img src="./Images/vscode.png" alt="" onerror="this.remove()">VS Code</span>
-                        <span><img src="https://cdn.simpleicons.org/xampp/4FE0FF" alt="" onerror="this.remove()">XAMPP</span>
-                    </div>
-                </div>
-
+                </article>
             </div>
         </section>
 
         <!-- EDUCATION -->
-        <section id="education" class="section">
-            <h2 class="section-label"><em>03</em>Education</h2>
-
-            <div class="edu-timeline">
-                <article class="edu-node edu-card">
-                    <div class="edu-media">
-                        <img
-                            class="edu-campus-image"
-                            src="./Images/Au.jpg"
-                            alt="Andhra University College of Engineering campus"
-                            onerror="this.onerror=null;this.src='./Images/Au.jpg';"
-                            loading="lazy"
-                            decoding="async"
-                        >
-                        <span class="edu-image-shade" aria-hidden="true"></span>
-                        <span class="edu-campus-mark">AU</span>
-                        <span class="edu-photo-caption">VISAKHAPATNAM · ANDHRA PRADESH</span>
-                    </div>
-                    <div class="edu-info">
-                        <span class="edu-tag">POSTGRADUATE · 2023 — 2025</span>
-                        <h3>Master's of Computer Applications</h3>
-                        <p class="edu-institution">Andhra University College of Engineering</p>
-                        <p class="edu-meta"><span>ACADEMIC SCORE</span> CGPA 8.22</p>
+        <section id="education" class="stk" data-stk data-no-squeeze>
+            <div class="stk-heading" data-heading><h2>Education</h2><p>Scroll to explore</p></div>
+            <div class="stk-body">
+                <article class="ed" data-rv>
+                    <h3 class="ed-title mk"><span>Master&rsquo;s of Computer Applications</span></h3>
+                    <div class="ed-grid">
+                        <div class="ed-img" data-img><div class="pj-frame"><img src="./Images/Au.jpg" alt="" loading="lazy" decoding="async" draggable="false" onerror="this.remove()"></div></div>
+                        <div class="ed-text">
+                            <p class="ed-years" data-it>2023 &mdash; 2025</p>
+                            <p class="ed-college" data-it>Andhra University College of Engineering</p>
+                            <p class="ed-level" data-it>Postgraduate</p>
+                            <p class="ed-cgpa" data-it><b>8.22</b><span>CGPA</span></p>
+                        </div>
                     </div>
                 </article>
-
-                <article class="edu-node edu-card">
-                    <div class="edu-media">
-                        <img
-                            class="edu-campus-image"
-                            src="./Images/Avn.jpg"
-                            alt="Mrs. A.V.N. College heritage campus building in Visakhapatnam"
-                            onerror="this.onerror=null;this.src='./Images/Avn.jpg';"
-                            loading="lazy"
-                            decoding="async"
-                        >
-                        <span class="edu-image-shade" aria-hidden="true"></span>
-                        <span class="edu-campus-mark">AVN</span>
-                        <span class="edu-photo-caption">VISAKHAPATNAM · ANDHRA PRADESH</span>
-                    </div>
-                    <div class="edu-info">
-                        <span class="edu-tag">UNDERGRADUATE · 2020 — 2023</span>
-                        <h3>Bachelor's of Science</h3>
-                        <p class="edu-institution">Mrs. A.V.N. College</p>
-                        <p class="edu-meta"><span>ACADEMIC SCORE</span> CGPA 8.5</p>
+                <article class="ed" data-rv>
+                    <h3 class="ed-title mk"><span>Bachelor&rsquo;s of Science</span></h3>
+                    <div class="ed-grid">
+                        <div class="ed-img" data-img><div class="pj-frame"><img src="./Images/Avn.jpg" alt="" loading="lazy" decoding="async" draggable="false" onerror="this.remove()"></div></div>
+                        <div class="ed-text">
+                            <p class="ed-years" data-it>2020 &mdash; 2023</p>
+                            <p class="ed-college" data-it>Mrs. A.V.N. College</p>
+                            <p class="ed-level" data-it>Undergraduate</p>
+                            <p class="ed-cgpa" data-it><b>8.5</b><span>CGPA</span></p>
+                        </div>
                     </div>
                 </article>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="section skills-sec">
+            <div class="sk-head">
+                <h2 class="sk-title"><span>What I</span><span class="outline">work with</span></h2>
+                <p class="sk-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11V5a2 2 0 014 0v6m0 0V9a2 2 0 014 0v5a6 6 0 01-6 6h-1a6 6 0 01-5-3l-2-3a2 2 0 013-2l1 1.5"/></svg><span id="sk-hint-text">Hover a skill to explore</span></p>
+            </div>
+            <div class="sk-layout">
+                <div class="sk-orbit-col"><div class="sk-orbit" id="sk-orbit" role="group" aria-label="Skills"></div></div>
+                <div class="sk-lists">
+                    <div class="sk-list" data-side="left" data-list="dev"></div>
+                    <div class="sk-list" data-side="right" data-list="data"></div>
+                </div>
             </div>
         </section>
 
         <!-- PROJECTS -->
-        <section id="projects" class="section">
-            <h2 class="section-label"><em>04</em>Projects</h2>
-            <p class="projects-intro">A selection of things I have designed, developed and brought to life.</p>
-
-            <div class="project-list">
-
-                <article class="project-row finance-project" data-tag="PWA / Finance">
-                    <button class="project-head" type="button" aria-expanded="false">
-                        <img
-                            class="project-thumb finance-project-logo"
-                            src="https://raw.githubusercontent.com/DHANUSH7331/Finance-Dashboard-UI/main/icons/finance-icon.svg"
-                            alt="Vesper Finance Dashboard app logo"
-                            loading="lazy"
-                        >
-                        <span class="project-tag">PWA / Finance</span>
-                        <h3>Vesper — Personal Finance Dashboard</h3>
-                        <span class="expand-btn" aria-hidden="true"><span></span></span>
-                    </button>
-                    <div class="project-body" hidden>
-                        <p class="finance-project-description">
-                            Built Vesper as a responsive, local-first personal finance dashboard.
-                            It brings monthly financial summaries, transaction management,
-                            interactive spending visualizations and a PWA-enabled app shell
-                            into one mobile-friendly interface.
-                        </p>
-                        <ul>
-                            <li>Created an overview for total balance, monthly income and expenses, with a month-by-month income editor and calculated available balance.</li>
-                            <li>Implemented transaction creation, deletion, description search, income/expense filtering, sorting and duplicate-entry validation.</li>
-                            <li>Built Canvas-based financial charts and insights for six-month balance trends, category spending, top expense category, monthly comparison, average expenses and savings rate.</li>
-                            <li>Added browser-based persistence with LocalStorage, plus JSON import/export and optional device-file saving through the File System Access API on supported browsers.</li>
-                            <li>Configured a Web App Manifest and Service Worker with standalone display metadata, cached app-shell assets and an offline fallback.</li>
-                            <li>Designed a responsive mobile navigation drawer and reduced-motion support for a more accessible mobile experience.</li>
-                        </ul>
-                        <p class="tech-line">HTML5 · CSS3 · JavaScript ES6 · Canvas API · LocalStorage · IndexedDB · File System Access API · PWA</p>
-                        <a class="project-repo-link" href="https://github.com/DHANUSH7331/Finance-Dashboard-UI" target="_blank" rel="noopener noreferrer">View source code on GitHub ↗</a>
+        <section id="projects" class="stk" data-stk data-no-squeeze>
+            <div class="stk-heading" data-heading><h2>Projects</h2><p>Scroll to explore</p></div>
+            <div class="stk-body">
+                <article class="pj" data-rv>
+                    <h3 class="pj-title mk"><span>Vesper: Personal Finance Dashboard</span></h3>
+                    <div class="pj-grid">
+                        <div class="pj-img" data-img><a class="pj-frame logo" href="https://github.com/DHANUSH7331/Finance-Dashboard-UI" target="_blank" rel="noopener noreferrer" aria-label="View Vesper: Personal Finance Dashboard on GitHub" data-pillhost><img src="https://raw.githubusercontent.com/DHANUSH7331/Finance-Dashboard-UI/main/icons/finance-icon.svg" alt="Vesper Finance Dashboard app logo" loading="lazy" decoding="async" draggable="false"><span class="pj-pill" data-pill aria-hidden="true">View on GitHub</span></a></div>
+                        <div class="pj-text">
+                            <p class="pj-meta" data-it>01 / PWA / Finance</p>
+                            <p class="pj-desc" data-it>A responsive, local-first personal finance dashboard with monthly summaries, transaction management, interactive spending charts and a PWA-enabled app shell in one mobile-friendly interface.</p>
+                            <ul class="pj-tags" data-it><li>HTML5</li><li>CSS3</li><li>JavaScript ES6</li><li>Canvas API</li><li>IndexedDB</li><li>PWA</li></ul>
+                            <details data-it><summary>More details</summary><ul class="points"><li>Overview of total balance, monthly income and expenses, with a month-by-month income editor and calculated available balance.</li><li>Transaction creation, deletion, description search, income/expense filtering, sorting and duplicate-entry validation.</li><li>Canvas-based charts and insights: six-month balance trends, category spending, top expense category, monthly comparison, average expenses and savings rate.</li><li>Browser persistence with LocalStorage, JSON import/export and optional device-file saving through the File System Access API.</li><li>Web App Manifest and Service Worker with standalone display, cached app-shell assets and an offline fallback.</li><li>Responsive mobile navigation drawer and reduced-motion support.</li></ul></details>
+                            <a class="link" data-it href="https://github.com/DHANUSH7331/Finance-Dashboard-UI" target="_blank" rel="noopener noreferrer">View source on GitHub <i>&#8599;</i></a>
+                        </div>
                     </div>
                 </article>
-
-                <article class="project-row" data-tag="Computer Vision">
-                    <button class="project-head" type="button" aria-expanded="false">
-                        <img class="project-thumb" src="./Images/drone-operator-piloting-flying-drone-sunset.jpg" alt="" onerror="this.remove()">
-                        <span class="project-tag">Computer Vision</span>
-                        <h3>Drone Detection System</h3>
-                        <span class="expand-btn" aria-hidden="true"><span></span></span>
-                    </button>
-                    <div class="project-body" hidden>
-                        <ul>
-                            <li>Built a drone detection system using YOLOv8 for accurate identification in images and video.</li>
-                            <li>Applied ESRGAN super-resolution to enhance low-quality aerial footage, improving detection accuracy by 18%.</li>
-                            <li>Trained and evaluated the model on 5,000+ images and video frames.</li>
-                            <li>Optimized preprocessing to reduce noise and improve clarity before inference.</li>
-                        </ul>
-                        <p class="tech-line">Python · YOLOv8 · ESRGAN · OpenCV</p>
+                <article class="pj" data-rv>
+                    <h3 class="pj-title mk"><span>Drone Detection System</span></h3>
+                    <div class="pj-grid rev">
+                        <div class="pj-img" data-img><div class="pj-frame"><img src="./Images/drone-operator-piloting-flying-drone-sunset.jpg" alt="" loading="lazy" decoding="async" draggable="false" onerror="this.remove()"></div></div>
+                        <div class="pj-text">
+                            <p class="pj-meta" data-it>02 / Computer Vision</p>
+                            <p class="pj-desc" data-it>A drone detection system built on YOLOv8 for accurate identification in images and video, with ESRGAN super-resolution to enhance low-quality aerial footage.</p>
+                            <ul class="pj-tags" data-it><li>Python</li><li>YOLOv8</li><li>ESRGAN</li><li>OpenCV</li></ul>
+                            <details data-it><summary>More details</summary><ul class="points"><li>Built a drone detection system using YOLOv8 for accurate identification in images and video.</li><li>Applied ESRGAN super-resolution to enhance low-quality aerial footage, improving detection accuracy by 18%.</li><li>Trained and evaluated the model on 5,000+ images and video frames.</li><li>Optimized preprocessing to reduce noise and improve clarity before inference.</li></ul></details>
+                            
+                        </div>
                     </div>
                 </article>
-
-                <article class="project-row" data-tag="Machine Learning">
-                    <button class="project-head" type="button" aria-expanded="false">
-                        <img class="project-thumb" src="./Images/businessman-writing-documents.jpg" alt="" onerror="this.remove()">
-                        <span class="project-tag">Machine Learning</span>
-                        <h3>Loan Approval Prediction</h3>
-                        <span class="expand-btn" aria-hidden="true"><span></span></span>
-                    </button>
-                    <div class="project-body" hidden>
-                        <ul>
-                            <li>Developed a classification model with scikit-learn to predict loan approvals from applicant data.</li>
-                            <li>Performed data cleaning, feature selection, and statistical analysis to improve performance.</li>
-                            <li>Achieved ~85% prediction accuracy through optimized training.</li>
-                            <li>Used SQL and Python for data processing and preparation.</li>
-                        </ul>
-                        <p class="tech-line">Python · scikit-learn · Pandas · NumPy · SQL</p>
+                <article class="pj" data-rv>
+                    <h3 class="pj-title mk"><span>Loan Approval Prediction</span></h3>
+                    <div class="pj-grid">
+                        <div class="pj-img" data-img><div class="pj-frame"><img src="./Images/businessman-writing-documents.jpg" alt="" loading="lazy" decoding="async" draggable="false" onerror="this.remove()"></div></div>
+                        <div class="pj-text">
+                            <p class="pj-meta" data-it>03 / Machine Learning</p>
+                            <p class="pj-desc" data-it>A scikit-learn classification model that predicts loan approvals from applicant data, reaching about 85% prediction accuracy.</p>
+                            <ul class="pj-tags" data-it><li>Python</li><li>scikit-learn</li><li>Pandas</li><li>NumPy</li><li>SQL</li></ul>
+                            <details data-it><summary>More details</summary><ul class="points"><li>Developed a classification model with scikit-learn to predict loan approvals from applicant data.</li><li>Performed data cleaning, feature selection and statistical analysis to improve performance.</li><li>Achieved ~85% prediction accuracy through optimized training.</li><li>Used SQL and Python for data processing and preparation.</li></ul></details>
+                            
+                        </div>
                     </div>
                 </article>
-
-                <article class="project-row" data-tag="Business Intelligence">
-                    <button class="project-head" type="button" aria-expanded="false">
-                        <img class="project-thumb" src="./Images/modern-data-visualization-tech-office.jpg" alt="" onerror="this.remove()">
-                        <span class="project-tag">Business Intelligence</span>
-                        <h3>Urban Energy Smart Grid Dashboard</h3>
-                        <span class="expand-btn" aria-hidden="true"><span></span></span>
-                    </button>
-                    <div class="project-body" hidden>
-                        <ul>
-                            <li>Built a Power BI dashboard monitoring energy consumption across 10+ urban zones.</li>
-                            <li>Analyzed usage patterns, uncovering a 20% variation in consumption trends.</li>
-                            <li>Designed KPI-driven visuals to support faster decision-making.</li>
-                            <li>Cleaned and transformed datasets to ensure accurate, reliable reporting.</li>
-                        </ul>
-                        <p class="tech-line">Power BI · SQL · Excel · ETL</p>
+                <article class="pj" data-rv>
+                    <h3 class="pj-title mk"><span>Urban Energy Smart Grid Dashboard</span></h3>
+                    <div class="pj-grid rev">
+                        <div class="pj-img" data-img><div class="pj-frame"><img src="./Images/modern-data-visualization-tech-office.jpg" alt="" loading="lazy" decoding="async" draggable="false" onerror="this.remove()"></div></div>
+                        <div class="pj-text">
+                            <p class="pj-meta" data-it>04 / Business Intelligence</p>
+                            <p class="pj-desc" data-it>A Power BI dashboard monitoring energy consumption across 10+ urban zones, with KPI-driven visuals for faster decisions.</p>
+                            <ul class="pj-tags" data-it><li>Power BI</li><li>SQL</li><li>Excel</li><li>ETL</li></ul>
+                            <details data-it><summary>More details</summary><ul class="points"><li>Built a Power BI dashboard monitoring energy consumption across 10+ urban zones.</li><li>Analyzed usage patterns, uncovering a 20% variation in consumption trends.</li><li>Designed KPI-driven visuals to support faster decision-making.</li><li>Cleaned and transformed datasets to ensure accurate, reliable reporting.</li></ul></details>
+                            
+                        </div>
                     </div>
                 </article>
-
-                <article class="project-row" data-tag="Backend / Full Stack">
-                    <button class="project-head" type="button" aria-expanded="false">
-                        <img class="project-thumb" src="./Images/Bank.jpg" alt="" onerror="this.remove()">
-                        <span class="project-tag">Backend / Full Stack</span>
-                        <h3>Bank Management System</h3>
-                        <span class="expand-btn" aria-hidden="true"><span></span></span>
-                    </button>
-                    <div class="project-body" hidden>
-                        <ul>
-                            <li>Built a full bank management system in Python and Django.</li>
-                            <li>OTP-based email verification before setting an ATM PIN, with session-based flow.</li>
-                            <li>Balance checks, deposits, withdrawals, and transfers between accounts.</li>
-                            <li>Account creation with file upload and Google reCAPTCHA bot protection.</li>
-                        </ul>
-                        <p class="tech-line">Python · Django · SQLite · reCAPTCHA</p>
+                <article class="pj" data-rv>
+                    <h3 class="pj-title mk"><span>Bank Management System</span></h3>
+                    <div class="pj-grid">
+                        <div class="pj-img" data-img><div class="pj-frame"><img src="./Images/Bank.jpg" alt="" loading="lazy" decoding="async" draggable="false" onerror="this.remove()"></div></div>
+                        <div class="pj-text">
+                            <p class="pj-meta" data-it>05 / Backend / Full Stack</p>
+                            <p class="pj-desc" data-it>A full bank management system in Python and Django with OTP email verification, balance checks, deposits, withdrawals and transfers.</p>
+                            <ul class="pj-tags" data-it><li>Python</li><li>Django</li><li>SQLite</li><li>reCAPTCHA</li></ul>
+                            <details data-it><summary>More details</summary><ul class="points"><li>Built a full bank management system in Python and Django.</li><li>OTP-based email verification before setting an ATM PIN, with a session-based flow.</li><li>Balance checks, deposits, withdrawals and transfers between accounts.</li><li>Account creation with file upload and Google reCAPTCHA bot protection.</li></ul></details>
+                            
+                        </div>
                     </div>
                 </article>
-
-                <article class="project-row" data-tag="Frontend">
-                    <button class="project-head" type="button" aria-expanded="false">
-                        <img class="project-thumb" src="./Images/young-man-using-discount-coupon-his-smartphone-some-online-shopping-laptop.jpg" alt="" onerror="this.remove()">
-                        <span class="project-tag">Frontend</span>
-                        <h3>Products Web Application</h3>
-                        <span class="expand-btn" aria-hidden="true"><span></span></span>
-                    </button>
-                    <div class="project-body" hidden>
-                        <ul>
-                            <li>Built a responsive products app that displays and manages product data dynamically.</li>
-                            <li>Integrated the Fetch API to retrieve and render product data in real time.</li>
-                            <li>Used localStorage to persist data across sessions.</li>
-                        </ul>
-                        <p class="tech-line">HTML · CSS · JavaScript · Fetch API · localStorage</p>
+                <article class="pj" data-rv>
+                    <h3 class="pj-title mk"><span>Products Web Application</span></h3>
+                    <div class="pj-grid rev">
+                        <div class="pj-img" data-img><div class="pj-frame"><img src="./Images/young-man-using-discount-coupon-his-smartphone-some-online-shopping-laptop.jpg" alt="" loading="lazy" decoding="async" draggable="false" onerror="this.remove()"></div></div>
+                        <div class="pj-text">
+                            <p class="pj-meta" data-it>06 / Frontend</p>
+                            <p class="pj-desc" data-it>A responsive products app that displays and manages product data dynamically, fetching it in real time and keeping it across sessions.</p>
+                            <ul class="pj-tags" data-it><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Fetch API</li><li>localStorage</li></ul>
+                            <details data-it><summary>More details</summary><ul class="points"><li>Built a responsive products app that displays and manages product data dynamically.</li><li>Integrated the Fetch API to retrieve and render product data in real time.</li><li>Used localStorage to persist data across sessions.</li></ul></details>
+                            
+                        </div>
                     </div>
                 </article>
-
             </div>
         </section>
 
         <!-- CONTACT -->
-        <section id="contact" class="section contact-section">
-            <div class="contact-copy">
-                <h2 class="section-label"><em>05</em>Let's Talk</h2>
-                <p>
-                    I'm currently working as a Junior Developer at Expand Software
-                    Solutions and continuing to grow through professional training.
-                    I'm happy to connect with developers, teams, and people working
-                    across web development and AI-powered automation.
-                </p>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/siriki-sai-dhanush-404b5324a/" target="_blank"><span><img class="link-icon" src="./Images/linkedin.png" alt="" onerror="this.remove()">LinkedIn</span><i>↗</i></a>
-                    <a href="https://github.com/DHANUSH7331" target="_blank"><span><img class="link-icon" src="./Images/github.png" alt="" onerror="this.remove()">GitHub</span><i>↗</i></a>
-                    <a href="mailto:dhanushsirikisai@gmail.com"><span>dhanushsirikisai@gmail.com</span><i>↗</i></a>
-                    <a href="tel:+917331161567"><span>+91 73311 61567</span><i>↗</i></a>
+        <section id="contact" class="section contact ct">
+            <div class="ct-bg" aria-hidden="true"><div class="ct-dots"></div><div class="ct-glow" id="ct-glow"></div></div>
+
+            <div class="ct-top">Local time <b id="clock">--:--:-- IST</b></div>
+
+            <div class="ct-title" id="ct-title">
+                <h2 class="sr-only">Let&rsquo;s talk</h2>
+                <canvas id="ct-canvas" aria-hidden="true"></canvas>
+            </div>
+
+            <div class="ct-mid">
+                <div class="ct-blurb">
+                    <p>Have an idea, a dashboard or an automation in mind?</p>
+                    <p>I am a junior developer at Expand Software Solutions, happy to connect with developers, teams and people working across web development and AI-powered automation.</p>
+                </div>
+                <div class="ct-magnet" id="ct-magnet">
+                    <a class="ct-cta" href="mailto:dhanushsirikisai@gmail.com?subject=Hello%20Dhanush" aria-label="Start a conversation by email">
+                        <svg class="ct-ring" viewBox="0 0 200 200" aria-hidden="true">
+                            <defs><path id="ct-ring-path" d="M 100,100 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0"/></defs>
+                            <text fill="currentColor" font-size="14" font-weight="600" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"><textPath href="#ct-ring-path" textLength="485" lengthAdjust="spacing">START A CONVERSATION &#8226; START A CONVERSATION &#8226; </textPath></text>
+                        </svg>
+                        <svg class="ct-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+                    </a>
                 </div>
             </div>
 
-            <form id="contact-form" class="contact-form">
-                <div class="form-head"><span class="pulse-dot"></span>TRANSMIT MESSAGE</div>
-                <label for="name">Name</label>
-                <input type="text" id="name" required placeholder="Your name">
+            <div class="ct-marquee" aria-hidden="true">
+                <div class="ct-track">
+                    <div class="ct-group"><span>Python &amp; Django</span><i>&#9670;</i><span class="o">Data &amp; dashboards</span><i>&#9670;</i><span>AI-assisted automation</span><i>&#9670;</i><span class="o">Let&rsquo;s build something</span><i>&#9670;</i></div>
+                    <div class="ct-group"><span>Python &amp; Django</span><i>&#9670;</i><span class="o">Data &amp; dashboards</span><i>&#9670;</i><span>AI-assisted automation</span><i>&#9670;</i><span class="o">Let&rsquo;s build something</span><i>&#9670;</i></div>
+                </div>
+            </div>
 
-                <label for="email">Email</label>
-                <input type="email" id="email" required placeholder="you@example.com">
+            <div class="ct-grid">
+                <div class="ct-rows">
+                    <ul class="ct-list">
+                        <li><div class="ct-rowwrap"><span class="ct-wipe" aria-hidden="true"></span>
+                            <a class="ct-link" href="mailto:dhanushsirikisai@gmail.com"><span class="ct-lab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span>Email</span></span><span class="ct-val"><span class="ct-v1">dhanushsirikisai@gmail.com</span><span class="ct-v2" aria-hidden="true">Write me an email</span></span></a>
+                            <button class="ct-copy" type="button" data-copy="dhanushsirikisai@gmail.com" aria-label="Copy email address">Copy</button><i class="ct-arrow2" aria-hidden="true">&#8599;</i></div></li>
+                        <li><div class="ct-rowwrap"><span class="ct-wipe" aria-hidden="true"></span>
+                            <a class="ct-link" href="tel:+917331161567"><span class="ct-lab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg><span>Phone</span></span><span class="ct-val"><span class="ct-v1">+91 73311 61567</span><span class="ct-v2" aria-hidden="true">Call me</span></span></a>
+                            <button class="ct-copy" type="button" data-copy="+917331161567" aria-label="Copy phone number">Copy</button><i class="ct-arrow2" aria-hidden="true">&#8599;</i></div></li>
+                    </ul>
+                    <ul class="ct-list">
+                        <li><div class="ct-rowwrap"><span class="ct-wipe" aria-hidden="true"></span>
+                            <a class="ct-link" href="https://github.com/DHANUSH7331" target="_blank" rel="noopener noreferrer"><span class="ct-lab"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 00-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 015.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.7.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0012 .5z"/></svg><span>GitHub</span></span><span class="ct-val"><span class="ct-v1">DHANUSH7331</span><span class="ct-v2" aria-hidden="true">Open GitHub</span></span></a><i class="ct-arrow2" aria-hidden="true">&#8599;</i></div></li>
+                        <li><div class="ct-rowwrap"><span class="ct-wipe" aria-hidden="true"></span>
+                            <a class="ct-link" href="https://www.linkedin.com/in/siriki-sai-dhanush-404b5324a/" target="_blank" rel="noopener noreferrer"><span class="ct-lab"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM3 9.5h4v11H3zM10 9.5h3.8v1.5h.1c.5-1 1.8-1.8 3.7-1.8 3.9 0 4.6 2.5 4.6 5.8v5.5h-4v-4.9c0-1.2 0-2.7-1.7-2.7s-1.9 1.3-1.9 2.6v5H10z"/></svg><span>LinkedIn</span></span><span class="ct-val"><span class="ct-v1">Siriki Sai Dhanush</span><span class="ct-v2" aria-hidden="true">Open LinkedIn</span></span></a><i class="ct-arrow2" aria-hidden="true">&#8599;</i></div></li>
+                    </ul>
+                </div>
 
-                <label for="message">Message</label>
-                <textarea id="message" rows="4" required placeholder="What are you reaching out about?"></textarea>
-
-                <button type="submit" id="submit_button"><span>Send Message</span></button>
-                <p class="form-status" id="form-status"></p>
-            </form>
+                <form id="contact-form" class="card contact-form" novalidate>
+                    <h3>Or send a message here</h3>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required placeholder="Your name" autocomplete="name">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required placeholder="you@example.com" autocomplete="email">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="4" required placeholder="What are you reaching out about?"></textarea>
+                    <button type="submit" id="submit_button" class="btn btn-solid">Send message</button>
+                    <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                </form>
+            </div>
         </section>
 
     </main>
 
-    <footer>
-        <p>Siriki Sai Dhanush — built with intent, not a template.</p>
-        <small class="media-credit">Background footage: <a href="https://www.pexels.com/video/golden-dust-particles-floating-5561389/" target="_blank" rel="noopener noreferrer">Golden Dust Particles Floating — Dan Cristian Pădureț / Pexels</a>.</small>
+    <footer class="footer">
+        <div class="footer-row">
+            <p>SIRIKI SAI DHANUSH &copy; 2026</p>
+            <a href="#home" class="to-top">Back to top &#8593;</a>
+        </div>
+        <small class="media-credit">Background footage: <a href="https://www.pexels.com/video/dynamic-abstract-golden-fractal-animation-40036077/" target="_blank" rel="noopener noreferrer">Dynamic Abstract Golden Fractal Animation, Colin Jones / Pexels</a> (trimmed into a short seamless loop).</small>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script src="./new.js?v=20261109-final-restored-14"></script>
-
-    <script>
-    /* Standalone project accordion — page-level click controller */
-    (function () {
-      var section = document.getElementById("projects");
-      if (!section || section.dataset.accordionReady === "true") return;
-      section.dataset.accordionReady = "true";
-      var cards = Array.prototype.slice.call(section.querySelectorAll(".project-row"));
-      function setOpen(card, open) {
-        var body = card.querySelector(".project-body");
-        var head = card.querySelector(".project-head");
-        card.classList.toggle("active", open);
-        if (body) body.hidden = !open;
-        if (head) head.setAttribute("aria-expanded", String(open));
-      }
-      cards.forEach(function (card) { setOpen(card, false); });
-      section.addEventListener("click", function (event) {
-        var head = event.target.closest(".project-head");
-        if (!head || !section.contains(head)) return;
-        var selected = head.closest(".project-row");
-        if (!selected) return;
-        var shouldOpen = !selected.classList.contains("active");
-        cards.forEach(function (card) { setOpen(card, false); });
-        if (shouldOpen) setOpen(selected, true);
-      });
-    })();
-    </script>
-
-    <script>
-    // Standalone project accordion: does not depend on the main animation bundle.
-    (() => {
-      const section = document.getElementById("projects");
-      if (!section || section.dataset.accordionReady === "true") return;
-      section.dataset.accordionReady = "true";
-      const cards = [...section.querySelectorAll(".project-row")];
-      const close = card => {
-        card.classList.remove("active");
-        const body = card.querySelector(".project-body");
-        const head = card.querySelector(".project-head");
-        if (body) body.hidden = true;
-        if (head) head.setAttribute("aria-expanded", "false");
-      };
-      cards.forEach(close);
-      section.addEventListener("click", event => {
-        const head = event.target.closest(".project-head");
-        if (!head || !section.contains(head)) return;
-        const card = head.closest(".project-row");
-        if (!card) return;
-        const open = !card.classList.contains("active");
-        cards.forEach(close);
-        if (open) {
-          card.classList.add("active");
-          card.querySelector(".project-body").hidden = false;
-          head.setAttribute("aria-expanded", "true");
-        }
-      });
-    })();
-    </script>
-
+    <script src="./script.js"></script>
+    <script src="./skills.js"></script>
+    <script src="./contact.js"></script>
+    <script src="./fx.js"></script>
 
     <!-- Landbot v3 Livechat integration (official embed code) -->
     <script type="module" src="https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs"></script>
