@@ -517,3 +517,20 @@ a.pj-frame:hover{border-color:rgba(255,122,26,.7)}
   [data-it]{opacity:1;transform:none}
   .loader{display:none}
 }
+
+
+/* =====================================================================
+   Background footage (golden fractal) + images shown as they are
+   ===================================================================== */
+#silk-video-bg{opacity:1;filter:none;background:#080604}
+.silk-video-shade{background:linear-gradient(180deg,rgba(8,7,5,.28) 0%,rgba(9,8,6,.04) 40%,rgba(8,7,5,.38) 100%)}
+@media(max-width:700px){#silk-video-bg{opacity:.9;filter:none}}
+main>section:not(#home)::before{background:linear-gradient(to bottom,rgba(9,8,6,.85) 0,rgba(9,8,6,.45) 240px,rgba(9,8,6,.2) 100%)}
+
+.pj-frame{aspect-ratio:auto}
+.pj-frame img{height:auto;filter:none}
+.pj-frame:hover img{filter:none}
+.pj-frame.logo{aspect-ratio:16/10}
+.pj-frame.logo img{height:auto}
+.ed-img .pj-frame{aspect-ratio:auto}
+.portrait img{aspect-ratio:auto;height:auto;filter:none}
